@@ -6,6 +6,7 @@ networks:
 services:
   server:
     image: 'bitnami/nginx:latest'
+    platform: linux/amd64
     restart: always
     networks:
       - db-tier
@@ -21,6 +22,7 @@ services:
     depends_on:
       - db
     image: wordpress:latest
+    platform: linux/amd64
     volumes:
       - wordpress_data:/var/www/blog/docker/wordpress
     networks:
@@ -36,6 +38,7 @@ services:
 
   db:
     image: mysql:latest
+    platform: linux/amd64
     restart: always
     command: 
       --init-file /data/application/init.sql
