@@ -1,4 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import Single from "../views/single.vue";
+import Archive from "../views/Archive.vue";
 import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -15,6 +17,16 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/post/:id/:title",
+    name: "Post",
+    component: Single,
+  },
+  {
+    path: "/post/archive",
+    name: "archive",
+    component: Archive,
   },
 ];
 

@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>{{ posts }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -103,7 +104,7 @@
           href="https://github.com/vuejs/awesome-vue"
           target="_blank"
           rel="noopener"
-          >awesome-vue</a
+          >awesome-vuex </a
         >
       </li>
     </ul>
@@ -114,8 +115,15 @@
 import { Options, Vue } from "vue-class-component";
 
 @Options({
+	computed: {
+		thePosts() {
+			this.posts = this.$store.state.posts;
+			console.log(this.posts)
+		}
+	},
   props: {
     msg: String,
+		posts: {},
   },
 })
 export default class HelloWorld extends Vue {
