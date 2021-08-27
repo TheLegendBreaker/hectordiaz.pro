@@ -16,6 +16,29 @@ export class Rendered {
 		this.protected = status;
 	}
 }
+export class FeatMedia {
+	private __name__ = "FeatMedia";
+
+	id: number;
+	date: string;
+	source_url: string;
+
+	constructor() {
+		this.id = 0;
+		this.date = '';
+		this.source_url = '';
+	}
+}
+
+export class Embedded {
+	private __name__ = "Embedded";
+
+	"wp:featuredmedia": FeatMedia[];
+	constructor() {
+		this["wp:featuredmedia"]= [new FeatMedia];
+	}
+}
+
 export class JSONPost {
 	private __name__ = "JSONPost";
 
@@ -27,6 +50,7 @@ export class JSONPost {
 	excerpt: Rendered;
 	tags: string[];
 	content: Rendered;
+	_embedded: Embedded;
 
 	constructor() {
 		this.status = '';
@@ -37,6 +61,7 @@ export class JSONPost {
 		this.excerpt = new Rendered();
 		this.tags = [''];
 		this.content = new Rendered();
+		this._embedded = new Embedded();
 	}
 
 }
@@ -52,6 +77,7 @@ export class PostType {
 	excerpt: Rendered;
 	tags: string[];
 	content: Rendered;
+	featImg: string;
 
 	// need to add an argument json:RawPost to give the constructor the ability to make the types match up.
 
@@ -64,6 +90,7 @@ export class PostType {
 		this.excerpt = new Rendered();
 		this.tags = [''];
 		this.content = new Rendered();
+		this.featImg = '';
 	}
 
 	setStatus(status:string):void {
@@ -99,5 +126,9 @@ export class PostType {
 	setContent(rendered:string,status=false):void {
 		this.content.setRendered(rendered);
 		this.content.setProtected(status);
+	}
+
+	setFeatImg(imgUrl:string):void {
+		this.featImg = imgUrl;
 	}
 }

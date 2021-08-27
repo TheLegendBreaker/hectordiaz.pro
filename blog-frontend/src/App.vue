@@ -1,57 +1,55 @@
 <template>
-	<header>
-		<section>
+	<svg class="effects">
+		<filter id="cyb-red" color-interpolation-filters="sRGB"
+						x="0" y="0" height="100%" width="100%">
+			<feColorMatrix type="matrix"
+				values="0.87 0 0 0 0.00 
+								0 0.20 0 0 0.00  
+								0 0 0.20 0 0.00 
+								0    0 0 1 0" />
+		</filter>
+
+		<filter id="cyb-blue" color-interpolation-filters="sRGB"
+						x="0" y="0" height="100%" width="100%">
+			<feColorMatrix type="matrix"
+				values="0.63 0    0    0 0.00 
+								0    0.70 0    0 0.00  
+								0    0    0.81 0 0.00 
+								0    0    0    1 0" />
+		</filter>
+	</svg>
+	<header id="topbar">
+	<div class="container">
+		<section class="logo-card" >
 			<div class="logo-crop">
-				<img class="logo" alt="Hectordiaz.pro logo, a set of curel parentheses surrounding a dash" src="./assets/logo.png">
+			<img class="logo cyb-rez" alt="Hectordiaz.pro logo, a set of curel parentheses surrounding a dash" src="./assets/logo.png">
 			</div>
-			<div>
-				<h2>
-					Hector Diaz's
-					<br>
-					Make Blog
-				</h2>
+			<div class="accent-border">
+			<h2>
+			Hector Diaz's
+			<br>
+			Make Blog
+			</h2>
 			</div>
 		</section>
-		<nav id="nav">
-			<router-link to="/">Home</router-link> |
-			<router-link to="/about">About</router-link> |
-			<router-link to="/about">Contact</router-link> |
-			<router-link to="/post/archive">Post Archive</router-link> |
-			<router-link to="/post/archive">Web Dev Portfolio</router-link> |
+
+		<section>
+			<h2>
+			Navigation menu
+			</h2>
+			<nav id="nav">
+			<router-link to="/">Home</router-link>
+			<router-link to="/about">About</router-link>
+			<router-link to="/about">Contact</router-link>
+			<router-link to="/post/archive">Post Archive</router-link>
+			<router-link to="/post/archive">Web Dev Portfolio</router-link>
 			<router-link to="/post/archive">Resume</router-link>
-		</nav>
+			</nav>
+		</section>
+	</div>
 	</header>
   <router-view />
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-img {
-	-webkit-mask: url(./assets/drawing.svg);
-	filter: grayscale(1) contrast(1.3) brightness(.8) blur(1px);
-	box-shadow: 10px 5px 5px black;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
 
 <script lang="typescript">
 	export default {
@@ -65,4 +63,148 @@ img {
 		}
 	}
 </script>
+
+<style lang="scss">
+@use "./assets/variables.scss" as var;
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body { 
+	position: relative;
+	margin: 0;
+	background: #050a0b;
+	&:before {
+		content: '';
+		width: 75vw;
+		height: 75vh;
+		background: radial-gradient(#1f272d, transparent);
+		position: absolute;
+		z-index: -1;
+		top: 10px;
+		right: 10px;
+	}
+}
+
+#app {
+  font-family: Hack, losevka,  courier, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var.$sec_blue;;
+}
+
+// util
+svg.effects {
+	position: absolute;
+	z-index: -100;
+}
+.cyb-rez-sec {
+	-webkit-mask: url(./assets/drawing.svg);
+	filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-blue);
+	box-shadow: 10px 5px 5px black;
+	position: relative;
+	overflow: hidden;
+	img {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+	}
+}
+.cyb-rez {
+	-webkit-mask: url(./assets/drawing.svg);
+	filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-red);
+	box-shadow: 10px 5px 5px black;
+	position: relative;
+	overflow: hidden;
+	img {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+	}
+}
+
+.accent-border {
+	border: solid 1px var.$accent_red;
+}
+
+.sec-border {
+	border: solid 1px var.$sec_blue;
+}
+
+.in-blk {
+	display: inline-block;
+	vertical-align: top;
+}
+.container {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+// end util
+
+#topbar {
+	padding: 0 20px;
+	section,
+	#nav,
+	.logo-crop,
+	.logo-crop + div {
+		display: inline-block;
+		vertical-align: top;
+		}
+	section {
+		width: 50%;
+		height: 70px;
+		& + section {
+			text-align: right;
+		}
+		h2 {
+			margin: 0;
+			font-size: 1em;
+			line-height: 1;
+		}
+	}
+	.logo-card {
+		.logo-crop {
+			.logo {
+				height: 40px;
+				width: auto;
+			}
+		}
+		.logo-crop,
+		h2 {
+			padding: 10px;
+		}
+	}
+}
+
+#nav {
+	max-width: 70px;
+	text-align: left;
+}
+
+ h2 {
+	font-weight: 700;
+ }
+
+a {
+	font-size: .75em;
+	font-weight: bold;
+	color: var.$sec_blue;
+	padding: 10px 15px;
+	display: inline-block;
+
+	&.router-link-exact-active {
+		color: #42b983;
+		background: var.$accent_red;
+		color: var.$bg_black;
+	}
+}
+</style>
 

@@ -25,13 +25,17 @@ export default createStore({
 			if (state.posts.length) return;
 
 			try {
-				const response = await fetch(`http://localhost:8000/wp-json/wp/v2/posts?page=1&per_page=20&_embed=1`)
+				const response = await fetch(`http://localhost:8000/wp-json/wp/v2/posts?page=1&per_page=20&_embed`)
 					.then(res => res.json());
+					console.log(response)
 
+
+					// add _embedded.featuremedia[0].link
 				const posts = response
 					.filter(( el:JSONPost ) => el.status === "publish" )
-					.map(function({id, slug,title,excerpt,date,tags,content}:JSONPost) {
+					.map(function({id, slug,title,excerpt,date,tags,content,_embedded}:JSONPost) {
 						const post = new PostType();
+						console.log(_embedded['wp:featuredmedia']);
 
 						post.setId(id);
 						post.setSlug(slug);
@@ -40,6 +44,9 @@ export default createStore({
 						post.setDate(date);
 						post.setTags(tags);
 						post.setContent(content.rendered);
+						if (_embedded['wp:featuredmedia'] !== undefined) {
+							post.setFeatImg(_embedded['wp:featuredmedia'][0].source_url);
+						}
 
 						return post;
 					})
