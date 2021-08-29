@@ -1,1 +1,236 @@
-// global mixins for components
+// brand
+@use 'brand';
+
+$smartphone : 375px;
+$tablet : 760px;
+$laptop : 1024px;
+$desktop : 1200px;
+$tv : 1900px;
+
+// end screen widths
+
+@mixin smart-phone($only:false) {
+	@if $only {
+		@media only screen and (min-width: $smartphone) and (max-width: $tablet) {
+				@content;
+		}
+	} @else {
+		@media only screen and (min-width: $smartphone) {
+			@content;
+		}
+	}
+}
+
+@mixin tablet($only:false) {
+	@if $only {
+		@media only screen and (min-width: $tablet) and (max-width: $laptop) {
+				@content;
+		}
+	}
+	@else {
+		@media only screen and (min-width: $tablet) {
+			@content;
+		}
+	}
+}
+
+@mixin laptop($only:false) {
+	@if $only {
+		@media only screen and (min-width: $laptop) and (max-width: $desktop) {
+				@content;
+		}
+	}
+	@else {
+		@media only screen and (min-width: $laptop) {
+			@content;
+		}
+	}
+}
+
+@mixin desktop($only:false) {
+	@if $only {
+		@media only screen and (min-width: $desktop) and (max-width: $tv) {
+				@content;
+		}
+	}
+	@else {
+		@media only screen and (min-width: $desktop) {
+			@content;
+		}
+	}
+}
+
+@mixin tv {
+    @media (min-width: $tv) {
+        @content;
+    }
+}
+
+@mixin till-tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+// end media queries
+// Utilities
+
+@mixin brand-font {
+	font-family: brand.$primary_font;
+}
+
+// effects
+
+@mixin orange-gradient() {
+    background : brand.$orange_gradient;
+}
+
+@mixin border-radius { 
+	border-radius : brand.$border_radius;
+}
+
+@mixin shadow {
+	box-shadow: brand.$shadow;
+}
+
+@mixin txt-shadow {
+	text-shadow: brand.$txt_shadow;
+}
+
+@mixin holo-gradient {
+	background: radial-gradient( circle at top left,#0011808f,aqua, #ffff008c, transparent ),radial-gradient( circle at bottom left,#ff50a1b8, violet,#1600808f );
+	background-size: 157%;
+	background-position: center center;
+	filter: blur(5px);
+}
+
+@mixin transform($args) {
+	transform: $args;
+}
+
+@mixin transition($args...) {
+	transition: $args;
+}
+
+// end effects
+// size
+
+@mixin sq($d:100%) {
+	height: $d;
+	width: $d;
+}
+
+// end size
+// position
+
+@mixin pos-rel {
+	position: relative;
+}
+
+@mixin pos-abso {
+	position: absolute;
+}
+
+@mixin fill-parent-abso {
+	@include pos-abso;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+@mixin full-width-abso {
+	@include center-x;
+	top: 0;
+	width: 100vw;
+	height: 100%;
+	display: block;
+}
+
+@mixin left-top-align {
+	top:0;
+	left: 0;
+}
+
+// end position
+// pseudo elements
+
+@mixin before {
+	&:before {
+		content: '';
+
+		@content
+	}
+}
+
+@mixin before-full-width {
+	@include before {
+		@include full-width-abso;
+
+		@content
+	}
+}
+
+@mixin after {
+	&:after {
+		content: '';
+
+		@content
+	}
+}
+
+@mixin after-full-width {
+	@include after {
+		@include full-width-abso;
+
+		@content
+	}
+}
+
+// end pseudo elements
+// center align
+
+@mixin center-y($abso:true) {
+	@if abso {
+		position: absolute;
+	}
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin center-x($abso:true) {
+	@if abso {
+		position: absolute;
+	}
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin center-xy($abso:true) {
+	@if abso {
+		position: absolute;
+	}
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+
+// end center align
+// page elements
+
+@mixin pg-content-title($font-size:inherit,$margin-top:auto){
+	.pg-content-title-container {
+		.page-title {
+			line-height: 1;
+		}
+		h2, .page-title {
+			font-size: $font-size;
+			margin-top: $margin-top;
+			
+			@content
+		}
+	}
+}
+
+// end page elements
+// end Utilities

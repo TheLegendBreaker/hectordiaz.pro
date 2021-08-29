@@ -18,6 +18,7 @@
 								0    0    0    1 0" />
 		</filter>
 	</svg>
+
 	<header id="topbar">
 	<div class="container">
 		<section class="logo-card" >
@@ -48,7 +49,53 @@
 		</section>
 	</div>
 	</header>
+
   <router-view />
+
+	<footer class="pos-abso">
+		<section>
+			<div class="container">
+				<h2> Footer </h2>
+				<div class="crop round in-blk cyb-rez">
+				</div>
+
+				<div class="thanks in-blk">
+					<p>
+						Thanks for taking a look. Check back in as I am always making or doing something new.
+						<br>
+						<br>
+						<br>
+						Hopefully chat soon,
+						<br>
+						<br>
+						<strong>
+							Hector Diaz
+							<br>
+							Web Developer 1.
+						</strong>
+					</p>
+				</div>
+
+				<div class="ctas in-blk">
+					<router-link to="/post/archive">View Hector's Linkedin profile</router-link>
+					<router-link to="/post/archive">View Hector's make blog</router-link>
+				</div>
+
+				<div class="nav-container in-blk">
+					<h3> Navigation menu </h3>
+					<nav id="nav">
+						<router-link to="/">Home</router-link>
+						<router-link to="/about">About</router-link>
+						<router-link to="/about">Contact</router-link>
+						<router-link to="/post/archive">Post Archive</router-link>
+						<router-link to="/post/archive">Web Dev Portfolio</router-link>
+						<router-link to="/post/archive">Resume</router-link>
+					</nav>
+				</div>
+			</div>
+
+		</section>
+	</footer>
 </template>
 
 <script lang="typescript">
@@ -65,7 +112,18 @@
 </script>
 
 <style lang="scss">
+@use "./assets/fonts/Blackwood-Castle/stylesheet.css" as blackwood;
+@use "./assets/fonts/mont/stylesheet.css" as mont;
 @use "./assets/variables.scss" as var;
+
+*{
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+h1, h2 {
+	font-family: blackwood_castle, "San Serif";
+	font-weight: 500;
+}
 
 ul {
 	margin: 0;
@@ -90,7 +148,7 @@ body {
 }
 
 #app {
-  font-family: Hack, losevka,  courier, Arial, sans-serif;
+  font-family: mont, courier, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var.$sec_blue;;
@@ -133,7 +191,6 @@ svg.effects {
 .accent-border {
 	border: solid 1px var.$accent_red;
 }
-
 .sec-border {
 	border: solid 1px var.$sec_blue;
 }
@@ -151,6 +208,9 @@ svg.effects {
 
 #topbar {
 	padding: 0 20px;
+	padding-top: 20px;
+	position: relative;
+	z-index: 100;
 	section,
 	#nav,
 	.logo-crop,
@@ -204,6 +264,31 @@ a {
 		color: #42b983;
 		background: var.$accent_red;
 		color: var.$bg_black;
+	}
+}
+
+footer {
+	padding: 20px;
+	width: 100vw;
+	top: 100%;
+	left: 0;
+	border-top: solid 2px var.$accent_red;
+	.crop {
+		$d: 250px;
+		width: $d;
+		height: $d;
+		margin-right: 40px;
+		background-color: #fff;
+	}
+	.thanks {
+		width: calc(40% - 70px);
+		padding: 0 10px;
+	}
+	.ctas {
+		width: calc(25% - 70px);
+	}
+	nav-container {
+		width: calc(40% - 150px);
 	}
 }
 </style>

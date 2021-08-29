@@ -30,7 +30,7 @@
 				<div class="main" v-html="featured.excerpt.rendered">
 				</div>
 				<div class="ctas">
-					<a :href="`/post/${featured.id}/${featured.slug}`"> Read more </a>
+					<router-link :to="{ name: 'Post', params: { id: featured.id, title: featured.slug } }">Read More</router-link>
 				</div>
 			</article>
 		</div>
@@ -58,22 +58,25 @@
 				</ul>
 			</section>
 
-			<section class="archive in-blk">
+			<section class="archive in-blk" v-if="posts">
 				<h3> Recent Post Archive </h3>
-				<article class="excerpt-card sec-border">
-				<div class="copy in-blk">
-					<div class="header">
-						<h4> post.title </h4>
+				<div class="post"  v-for="post in posts" :key="post.id">
+					<article class="excerpt-card sec-border">
+					<div class="copy in-blk">
+						<div class="header">
+							<h4> {{ post.title.rendered }} </h4>
+						</div>
+						<div v-html="post.excerpt.rendered" class="body">
+						</div>
+						<div class="ctas">
+							<router-link :to="{ name: 'Post', params: { id: post.id, title: post.slug } }">Read More</router-link>
+						</div>
 					</div>
-					<div class="body">
-						post.exerpt.rendered
-					</div>
-					<div class="ctas">
-					</div>
+					<figure v-if="post.featImg" class="cyb-rez-sec in-blk">
+						<img v-bind:src="post.featImg">
+					</figure>
+					</article>
 				</div>
-				<figure class="cyb-rez-sec in-blk">
-				</figure>
-				</article>
 			</section>
 		</div>
 	</section>
@@ -82,6 +85,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Excerpt from "@/components/Excerpt.vue";
 
 @Options({
 	data: function () {
@@ -103,12 +107,17 @@ import { Options, Vue } from "vue-class-component";
 	created() {
 		this.$store.dispatch("reqPosts");
 	},
+
+  components: {
+    Excerpt,
+  },
 })
 export default class Home extends Vue {}
 </script>
 
 <style lang="scss">
 	@use '../assets/variables.scss' as var;
+	@use '../assets/util.scss';
 
 	.home {
 		section {
@@ -221,23 +230,38 @@ export default class Home extends Vue {}
 }
 
 .archive {
-	width: 60%;
+	width: 70%;
 
 	.excerpt-card {
+		margin-bottom: 60px;
 		width: 100%;
-		height: 400px;
+		height: 350px;
 		padding: 10px;
 		position: relative;
 		h4 {
 			margin: 0;
 		}
 		.copy {
-			width: 70%;
+			width: 60%;
 			 .header {
 				height: 20%;
+				padding-bottom: 10px;
 			 }
 			 .body {
-				height: 60%;
+				padding: 30px 0;
+				p { margin:0; }
+				a { display: none; }
+			 }
+			 .ctas {
+				position: absolute;
+				bottom: 10px;
+				left: 10px;
+				a {
+					text-decoration: none;
+					padding: 10px 15px;
+					background: var.$accent_red;
+					color: var.$bg_black;
+				}
 			 }
 		}
 		figure {
@@ -245,9 +269,13 @@ export default class Home extends Vue {}
 			top: 0;
 			right: 0;
 			margin: 0;
-			width: 30%;
+			width: 40%;
 			height: 100%;
 			background-color: #fff;
+			img {
+				height: 100%;
+				width: auto;
+			}
 		}
 	}
 }
