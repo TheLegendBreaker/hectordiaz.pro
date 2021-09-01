@@ -1,5 +1,5 @@
 <template>
-  <div class="single">
+  <div class="single container">
     <Post 
 			v-bind:post="this.post[0]"
 		/>

@@ -162,53 +162,18 @@
 
 .crop {
 	// the bluck of these styles are in base styles and therefore inlined on the page.
+	overflow: hidden;
 	&.round {
 		border-radius: 50%;
 	}
 }
 
 // end assests/img styles
-// components
 
-.button-container {
-	margin: 40px auto;
-	text-align: center;
-	width: 100%;
-	.cta-button {
-		@include mixins.border-radius;
-		@include mixins.brand-font;
-		padding: 15px 30px;
-		font-size: 2em;
-		&.fill-width {
-			display: block;
-			margin: 0;
-			width: 100%;
-		}
-		&.center {
-			margin: 0 auto;
-		}
-	}
+.full-width {
+	width: 100vw;
 }
 
-.card {
-	@include mixins.border-radius;
-	&.border {
-		border: solid 5px #fff;
-	}
-	&.tablet {
-		@include mixins.till-tablet {
-			&.shadow {
-				box-shadow: unset;
-			}
-		@include mixins.pos-rel;
-		@include mixins.after {
-			@include mixins.full-width-abso;
-			background: inherit;
-			overflow: auto;
-			visibility: visible;
-			z-index: -1;
-			}
-		}
-	}
+figure {
+	margin: 0;
 }
-// end components

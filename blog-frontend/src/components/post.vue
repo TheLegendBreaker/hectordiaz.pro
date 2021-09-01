@@ -1,12 +1,15 @@
 <template>
-	<div class="post">
-		<article class="post">
-			<h1>
-				<a :href="`/post/${post.id}/${post.slug}`">{{ post.title.rendered }}</a>
-			</h1>
+	<article class="post">
+		<div class="header">
+			<h1> <a :href="`/post/${post.id}/${post.slug}`">{{ post.title.rendered }}</a> </h1>
+		</div>
+		<figure v-if="post.featImg" class="cyb-rez full-width pos-rel crop">
+			<img v-bind:src="post.featImg" class="pos-abso center-y">
+		</figure>
+		<div class="body">
 			<div v-html="post.content.rendered "></div>
-		</article>
-	</div>
+		</div>
+	</article>
 </template>
 
 <script lang="ts">
@@ -27,6 +30,26 @@ export default class Post extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+	@use '@/assets/util.scss';
+
+	#topbar section {
+		height: unset;
+	}
+
+	.post {
+		figure {
+			height: 300px;
+			img {
+				width: 100%;
+				height: auto;
+				left: -40px;
+			}
+		}
+		.body {
+			padding: 50px 0;
+		}
+	}
+
 h3 {
   margin: 40px 0 0;
 }

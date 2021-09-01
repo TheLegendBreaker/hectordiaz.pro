@@ -60,7 +60,7 @@ export default createStore({
 		},
 
 		async reqPost ({state,commit}, id) {
-			const qString = `http://localhost/wp-json/wp/v2/posts?include[]=`+id
+			const qString = `http://localhost/wp-json/wp/v2/posts?include[]=`+id+`&_embed`
 			console.log('reqPost triggered', qString)
 
 			// async func to get all posts from wp
@@ -70,7 +70,7 @@ export default createStore({
 
 				post = post
 					.filter(( el:JSONPost ) => el.status === "publish" )
-					.map(function({id, slug,title,excerpt,date,tags,content}:JSONPost) {
+					.map(function({id, slug,title,excerpt,date,tags,content,_embedded}:JSONPost) {
 						const post = new PostType();
 
 						post.setId(id);
@@ -80,6 +80,9 @@ export default createStore({
 						post.setDate(date);
 						post.setTags(tags);
 						post.setContent(content.rendered);
+						if (_embedded['wp:featuredmedia'] !== undefined) {
+							post.setFeatImg(_embedded['wp:featuredmedia'][0].source_url);
+						}
 
 						return post;
 					})

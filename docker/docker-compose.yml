@@ -14,9 +14,9 @@ services:
       - "8000:80"
       - '443:443'
     volumes:
-      - /var/www/blog/docker/nginx/snippets:/opt/bitnami/nginx/conf/snippets
-      - /var/www/blog/docker/nginx:/opt/bitnami/nginx/conf/server_blocks/
-      - /var/www/:/var/www/
+      - /Users/hectordiaz/static/blog/docker/nginx/snippets:/opt/bitnami/nginx/conf/snippets
+      - /Users/hectordiaz/static/blog/docker/nginx:/opt/bitnami/nginx/conf/server_blocks/
+      - /Users/hectordiaz/static/blog/portfolio/:/var/www/
 
   wordpress:
     depends_on:

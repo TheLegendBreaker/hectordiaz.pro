@@ -1,0 +1,534 @@
+
+<!-- variables-->
+<!-- end variables-->
+<!-- util-->
+<!-- end util-->
+<!-- components-->
+<!-- cards-->
+<!-- end cards-->
+<!-- buttons-->
+<!-- end buttons-->
+<!-- end components--><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="folio-index.css"><script src="https://smtpjs.com/v3/smtp.js"> </script>
+    <link rel="stylesheet" href="style.css">
+    <!-- atomize style rules for page base styles-->
+    <style>
+      *{ 
+      	box-sizing: border-box; 
+      	font-family: Helvetica, Arial, Sans, 'Open Sans';
+      	scroll-behavior: smooth;
+      	}
+      body {
+      	padding: 0 30px;
+      	margin: 0;
+      	overflow-x: hidden;
+      	background: #f4f4f4;
+      } 
+      #top-bar h1, #top-bar h2 {
+      	font-size: 1em;
+      	font-weight: normal;
+      	margin: 0;
+      }
+      .card {
+      width: 100%;
+      }
+      .sr-title .title {
+      	opacity:0;position:absolute;top:0;left:0;
+      	}
+      *[class*=split-], *[class*=-split] .content, *[class*=-split] figure {
+      	display: inline-block;
+      	vertical-align: top;
+      	width: 100%;
+      }
+      .split-60, .six-four-split .content {
+      	min-width: 250px;
+      	width: 55%;
+      	max-width: calc(1200px * .55);
+      }
+      .split-60+.split-40 {
+      	left: 0;
+      }
+      .split-40+.split-60 {
+      	left: calc(1200px * .35);
+      }
+      .split-40, .six-four-split figure {
+      	max-width: calc(1200px * .35);
+      	min-width: 400px;;
+      	width: 100%;
+      	margin: 0;
+      }
+      .cta-container.stack .btn.cta {
+      	display: block;
+      	margin: 15px 0;
+      }
+      .tagline {
+      	font-size: 2em;
+      	margin-top: 0;
+      }
+      .tagline span {
+      	font-weight: 500;
+      	}
+      .card-container {
+      	padding-bottom: 40px;
+      }
+      .card-container + .card-container {
+      	padding-top: 40px;
+      }
+      .card-container:nth-last-child(1) {
+      	padding-bottom: 0px;
+      }
+      .split {
+      	display: inline-block;
+      	vertical-align: top;
+      }
+      figure {
+      	margin: 0;
+      }
+      .crop {
+      	overflow: hidden;
+      	height: 100%;
+      	max-height: 300px;
+      }
+      .crop img {
+      	height: auto;
+      	width: 100%;
+      }
+      section[id] {
+      	margin-bottom: 80px;
+      }
+      
+    </style>
+    <style>.card {
+  vertical-align: top;
+  display: inline-block;
+}
+.card .title .align {
+  width: 100%;
+  max-width: calc(1200px / 3 / 2);
+}
+.card .content {
+  text-align: center;
+}
+.card .content.align > :nth-child(1) {
+  width: 100%;
+  max-width: calc(( 1200px / 3 / ) - 40px);
+}
+.card .align {
+  text-align: left;
+}
+
+/*# sourceMappingURL=cards-base.css.map */
+.three-cards .card {
+  max-width: calc(1200px / 3);
+  width: calc(100vw - 30px * 2);
+}
+
+/*# sourceMappingURL=three-cards-base.css.map */
+#hero {
+  width: calc(100vw - 30px * 2);
+  margin-top: 100px;
+  position: relative;
+}
+
+/*# sourceMappingURL=hero-base.css.map */
+#top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  background: #fff;
+}
+#top-bar .container {
+  padding: 15px 30px;
+  position: relative;
+}
+#top-bar .half {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  max-width: calc(1200px / 2 - 30px);
+}
+#top-bar .half:nth-child(2) {
+  text-align: right;
+}
+#top-bar .half #main-nav ul {
+  position: absolute;
+  right: 30px;
+  top: 100%;
+}
+
+/*# sourceMappingURL=top-bar-base.css.map */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*# sourceMappingURL=container-base.css.map */
+.card.single {
+  width: 100%;
+}
+.card.single .align {
+  max-width: calc(1200px / 2);
+}
+
+/*# sourceMappingURL=single-card-base.css.map */
+.card.single figure .crop {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 200px;
+}
+.card.single figure .crop img {
+  width: 100%;
+  height: auto;
+}
+
+/*# sourceMappingURL=graphic-card-base.css.map */
+
+    </style>
+    <title>Hector Diaz, Web Developer</title>
+  </head>
+  <body>
+    <header id="top-bar">
+      <div class="container">
+        <div class="half">
+          <div id="flag-post">Hector's Web Portfolio</div>
+        </div>
+        <div class="half">
+          <nav id="main-nav">
+            <h2>Navigation Menu</h2>
+            <ul style="list-style:none;margin:0;">
+              <li><a href="#">Resume</a>
+              </li>
+              <li><a href="#">Contact</a>
+              </li>
+              <li><a href="#">Portfolio</a>
+              </li>
+              <li><a href="#">Blog</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <section class="sr-title" id="hero">
+      <h2 class="title container"><span>hero</span></h2>
+      <div class="container">
+        <div class="split-40">
+          <div class="logo-container" style=" position:relative;max-width:200px;max-height:200px;width:33vw;height:33vw;  ">
+            <div class="mark" style="mask:url(hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg);-webkit-mask-image:url(hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg);mask-size:100%;-webkit-mask-size:100%;-webkit-mask-repeat: no-repeat;position:absolute;top:0;left:0;width:100%;height:100%;">
+              <div class="holo-bg" style="background-color:aqua;position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="split-60">
+          <div class="card-container">
+            <article class="card">
+              <p class="tagline"><strong><span>Hector Diaz : Web Developer,</span><br/>
+                  Beautiful Websites,
+                  <br/>
+                  Happy Clients.</strong></p>
+              <h3 class="title"><span class="align">Example</span></h3>
+              <div class="content">
+                <div class="align">
+                  <p>The teams I join soon find project timelines becoming shorter, and client satisfaction growing.<br><br>Let's meet to see if we would be a good fit.</p>
+                  <div class="cta-container stack"><a class="btn cta" href="#folio"><span>View Portfolio</span></a><a class="btn cta" href="#contact"><span>Contact Hector</span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="folio">
+      <h2 class="title container"><span>Portfolio</span></h2>
+      <div class="container">
+        <div class="card-container">
+          <article class="card">
+            <figure>
+              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
+              </div>
+            </figure>
+            <div class="main">
+              <h3 class="title"><span class="align">Example</span></h3>
+              <div class="content align">
+                <div class="align">
+                  <p>something that is something when something happened. I don't know, but it sure was something.</p>
+                </div>
+              </div><a class="btn cta" href="#">
+                <Hey>try this!</Hey></a>
+            </div>
+          </article>
+        </div>
+        <div class="card-container">
+          <article class="card">
+            <figure>
+              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
+              </div>
+            </figure>
+            <div class="main">
+              <h3 class="title"><span class="align">Example</span></h3>
+              <div class="content align">
+                <div class="align">
+                  <p>something that is something when something happened. I don't know, but it sure was something.</p>
+                </div>
+              </div><a class="btn cta" href="#">
+                <Hey>try this!</Hey></a>
+            </div>
+          </article>
+        </div>
+        <div class="card-container">
+          <article class="card">
+            <figure>
+              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
+              </div>
+            </figure>
+            <div class="main">
+              <h3 class="title"><span class="align">Example</span></h3>
+              <div class="content align">
+                <div class="align">
+                  <p>something that is something when something happened. I don't know, but it sure was something.</p>
+                </div>
+              </div><a class="btn cta" href="#">
+                <Hey>try this!</Hey></a>
+            </div>
+          </article>
+        </div>
+        <div class="card-container">
+          <article class="card">
+            <figure>
+              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
+              </div>
+            </figure>
+            <div class="main">
+              <h3 class="title"><span class="align">Example<small>10/20</small></span></h3>
+              <div class="content">
+                <div class="align">
+                  <div class="cta-container split half">
+                    <h4>Actions</h4><a class="btn cta" href="#">View Production Website</a><a class="btn cta" href="#">
+                      View desing in new tab
+                      </a>
+                  </div>
+                  <div class="stack split half">
+                    <ul>
+                      <h4>Stack</h4>
+                      <li>XD, Photoshop</li>
+                      <li>jQery</li>
+                      <li>Pug</li>
+                      <li>Sass</li>
+                      <li>PHP</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="xp">
+      <h2 class="title container"><span>Experience</span></h2>
+      <div class="container">
+        <div class="card-container">
+          <article class="card">
+            <div class="main">
+              <h3 class="title"><span class="align">Web Developer Intern : HomeCU</span></h3>
+              <div class="content">
+                <div class="align">
+                  <p>Hied for a 3 month try out internship.</p>
+                  <ul>
+                    <li>Provided day-to-day website support for 100+ nationwide clients.</li>
+                    <li>Became proficient with HomeCU's tools, systems and standards.j</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="card-container">
+          <article class="card">
+            <div class="main">
+              <h3 class="title"><span class="align">Web Developer 1 : HomeCU</span></h3>
+              <div class="content">
+                <div class="align">
+                  <p>In 60 days, I was given a 25% raise and promoted from an intern to Web Developer 1.</p>
+                  <ul>
+                    <li>Worked with clients daily over the phone and email.</li>
+                    <li>Designed mockups.</li>
+                    <li>Researched and implemented new tools to help streamline the web development process.</li>
+                    <li>Problem solved and Innovated new products and features with my team over video meetings, chat, and phone calls.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="cta container"><a class="btn cta" href="#">
+            <p>View Resume</p></a>
+        </div>
+        <div class="cta container"><a class="btn cta" href="#">
+            <p><strong>Download Resume</strong></p></a>
+        </div>
+      </div>
+    </section>
+    <section id="stack">
+      <h2 class="title container"><span>Stack of Choice</span></h2>
+      <div class="container">
+      </div>
+    </section>
+    <section id="contact">
+      <h2 class="title container"><span>Contact</span></h2>
+      <div class="container">
+        <form class="send-email" id="email">
+          <!-- (method="POST" action="send" enctype="multipart/form-data")-->
+          <p>Send me your email and I will get in touch. </p>
+          <label><span class="sr-only">Send your email</span>
+            <input type="email" name="email">
+          </label>
+          <button>send</button>
+        </form>
+        <div class="send-an-email">
+          <p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <section id="footer">
+        <h2 class="title container"><span>Footer</span></h2>
+        <div class="container">
+          <div class="profile-img-container">
+            <div class="crop round"><img src="hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
+            <div class="thanks">
+              <p>
+                 Thanks for taking a look. Check back in as I am always making or doing something new.<br><br><br>Hopefully chat soon,<br><br><strong>Hector Diaz <br/> Web Developer 1.</strong></p>
+            </div>
+          </div>
+          <div class="ctas-container"><a href="https://linkedin.com/in/hector-g-diaz">View Hector's Linkedin profile</a><a href="https://make.hectordiaz.pro">View Hector's make blog</a></div>
+          <div class="nav-container">
+            <nav>
+              <h2>Navigation Menu</h2>
+              <ul style="list-style:none;margin:0;">
+                <li><a href="#">Resume</a>
+                </li>
+                <li><a href="#">Contact</a>
+                </li>
+                <li><a href="#">Portfolio</a>
+                </li>
+                <li><a href="#">Blog</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <script>
+      getEmailFormData = function() {
+      	// abstract this function further
+      	const form = document.getElementById('email'),
+      	data = new FormData(form);
+      	return (data.get('email') ? data : false);
+      }
+      
+      formatNotification = function(data) {
+      	// format the form data.
+      	let email = {};
+      	email['sender'] = data.get('email');
+      	email['subject'] = email['sender']+" wants to talk about hiring you.";
+      	email['body'] = email['sender']+"  has sent you their email address on <current date and time> and would like to set up a time to chat with you.";
+      
+      	return email;
+      	}
+      
+      getAndFormatEmail = function() {
+      	const data = getEmailFormData();
+      	let email;
+      
+      	if (data) {
+      		return email = formatNotification(data);
+      		}
+      }
+      
+      addWaitingAnimation = function(input) {
+      	input.classList.add('pulse','waiting');
+      }
+      
+      removeWaitingAnimation = function(input) {
+      	input.classList.remove('pulse','waiting');
+      }
+      
+      addSuccessBreadcrumb = function(input) {
+      	input.classList.add('success');
+      }
+      
+      removeSuccessBreadcrumb = function(input) {
+      	input.classList.remove('success');
+      }
+      
+      addErrorBreadcrumb = function(input) {
+      	input.classList.add('error');
+      }
+      
+      removeErrorBreadcrumb = function(input) {
+      	input.classList.remove('error');
+      }
+      
+      getEmailInput = function() {
+      	return document.querySelector('#email input');
+      }
+      
+      msgHandler = function(message, input) {
+      	removeWaitingAnimation(input);
+      	if(  message != "OK" ) {
+      			addErrorBreadcrumb(input);
+      			alert(message);
+      			return;
+      		}
+      	if(input.classList.contains('error')) {
+      			removeErrorBreadcrumb(input);
+      		}
+      	addSuccessBreadcrumb(input);
+      }
+      
+      sendEmail = function(email={},btn) {
+      	addWaitingAnimation(btn);
+      	Email.send({
+      		SecureToken: "907d29e9-397e-4268-b58b-5956fa02e6b0",
+      		To: "diazghector87203@gmail.com",
+      		From: email.sender,
+      		Subject: email.subject,
+      		Body: email.body
+      	}).then (
+      		message => {
+      			msgHandler(message, btn)
+      		}
+      	);
+      }
+      
+      emailFormActions = function(email={}) {
+      	const submitBtn = document.querySelector('#email button');
+      
+      	submitBtn.addEventListener('click', (event)=>{
+      		event.stopImmediatePropagation();
+      		event.preventDefault();
+      		email = getAndFormatEmail();
+      		sendEmail(email, submitBtn) });
+      }
+      
+      emailFormActions();
+      //-const input = getEmailInput();
+      //-addWaitingAnimation(input);
+      
+      
+    </script>
+  </body>
+</html>
