@@ -1,32 +1,34 @@
-
-<!-- variables-->
-<!-- end variables-->
-<!-- util-->
-<!-- end util-->
-<!-- components-->
-<!-- cards-->
-<!-- end cards-->
-<!-- buttons-->
-<!-- end buttons-->
-<!-- end components--><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="folio-index.css"><script src="https://smtpjs.com/v3/smtp.js"> </script>
+    <link rel="stylesheet" href="fonts/mont/stylesheet.css">
+    <link rel="stylesheet" href="folio-index.css">
     <link rel="stylesheet" href="style.css">
+		<script src="https://smtpjs.com/v3/smtp.js"> </script>
     <!-- atomize style rules for page base styles-->
     <style>
       *{ 
       	box-sizing: border-box; 
-      	font-family: Helvetica, Arial, Sans, 'Open Sans';
+      	font-family: mont, Helvetica, Arial, Sans, 'Open Sans';
       	scroll-behavior: smooth;
       	}
+			h1,
+			h2,
+			h2>*,
+			h3,
+			h4,
+			strong {
+				font-family: mont_heavy !important;
+			}
+
       body {
       	padding: 0 30px;
       	margin: 0;
       	overflow-x: hidden;
-      	background: #f4f4f4;
+      	background: #1f272d;
+				color: #a1b3ce;
       } 
       #top-bar h1, #top-bar h2 {
       	font-size: 1em;
@@ -102,7 +104,8 @@
       }
       
     </style>
-    <style>.card {
+    <style>
+.in-blc {
   vertical-align: top;
   display: inline-block;
 }
@@ -121,27 +124,24 @@
   text-align: left;
 }
 
-/*# sourceMappingURL=cards-base.css.map */
 .three-cards .card {
   max-width: calc(1200px / 3);
   width: calc(100vw - 30px * 2);
 }
 
-/*# sourceMappingURL=three-cards-base.css.map */
 #hero {
   width: calc(100vw - 30px * 2);
   margin-top: 100px;
   position: relative;
 }
 
-/*# sourceMappingURL=hero-base.css.map */
 #top-bar {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 60px;
-  background: #fff;
+  background: #14212b;
 }
 #top-bar .container {
   padding: 15px 30px;
@@ -151,7 +151,7 @@
   width: 50%;
   display: inline-block;
   vertical-align: top;
-  max-width: calc(1200px / 2 - 30px);
+  max-width: calc(1200px / 2 - 93px);
 }
 #top-bar .half:nth-child(2) {
   text-align: right;
@@ -162,7 +162,6 @@
   top: 100%;
 }
 
-/*# sourceMappingURL=top-bar-base.css.map */
 .container {
   max-width: 1200px;
   width: 100%;
@@ -170,7 +169,6 @@
   margin-right: auto;
 }
 
-/*# sourceMappingURL=container-base.css.map */
 .card.single {
   width: 100%;
 }
@@ -178,7 +176,6 @@
   max-width: calc(1200px / 2);
 }
 
-/*# sourceMappingURL=single-card-base.css.map */
 .card.single figure .crop {
   overflow: hidden;
   height: 100%;
@@ -190,8 +187,6 @@
   width: 100%;
   height: auto;
 }
-
-/*# sourceMappingURL=graphic-card-base.css.map */
 
     </style>
     <title>Hector Diaz, Web Developer</title>
@@ -338,22 +333,23 @@
     <section id="xp">
       <h2 class="title container"><span>Experience</span></h2>
       <div class="container">
-        <div class="card-container">
-          <article class="card">
-            <div class="main">
-              <h3 class="title"><span class="align">Web Developer Intern : HomeCU</span></h3>
-              <div class="content">
-                <div class="align">
-                  <p>Hied for a 3 month try out internship.</p>
-                  <ul>
-                    <li>Provided day-to-day website support for 100+ nationwide clients.</li>
-                    <li>Became proficient with HomeCU's tools, systems and standards.j</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
+				<div class="xp-container">
+					<div class="card-container">
+						<article class="card">
+							<div class="main">
+								<h3 class="title"><span class="align">Web Developer Intern : HomeCU</span></h3>
+								<div class="content">
+									<div class="align">
+										<p>Hied for a 3 month try out internship.</p>
+										<ul>
+											<li>Provided day-to-day website support for 100+ nationwide clients.</li>
+											<li>Became proficient with HomeCU's tools, systems and standards.j</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
         <div class="card-container">
           <article class="card">
             <div class="main">
@@ -372,6 +368,7 @@
             </div>
           </article>
         </div>
+				</div>
         <div class="cta container"><a class="btn cta" href="#">
             <p>View Resume</p></a>
         </div>
@@ -406,7 +403,7 @@
         <h2 class="title container"><span>Footer</span></h2>
         <div class="container">
           <div class="profile-img-container">
-            <div class="crop round"><img src="hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
+            <div class="crop round cyb-rez-blue"><img src="hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
             <div class="thanks">
               <p>
                  Thanks for taking a look. Check back in as I am always making or doing something new.<br><br><br>Hopefully chat soon,<br><br><strong>Hector Diaz <br/> Web Developer 1.</strong></p>
@@ -530,5 +527,7 @@
       
       
     </script>
+		<script src="request_lib.js"> </script>
+		<script src="requests.js"> </script>
   </body>
 </html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="205.94106mm"
+   height="187.44492mm"
+   viewBox="0 0 205.94106 187.44492"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
+   sodipodi:docname="hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.5035965"
+     inkscape:cx="926.44048"
+     inkscape:cy="261.66892"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="892"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.9983255,-9.1955922)">
+    <g
+       id="g858"
+       transform="matrix(1.2250146,0,0,1.2250146,-28.768378,-31.524954)">
+      <path
+         id="path853"
+         style="fill:#8c8c8c;fill-opacity:1;stroke-width:1.30226;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 141.22601,33.240866 v 23.403737 h 11.70161 c 0.005,18.753772 -5.11079,45.874847 14.8208,53.103737 -19.93159,7.22888 -14.81564,34.34944 -14.8208,53.10322 h -11.70161 v 23.40374 h 12.07626 c 32.46995,-0.69728 27.92996,-23.12283 28.23032,-38.01112 0.4064,-21.3615 0.19502,-23.29396 2.60036,-25.69921 1.43022,-1.43023 9.09557,-2.61792 9.09557,-2.61792 V 109.74834 99.569115 c 0,0 -7.66535,-1.187699 -9.09557,-2.617928 -2.40534,-2.405253 -2.19396,-4.337706 -2.60036,-25.699206 -0.30036,-14.888289 4.23963,-37.31384 -28.23032,-38.011115 z" />
+      <path
+         style="fill:#8c8c8c;fill-opacity:1;stroke-width:1.30226;stroke-miterlimit:4;stroke-dasharray:none"
+         d="M 83.817872,98.696315 H 134.526 V 120.79985 H 83.817872 Z"
+         id="path867" />
+      <path
+         id="path881"
+         style="fill:#8c8c8c;fill-opacity:1;stroke-width:1.30226;stroke-miterlimit:4;stroke-dasharray:none"
+         d="M 77.11788,33.240867 V 56.644606 H 65.416254 c -0.0049,18.753772 5.110788,45.874854 -14.820798,53.103734 19.931586,7.22888 14.815638,34.34945 14.820798,53.10322 H 77.11788 V 186.2553 H 65.041598 C 32.57165,185.55802 37.111657,163.13247 36.811303,148.24418 c -0.406402,-21.3615 -0.195093,-23.29395 -2.600384,-25.6992 -1.43022,-1.43023 -9.095542,-2.61793 -9.095542,-2.61793 V 109.74834 99.569115 c 0,0 7.665322,-1.187696 9.095542,-2.617927 2.40534,-2.405251 2.193982,-4.337705 2.600384,-25.699207 C 37.111558,56.363692 32.57165,33.938139 65.041598,33.240867 Z" />
+    </g>
+  </g>
+</svg>

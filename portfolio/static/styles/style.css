@@ -1,0 +1,199 @@
+#Content .sr-only {
+  opacity: 0;
+  position: absolute;
+  top: auto;
+  bottom: auto;
+}
+
+.brand-font {
+  font-family: "Fredoka One", Helvetica, Arial, sans-serif;
+}
+
+.txtOrange {
+  color: #F48200;
+}
+
+.txt-wh {
+  color: #fff;
+}
+
+.txtBlue {
+  color: #4CA6D2;
+}
+
+.txt-pur {
+  color: #4B4184;
+}
+
+.txt-pink {
+  color: #FC4759;
+}
+
+.bgPur {
+  background-color: #4B4184;
+  border-radius: 40px;
+}
+
+.bg-orange {
+  background-color: #F48200;
+}
+
+.bg-orange-grad {
+  background: linear-gradient(90deg, #f9ae2c 0%, #f48200 100%);
+}
+
+.pad6p {
+  padding: 6%;
+}
+
+.pad5p {
+  padding: 5%;
+}
+
+.borderr {
+  border-radius: 25px;
+}
+
+.txt-shadow {
+  text-shadow: 0 2px 5px #231e40;
+}
+
+.shadow {
+  box-shadow: 0 10px 12px #231e40;
+}
+
+.holo-bg {
+  background: radial-gradient(circle at top left, #0011808f, aqua, #ffff008c, transparent), radial-gradient(circle at bottom left, #ff50a1b8, violet, #1600808f);
+  background-size: 157%;
+  background-position: center center;
+  filter: blur(5px);
+}
+
+.headline {
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abso {
+  position: absolute;
+}
+
+.fill-parent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.after-fill {
+  position: relative;
+}
+.after-fill:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.before-fill {
+  position: relative;
+}
+.before-fill:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-y, .container-center-y > .container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center-xy, .container-center-xy > .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-center-xy > .container {
+  padding: 30px;
+}
+
+.after-pos-abso {
+  position: relative;
+}
+.after-pos-abso:after {
+  content: "";
+  position: absolute;
+}
+
+.after-center-x {
+  position: relative;
+}
+.after-center-x:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button-container {
+  margin: 40px auto;
+  text-align: center;
+  width: 100%;
+}
+.button-container .cta-button {
+  border-radius: 1rem;
+  font-family: "Fredoka One", Helvetica, Arial, sans-serif;
+  padding: 15px 30px;
+  font-size: 2em;
+}
+.button-container .cta-button.fill-width {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+.button-container .cta-button.center {
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .card.tablet {
+    position: relative;
+  }
+  .card.tablet.shadow {
+    box-shadow: unset;
+  }
+  .card.tablet:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    display: block;
+    background: inherit;
+    overflow: auto;
+    visibility: visible;
+    z-index: -1;
+  }
+}
+
