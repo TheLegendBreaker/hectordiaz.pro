@@ -9,15 +9,21 @@
 		<script src="https://smtpjs.com/v3/smtp.js"> </script>
     <!-- atomize style rules for page base styles-->
     <style>
-      *{ 
+			.outline * {
+				outline: dotted 1px aqua;
+			}
+			html {
+      	scroll-behavior: smooth;
+			}
+      main *{ 
       	box-sizing: border-box; 
       	font-family: mont, Helvetica, Arial, Sans, 'Open Sans';
-      	scroll-behavior: smooth;
       	}
 			h1,
 			h2,
 			h2>*,
 			h3,
+			h3>*,
 			h4,
 			strong {
 				font-family: mont_heavy !important;
@@ -59,7 +65,6 @@
       }
       .split-40, .six-four-split figure {
       	max-width: calc(1200px * .35);
-      	min-width: 400px;;
       	width: 100%;
       	margin: 0;
       }
@@ -79,9 +84,6 @@
       }
       .card-container + .card-container {
       	padding-top: 40px;
-      }
-      .card-container:nth-last-child(1) {
-      	padding-bottom: 0px;
       }
       .split {
       	display: inline-block;
@@ -148,7 +150,7 @@
   position: relative;
 }
 #top-bar .half {
-  width: 50%;
+  width: 49%;
   display: inline-block;
   vertical-align: top;
   max-width: calc(1200px / 2 - 93px);
@@ -191,243 +193,187 @@
     </style>
     <title>Hector Diaz, Web Developer</title>
   </head>
+
   <body>
-    <header id="top-bar">
-      <div class="container">
-        <div class="half">
-          <div id="flag-post">Hector's Web Portfolio</div>
-        </div>
-        <div class="half">
-          <nav id="main-nav">
-            <h2>Navigation Menu</h2>
-            <ul style="list-style:none;margin:0;">
-              <li><a href="#">Resume</a>
-              </li>
-              <li><a href="#">Contact</a>
-              </li>
-              <li><a href="#">Portfolio</a>
-              </li>
-              <li><a href="#">Blog</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <section class="sr-title" id="hero">
-      <h2 class="title container"><span>hero</span></h2>
-      <div class="container">
-        <div class="split-40">
-          <div class="logo-container" style=" position:relative;max-width:200px;max-height:200px;width:33vw;height:33vw;  ">
-            <div class="mark" style="mask:url(hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg);-webkit-mask-image:url(hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg);mask-size:100%;-webkit-mask-size:100%;-webkit-mask-repeat: no-repeat;position:absolute;top:0;left:0;width:100%;height:100%;">
-              <div class="holo-bg" style="background-color:aqua;position:absolute;top:0;left:0;width:100%;height:100%;"></div>
-            </div>
-          </div>
-        </div>
-        <div class="split-60">
-          <div class="card-container">
-            <article class="card">
-              <p class="tagline"><strong><span>Hector Diaz : Web Developer,</span><br/>
-                  Beautiful Websites,
-                  <br/>
-                  Happy Clients.</strong></p>
-              <h3 class="title"><span class="align">Example</span></h3>
-              <div class="content">
-                <div class="align">
-                  <p>The teams I join soon find project timelines becoming shorter, and client satisfaction growing.<br><br>Let's meet to see if we would be a good fit.</p>
-                  <div class="cta-container stack"><a class="btn cta" href="#folio"><span>View Portfolio</span></a><a class="btn cta" href="#contact"><span>Contact Hector</span></a>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="folio">
-      <h2 class="title container"><span>Portfolio</span></h2>
-      <div class="container">
-        <div class="card-container">
-          <article class="card">
-            <figure>
-              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
-              </div>
-            </figure>
-            <div class="main">
-              <h3 class="title"><span class="align">Example</span></h3>
-              <div class="content align">
-                <div class="align">
-                  <p>something that is something when something happened. I don't know, but it sure was something.</p>
-                </div>
-              </div><a class="btn cta" href="#">
-                <Hey>try this!</Hey></a>
-            </div>
-          </article>
-        </div>
-        <div class="card-container">
-          <article class="card">
-            <figure>
-              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
-              </div>
-            </figure>
-            <div class="main">
-              <h3 class="title"><span class="align">Example</span></h3>
-              <div class="content align">
-                <div class="align">
-                  <p>something that is something when something happened. I don't know, but it sure was something.</p>
-                </div>
-              </div><a class="btn cta" href="#">
-                <Hey>try this!</Hey></a>
-            </div>
-          </article>
-        </div>
-        <div class="card-container">
-          <article class="card">
-            <figure>
-              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
-              </div>
-            </figure>
-            <div class="main">
-              <h3 class="title"><span class="align">Example</span></h3>
-              <div class="content align">
-                <div class="align">
-                  <p>something that is something when something happened. I don't know, but it sure was something.</p>
-                </div>
-              </div><a class="btn cta" href="#">
-                <Hey>try this!</Hey></a>
-            </div>
-          </article>
-        </div>
-        <div class="card-container">
-          <article class="card">
-            <figure>
-              <div class="crop"><img src="/clients/UnionBaptist_About.png" alt="/clients/UnionBaptist_About.png"/>
-              </div>
-            </figure>
-            <div class="main">
-              <h3 class="title"><span class="align">Example<small>10/20</small></span></h3>
-              <div class="content">
-                <div class="align">
-                  <div class="cta-container split half">
-                    <h4>Actions</h4><a class="btn cta" href="#">View Production Website</a><a class="btn cta" href="#">
-                      View desing in new tab
-                      </a>
-                  </div>
-                  <div class="stack split half">
-                    <ul>
-                      <h4>Stack</h4>
-                      <li>XD, Photoshop</li>
-                      <li>jQery</li>
-                      <li>Pug</li>
-                      <li>Sass</li>
-                      <li>PHP</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-    <section id="xp">
-      <h2 class="title container"><span>Experience</span></h2>
-      <div class="container">
-				<div class="xp-container">
-					<div class="card-container">
-						<article class="card">
-							<div class="main">
-								<h3 class="title"><span class="align">Web Developer Intern : HomeCU</span></h3>
+		<main>
+
+			<header id="top-bar">
+				<div class="container">
+					<div class="half">
+						<div id="flag-post">Hector's Web Portfolio</div>
+					</div>
+					<div class="half">
+						<nav id="main-nav">
+							<h2>Navigation Menu</h2>
+							<ul style="list-style:none;margin:0;">
+								<li><a href="#">Resume</a>
+								</li>
+								<li><a href="#">Contact</a>
+								</li>
+								<li><a href="#">Portfolio</a>
+								</li>
+								<li><a href="#">Blog</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
+
+			<section class="sr-title" id="hero">
+				<h2 class="title container"><span>hero</span></h2>
+				<div class="container">
+					<div class="split-40">
+						<div class="logo-container" style=" position:relative;max-width:200px;max-height:200px;width:33vw;height:33vw;  ">
+							<div class="mark" style="mask:url(hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg);-webkit-mask-image:url(hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg);mask-size:100%;-webkit-mask-size:100%;-webkit-mask-repeat: no-repeat;position:absolute;top:0;left:0;width:100%;height:100%;">
+								<div class="holo-bg" style="background-color:aqua;position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="split-60">
+						<div class="card-container">
+							<article class="card">
+								<p class="tagline"><strong><span>Hector Diaz : Web Developer,</span><br/>
+										Beautiful Websites,
+										<br/>
+										Happy Clients.</strong></p>
+								<h3 class="title"><span class="align">Example</span></h3>
 								<div class="content">
 									<div class="align">
-										<p>Hied for a 3 month try out internship.</p>
-										<ul>
-											<li>Provided day-to-day website support for 100+ nationwide clients.</li>
-											<li>Became proficient with HomeCU's tools, systems and standards.j</li>
-										</ul>
+										<p>The teams I join soon find project timelines becoming shorter, and client satisfaction growing.<br><br>Let's meet to see if we would be a good fit.</p>
+										<div class="cta-container stack"><a class="btn cta" href="#folio"><span>View Portfolio</span></a><a class="btn cta" href="#contact"><span>Contact Hector</span></a>
+										</div>
 									</div>
 								</div>
-							</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="folio">
+				<h2 class="title container"><span>Portfolio</span></h2>
+				<div class="container">
+					<div class="card-container">
+						<article class="card loading-container border ">
+							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+							<div class="loading fill-parent"> </div>
 						</article>
 					</div>
-        <div class="card-container">
-          <article class="card">
-            <div class="main">
-              <h3 class="title"><span class="align">Web Developer 1 : HomeCU</span></h3>
-              <div class="content">
-                <div class="align">
-                  <p>In 60 days, I was given a 25% raise and promoted from an intern to Web Developer 1.</p>
-                  <ul>
-                    <li>Worked with clients daily over the phone and email.</li>
-                    <li>Designed mockups.</li>
-                    <li>Researched and implemented new tools to help streamline the web development process.</li>
-                    <li>Problem solved and Innovated new products and features with my team over video meetings, chat, and phone calls.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
+					<div class="card-container">
+						<article class="card loading-container border ">
+							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+							<div class="loading fill-parent"> </div>
+						</article>
+					</div>
+					<div class="card-container">
+						<article class="card loading-container border ">
+							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+							<div class="loading fill-parent"> </div>
+						</article>
+					</div>
 				</div>
-        <div class="cta container"><a class="btn cta" href="#">
-            <p>View Resume</p></a>
-        </div>
-        <div class="cta container"><a class="btn cta" href="#">
-            <p><strong>Download Resume</strong></p></a>
-        </div>
-      </div>
-    </section>
-    <section id="stack">
-      <h2 class="title container"><span>Stack of Choice</span></h2>
-      <div class="container">
-      </div>
-    </section>
-    <section id="contact">
-      <h2 class="title container"><span>Contact</span></h2>
-      <div class="container">
-        <form class="send-email" id="email">
-          <!-- (method="POST" action="send" enctype="multipart/form-data")-->
-          <p>Send me your email and I will get in touch. </p>
-          <label><span class="sr-only">Send your email</span>
-            <input type="email" name="email">
-          </label>
-          <button>send</button>
-        </form>
-        <div class="send-an-email">
-          <p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <section id="footer">
-        <h2 class="title container"><span>Footer</span></h2>
-        <div class="container">
-          <div class="profile-img-container">
-            <div class="crop round cyb-rez-blue"><img src="hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
-            <div class="thanks">
-              <p>
-                 Thanks for taking a look. Check back in as I am always making or doing something new.<br><br><br>Hopefully chat soon,<br><br><strong>Hector Diaz <br/> Web Developer 1.</strong></p>
-            </div>
-          </div>
-          <div class="ctas-container"><a href="https://linkedin.com/in/hector-g-diaz">View Hector's Linkedin profile</a><a href="https://make.hectordiaz.pro">View Hector's make blog</a></div>
-          <div class="nav-container">
-            <nav>
-              <h2>Navigation Menu</h2>
-              <ul style="list-style:none;margin:0;">
-                <li><a href="#">Resume</a>
-                </li>
-                <li><a href="#">Contact</a>
-                </li>
-                <li><a href="#">Portfolio</a>
-                </li>
-                <li><a href="#">Blog</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </section>
-    </footer>
+			</section>
+			<section id="xp">
+				<h2 class="title container"><span>Experience</span></h2>
+				<div class="container">
+					<div class="xp-container">
+						<div class="card-container">
+							<article class="card loading-container border ">
+								<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+								<div class="loading fill-parent"> </div>
+							</article>
+						</div>
+						<div class="card-container">
+							<article class="card loading-container border ">
+								<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+								<div class="loading fill-parent"> </div>
+							</article>
+						</div>
+						<div class="card-container">
+							<article class="card loading-container border ">
+								<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+								<div class="loading fill-parent"> </div>
+							</article>
+						</div>
+					</div>
+					<div class="cta container"><a class="btn cta" href="#">
+							<p>View Resume</p></a>
+					</div>
+					<div class="cta container"><a class="btn cta" href="#">
+							<p><strong>Download Resume</strong></p></a>
+					</div>
+				</div>
+			</section>
+			<section id="stack">
+				<h2 class="title container"><span>Stack of Choice</span></h2>
+				<div class="container">
+					<div class="card-container">
+						<article class="card loading-container border ">
+							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+							<div class="loading fill-parent"> </div>
+						</article>
+					</div>
+					<div class="card-container">
+						<article class="card loading-container border ">
+							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+							<div class="loading fill-parent"> </div>
+						</article>
+					</div>
+					<div class="card-container">
+						<article class="card loading-container border ">
+							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
+							<div class="loading fill-parent"> </div>
+						</article>
+					</div>
+				</div>
+			</section>
+			<section id="contact">
+				<h2 class="title container"><span>Contact</span></h2>
+				<div class="container">
+					<form class="send-email" id="email">
+						<!-- (method="POST" action="send" enctype="multipart/form-data")-->
+						<p>Send me your email and I will get in touch. </p>
+						<label><span class="sr-only">Send your email</span>
+							<input type="email" name="email">
+						</label>
+						<button>send</button>
+					</form>
+					<div class="send-an-email">
+						<p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
+					</div>
+				</div>
+			</section>
+			<footer>
+				<section id="footer">
+					<h2 class="title container"><span>Footer</span></h2>
+					<div class="container">
+						<div class="profile-img-container">
+							<div class="crop round cyb-rez-blue"><img src="hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
+							<div class="thanks">
+								<p>
+									 Thanks for taking a look. Check back in as I am always making or doing something new.<br><br><br>Hopefully chat soon,<br><br><strong>Hector Diaz <br/> Web Developer 1.</strong></p>
+							</div>
+						</div>
+						<div class="ctas-container"><a href="https://linkedin.com/in/hector-g-diaz">View Hector's Linkedin profile</a><a href="https://make.hectordiaz.pro">View Hector's make blog</a></div>
+						<div class="nav-container">
+							<nav>
+								<h2>Navigation Menu</h2>
+								<ul style="list-style:none;margin:0;">
+									<li><a href="#">Resume</a>
+									</li>
+									<li><a href="#">Contact</a>
+									</li>
+									<li><a href="#">Portfolio</a>
+									</li>
+									<li><a href="#">Blog</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</section>
+			</footer>
+		</main>
     <script>
       getEmailFormData = function() {
       	// abstract this function further

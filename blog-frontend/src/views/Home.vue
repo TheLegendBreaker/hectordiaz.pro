@@ -1,7 +1,7 @@
 <template>
-  <div class="home container">
-	<section class="welcome-wrapper">
-		<div class="welcome">
+  <div id="home" class="home container">
+	<section id="welcome" class="welcome-wrapper">
+		<div  class="welcome">
 			<div class="msg">
 				<h1>
 					All hail Kanedias,
@@ -33,12 +33,18 @@
 					<router-link :to="{ name: 'Post', params: { id: featured.id, title: featured.slug } }">Read More</router-link>
 				</div>
 			</article>
+			<article v-else class="loading-container featured-card accent-border">
+				<h2>Loading</h2>
+				<div class="loading">
+				</div>
+			</article>
 		</div>
 	</section>
 
 	<section id="recent-post-archive">
 		<div class="container">
 			<h2> Recent Post Archive </h2>
+
 			<section class="side-bar">
 				<h3> Side bar </h3>
 				<ul class="menu accent-border">
@@ -58,7 +64,7 @@
 				</ul>
 			</section>
 
-			<section class="archive in-blk" v-if="posts">
+			<section class="archive in-blk" v-if="posts.length">
 				<h3> Recent Post Archive </h3>
 				<div class="post"  v-for="post in posts" :key="post.id">
 					<article class="excerpt-card sec-border">
@@ -78,6 +84,28 @@
 					</article>
 				</div>
 			</section>
+
+			<div v-else class="archive in-blk">
+				<h3> Recent Post Archive </h3>
+					<article class="loading-container excerpt-card sec-border">
+						<h2>Loading</h2>
+						<div class="loading">
+						</div>
+					</article>
+
+					<article class="loading-container excerpt-card sec-border">
+						<h2>Loading</h2>
+						<div class="loading">
+						</div>
+					</article>
+
+					<article class="loading-container excerpt-card sec-border">
+						<h2>Loading</h2>
+						<div class="loading">
+						</div>
+					</article>
+			</div>
+
 		</div>
 	</section>
   </div>
@@ -118,6 +146,7 @@ export default class Home extends Vue {}
 <style lang="scss">
 	@use '../assets/variables.scss' as var;
 	@use '../assets/util.scss';
+	@use '../assets/mixins.scss';
 
 	.home {
 		section {
@@ -125,13 +154,22 @@ export default class Home extends Vue {}
 		}
 	}
 	.welcome-wrapper {
-		.featured-card-wrapper,
 		.welcome {
 			height: 100vh;
+		}
+		.featured-card-wrapper {
+			height: 800px;
+		}
+		.featured-card-wrapper,
+		.welcome {
 			max-height: 1200px;
-			width: 50%;
 			position: relative;
 			display: inline-block;
+			width: 100%;
+			@include mixins.tablet {
+				width: 50%;
+				height: 100vh;
+			}
 		}
 		h1 {
 			font-size: 2em;
@@ -151,19 +189,29 @@ export default class Home extends Vue {}
 				}
 			}
 		}
+		.featured-card {
+			top:0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.msg {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
 		.featured-card,
 		.msg {
 		position: absolute;
-		top: 50%;
-		transform: translate(-50%,-50%);
-		left: 50%;
 		width: 75%;
 		}
 
 		.featured-card {
 			width: 75%;
-			height: 50%;
-			max-height: 500px;
+			min-height: 700px;
+			@include mixins.tablet {
+				height: 50%;
+				max-height: 500px;
+			}
 			p a {
 				display: none;
 			}
@@ -204,9 +252,12 @@ export default class Home extends Vue {}
 	}
 
 .side-bar {
-	display: inline-block;
 	width: 30%;
 	text-align: center;
+	display: none;
+	@include mixins.tablet {
+		display: inline-block;
+	}
 	 h4 {
 		margin: 0;
 		border-bottom: solid 1px var.$accent_red;
@@ -230,19 +281,29 @@ export default class Home extends Vue {}
 }
 
 .archive {
-	width: 70%;
+	width: 100%;
+	@include mixins.tablet {
+		width: 70%;
+	}
 
 	.excerpt-card {
 		margin-bottom: 60px;
 		width: 100%;
-		height: 350px;
 		padding: 10px;
 		position: relative;
+		@include mixins.tablet {
+			height: 350px;
+		}
 		h4 {
 			margin: 0;
 		}
 		.copy {
-			width: 60%;
+			width: 100%;
+			margin-top: 250px;
+			@include mixins.tablet {
+				margin-top: unset;
+				width: 60%;
+			}
 			 .header {
 				height: 20%;
 				padding-bottom: 10px;
@@ -267,10 +328,15 @@ export default class Home extends Vue {}
 		figure {
 			position: absolute;
 			top: 0;
-			right: 0;
+			left: 0;
+			@include mixins.tablet {
+				right: 0;
+				height: 100%;
+				width: 40%;
+			}
+			height: 250px;
+			width: 100%;
 			margin: 0;
-			width: 40%;
-			height: 100%;
 			background-color: #fff;
 			img {
 				height: 100%;
@@ -278,5 +344,43 @@ export default class Home extends Vue {}
 			}
 		}
 	}
+}
+@keyframes loading {
+  0% {
+		right: calc(( 1200px * .75 )* -1);
+  }
+  100% {
+		right: 150%;
+  }
+}
+
+.loading-container {
+	overflow: hidden;
+	position: relative;
+	h2 {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		text-align: center;
+		width: 100%;
+	}
+}
+div.loading {
+	animation: loading 2s infinite;
+	background-image: linear-gradient(49deg, transparent 30%, #a1b3ce 35%, #a1b3ce 40%, transparent 60%);
+	opacity: .45;
+	z-index: 5;
+	position: absolute;
+	width: 150%;
+	min-width: calc(1200px * .75);
+	height: 150%;
+	top: 0;
+}
+#welcome {
+	div.loading {
+		background-image: linear-gradient(69deg, transparent 30%, #dd3232 35%, #dd3232 40%, transparent 60%);
+	}
+	.loading-container h2 { color: #dd3232; }
 }
 </style>

@@ -13,9 +13,7 @@ export default createStore({
 		},
 
 		setPost (state, post) {
-			console.log(post)
 			state.post = post;
-			console.log(state.post)
 		}
 	},
 
@@ -27,7 +25,6 @@ export default createStore({
 			try {
 				const response = await fetch(`http://localhost/wp-json/wp/v2/posts?page=1&per_page=20&_embed`)
 					.then(res => res.json());
-					console.log(response)
 
 
 					// add _embedded.featuremedia[0].link
@@ -35,7 +32,6 @@ export default createStore({
 					.filter(( el:JSONPost ) => el.status === "publish" )
 					.map(function({id, slug,title,excerpt,date,tags,content,_embedded}:JSONPost) {
 						const post = new PostType();
-						console.log(_embedded['wp:featuredmedia']);
 
 						post.setId(id);
 						post.setSlug(slug);

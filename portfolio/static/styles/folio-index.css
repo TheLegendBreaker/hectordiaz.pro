@@ -6,7 +6,7 @@
 }
 
 .cyb-rez-blue img {
-	filter: grayscale(1);
+	filter: grayscale(1) contrast(2);
 }
 .cyb-rez-blue:before {
 	content: '';
@@ -115,6 +115,13 @@
   display: block;
 }
 
+.full-width {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  display: block;
+}
+
 .after-fill {
   position: relative;
 }
@@ -206,6 +213,17 @@
 .card.border {
   border: solid 1px #a1b3ce;
 }
+/*possible delete*/
+.card-container .card figure:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	z-index: -1;
+}
+
 @media (max-width: 760px) {
   .card.tablet {
     position: relative;
@@ -238,7 +256,7 @@ a {
 }
 
 button {
-  background: #a1b3ce;
+  background: #f9c6e2;
   padding: 15px 30px;
   border: none;
 }
@@ -269,11 +287,14 @@ ul {
 }
 
 #folio figure img {
-	filter: grayscale(1) contrast(1.5);
+	filter: grayscale(1) contrast(2);
 	opacity: .5;
+	transition: filter 3ms ease;
 }
-#xp .card-container {
-  padding-bottom: 0;
+
+#folio .card-container:hover figure img {
+	filter: unset;
+	opacity: 1;
 }
 
 #contact > div.container > * {
@@ -358,11 +379,14 @@ ul {
   transition: background 0.3s linear !important;
 }
 
+/*animations*/
+
 html body .pulse {
   box-shadow: 0 0 0 0 #3b55b3;
   transform: scale(1);
   animation: pulse 2s infinite;
 }
+
 html body .pulse.waiting {
   background: #3b55b3;
   color: #fff;
@@ -382,6 +406,27 @@ html body .pulse.waiting {
     transform: scale(0.95);
   }
 }
+
+@keyframes loading {
+  0% {
+		right: -100%;
+  }
+  100% {
+		right: 150%;
+  }
+}
+
+.loading-container {
+	overflow: hidden;
+}
+div.loading {
+	animation: loading 3s infinite;
+	background-image: linear-gradient(45deg, transparent 30%, #a1b3ce 35%, #a1b3ce 40%, transparent 60%);
+	opacity: .45;
+	z-index: 5;
+}
+/* end animations*/
+
 @media only screen and (min-width: 760px) {
   body header#top-bar {
     height: 40px;
@@ -404,7 +449,8 @@ html body .pulse.waiting {
   #folio .card {
     position: relative;
 		height: 300px;
-		width: calc(1200px * .75 - 30px);
+		max-width: calc(1200px * .75 - 30px);
+		width: 100%;
 		margin: 0 auto;
   }
   #folio .card > * {
@@ -465,7 +511,7 @@ html body .pulse.waiting {
   #contact div.container > * {
     display: inline-block;
     vertical-align: top;
-    width: 50%;
+    width: 49%;
     margin: 0;
   }
 

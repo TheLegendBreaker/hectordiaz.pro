@@ -115,10 +115,12 @@
 @use "./assets/fonts/Blackwood-Castle/stylesheet.css" as blackwood;
 @use "./assets/fonts/mont/stylesheet.css" as mont;
 @use "./assets/variables.scss" as var;
+@use "./assets/mixins.scss";
 
 *{
 	box-sizing: border-box;
 	scroll-behavior: smooth;
+	outline: dotted 1px aqua;
 }
 h1, h2 {
 	font-family: blackwood_castle, "San Serif";
@@ -202,16 +204,20 @@ svg.effects {
 .container {
 	margin: 0 auto;
 	max-width: 1200px;
-	padding: 0 20px;
+	@include mixins.tablet {
+		padding: 0 20px;
+	}
 }
 
 // end util
 
 #topbar {
-	padding: 0 20px;
 	padding-top: 20px;
 	position: relative;
 	z-index: 100;
+	@include mixins.tablet {
+		padding: 0 20px;
+	}
 	section,
 	#nav,
 	.logo-crop,
@@ -234,8 +240,11 @@ svg.effects {
 	.logo-card {
 		.logo-crop {
 			.logo {
-				height: 40px;
 				width: auto;
+				height: 30px;
+				@include mixins.tablet {
+					height: 40px;
+				}
 			}
 		}
 		.logo-crop,
@@ -282,14 +291,22 @@ footer {
 		background-color: #fff;
 	}
 	.thanks {
-		width: calc(40% - 70px);
 		padding: 0 10px;
+		width: 100%;
+		@include mixins.tablet {
+			width: calc(40% - 70px);
+		}
 	}
 	.ctas {
-		width: calc(25% - 70px);
+		width: 100%;
+		@include mixins.tablet {
+			width: calc(25% - 70px);
+		}
 	}
 	nav-container {
-		width: calc(40% - 150px);
+		@include mixins.tablet {
+			width: calc(40% - 150px);
+		}
 	}
 }
 </style>

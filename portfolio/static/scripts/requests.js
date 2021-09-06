@@ -14,6 +14,12 @@ getExperienceItems = async function() {
 	return xp;
 }
 
+getStackOfChoice = async function() {
+	const url = baseUrl + '?slug=stack-of-choice&_embed';
+	const stack = getRequest(url);
+	return stack;
+}
+
 renderFolioItems = async function () {
 	await getWebsiteBuilds()
 		.then(items => {
@@ -85,5 +91,32 @@ renderXpItems = async function () {
 		)
 
 }
+
+renderStack = async function () {
+	await getStackOfChoice()
+		.then(stack => {
+			console.log(stack);
+
+				const card = `
+					<div class="card-container ">
+					<article class="card">
+					<div class="main">
+					<h3 class="title sr-only"><span class="align">${stack[0].title.rendered}</span></h3>
+					<div class="content align">
+					<div class="align">
+					${stack[0].content.rendered}
+					</div>
+					</article>
+					</div>
+					`
+
+			document.querySelector('#stack div.container').innerHTML = card;
+
+			}
+		)
+
+}
+
 renderFolioItems();
 renderXpItems();
+renderStack();
