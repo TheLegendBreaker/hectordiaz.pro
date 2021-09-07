@@ -4,7 +4,7 @@ networks:
     driver: bridge
 
 services:
-  server:
+  dcap-server:
     image: 'bitnami/nginx:latest'
     platform: linux/amd64
     restart: always
@@ -14,16 +14,18 @@ services:
       - "8000:80"
       - '443:443'
     volumes:
+      #change to path to match what is on the installed machine
       - /Users/hectordiaz/static/blog/docker/nginx/snippets:/opt/bitnami/nginx/conf/snippets
       - /Users/hectordiaz/static/blog/docker/nginx:/opt/bitnami/nginx/conf/server_blocks/
       - /Users/hectordiaz/static/blog/portfolio/:/var/www/
 
-  wordpress:
+  dcap-wordpress:
     depends_on:
-      - db
+      - dcap-db
     image: wordpress:latest
     platform: linux/amd64
     volumes:
+      #change to path to match what is on the installed machine
       - wordpress_data:/var/www/blog/docker/wordpress
     networks:
       - db-tier
@@ -35,6 +37,7 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_NAME: wordpress
+      #change 'localhost' to production domain
       WORDPRESS_CONFIG_EXTRA: |
         define('WP_ALLOW_MULTISITE', true);
         define( 'MULTISITE', true );
@@ -45,16 +48,18 @@ services:
         define( 'BLOG_ID_CURRENT_SITE', 1 );
         define( 'COOKIE_DOMAIN', false );
 
-  db:
+  dcap-db:
     image: mysql:latest
     platform: linux/amd64
     restart: always
-    command: 
+    command:
+      #change to path to match what is on the installed machine
       --init-file /data/application/init.sql
     volumes:
-      #- /var/www/blog/docker/mysql/data:/var/lib/mysql
+      #change to path to match what is on the installed machine
       - /var/www/blog/docker/mysql/init.sql:/data/application/init.sql
       - type: bind
+        #change to path to match what is on the installed machine
         source: /var/www/blog/docker/mysql/docker.cnf
         target: /etc/mysql/conf.d/blog/docker.cnf
         consistency: cached
