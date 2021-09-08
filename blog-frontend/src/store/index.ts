@@ -23,7 +23,7 @@ export default createStore({
 			if (state.posts.length) return;
 
 			try {
-				const response = await fetch(`http://localhost/wp-json/wp/v2/posts?page=1&per_page=20&_embed`)
+				const response = await fetch(`http://localhost.sites/wp-json/wp/v2/posts?page=1&per_page=20&_embed`)
 					.then(res => res.json());
 
 
@@ -56,7 +56,7 @@ export default createStore({
 		},
 
 		async reqPost ({state,commit}, id) {
-			const qString = `http://localhost/wp-json/wp/v2/posts?include[]=`+id+`&_embed`
+			const qString = `http://localhost.sites/wp-json/wp/v2/posts?include[]=`+id+`&_embed`
 			console.log('reqPost triggered', qString)
 
 			// async func to get all posts from wp

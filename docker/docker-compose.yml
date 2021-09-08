@@ -1,66 +1,22 @@
 version: "3.9"
 networks:
-  db-tier:
+  dcap-tier:
     driver: bridge
 
 services:
-  dcap-server:
-    image: 'bitnami/nginx:latest'
-    platform: linux/amd64
-    restart: always
-    networks:
-      - db-tier
-    ports:
-      - "8000:80"
-      - '443:443'
-    volumes:
-      #change to path to match what is on the installed machine
-      - /Users/hectordiaz/static/blog/docker/nginx/snippets:/opt/bitnami/nginx/conf/snippets
-      - /Users/hectordiaz/static/blog/docker/nginx:/opt/bitnami/nginx/conf/server_blocks/
-      - /Users/hectordiaz/static/blog/portfolio/:/var/www/
-
-  dcap-wordpress:
-    depends_on:
-      - dcap-db
-    image: wordpress:latest
-    platform: linux/amd64
-    volumes:
-      #change to path to match what is on the installed machine
-      - wordpress_data:/var/www/blog/docker/wordpress
-    networks:
-      - db-tier
-    ports:
-      - '80:80'
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
-      #change 'localhost' to production domain
-      WORDPRESS_CONFIG_EXTRA: |
-        define('WP_ALLOW_MULTISITE', true);
-        define( 'MULTISITE', true );
-        define( 'SUBDOMAIN_INSTALL', true );
-        define( 'DOMAIN_CURRENT_SITE', 'localhost' );
-        define( 'PATH_CURRENT_SITE', '/' );
-        define( 'SITE_ID_CURRENT_SITE', 1 );
-        define( 'BLOG_ID_CURRENT_SITE', 1 );
-        define( 'COOKIE_DOMAIN', false );
 
   dcap-db:
     image: mysql:latest
     platform: linux/amd64
     restart: always
     command:
-      #change to path to match what is on the installed machine
       --init-file /data/application/init.sql
     volumes:
       #change to path to match what is on the installed machine
-      - /var/www/blog/docker/mysql/init.sql:/data/application/init.sql
+      - /Users/hectordiaz/static/blog/docker/mysql/init.sql:/data/application/init.sql
       - type: bind
         #change to path to match what is on the installed machine
-        source: /var/www/blog/docker/mysql/docker.cnf
+        source: /Users/hectordiaz/static/blog/docker/mysql/docker.cnf
         target: /etc/mysql/conf.d/blog/docker.cnf
         consistency: cached
     environment:
@@ -68,11 +24,55 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
-    ports:
-      - '3306:3306'
     networks:
-      - db-tier
-        
+      - dcap-tier
+
+  dcap-wordpress:
+    depends_on:
+      - dcap-db
+    image: wordpress:5.8.0-fpm-alpine
+    container_name: dcap-wordpress
+    platform: linux/amd64
+    volumes:
+      - wp_data:/var/www/html
+    networks:
+      - dcap-tier
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: dcap-db:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ALLOW_MULTISITE', true);
+        define( 'MULTISITE', true );
+        define( 'SUBDOMAIN_INSTALL', true );
+        #in development, ensure host file is updated to match
+        define( 'DOMAIN_CURRENT_SITE', 'localhost.sites' );
+        define( 'PATH_CURRENT_SITE', '/' );
+        define( 'SITE_ID_CURRENT_SITE', 1 );
+        define( 'BLOG_ID_CURRENT_SITE', 1 );
+
+  dcap-server:
+    depends_on:
+      - dcap-wordpress
+    image: 'nginx:1.15.12-alpine'
+    container_name: dcap-server
+    platform: linux/amd64
+    restart: unless-stopped
+    networks:
+      - dcap-tier
+    ports:
+      - "80:80"
+      - '443:443'
+    volumes:
+      #change to path to match what is on the installed machine
+      - /Users/hectordiaz/static/blog/docker/nginx/snippets:/etc/nginx/snippets
+      - /Users/hectordiaz/static/blog/docker/nginx:/etc/nginx/conf.d
+      - /Users/hectordiaz/static/blog/portfolio/:/var/www/
+      - wp_data:/var/www/html
+
 volumes:
   db_data: {}
-  wordpress_data: {}
+  wp_data: {}
+
