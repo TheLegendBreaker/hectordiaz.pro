@@ -26,39 +26,40 @@ renderFolioItems = async function () {
 			console.log(items);
 			let imgSrc = ''
 			card = '';
-			for(const i in items) {
-				console.log(items[i])
+			if (items!=undefined) { for(const i in items) {
+					console.log(items[i])
 
-				if (items[i]._embedded['wp:featuredmedia']) {
-					imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
+						if (items[i]._embedded['wp:featuredmedia']) {
+							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
+						}
+
+						card += `
+							<div class="card-container ">
+							<article class="card border">
+							<figure>
+							<div class="crop"><img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
+							</div>
+							</figure>
+							<div class="main">
+							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
+							<div class="content align">
+							<div class="align">
+							${items[i].content.rendered}
+							</div>
+							</div><a class="btn cta" href="#">
+								Hey! try this!
+							</a>
+							</div>
+							</article>
+							</div>
+							`
+
+					}
+					document.querySelector('#folio div.container').innerHTML = card;
+
 				}
-
-				card += `
-					<div class="card-container ">
-					<article class="card border">
-					<figure>
-					<div class="crop"><img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
-					</div>
-					</figure>
-					<div class="main">
-					<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
-					<div class="content align">
-					<div class="align">
-					${items[i].content.rendered}
-					</div>
-					</div><a class="btn cta" href="#">
-						Hey! try this!
-					</a>
-					</div>
-					</article>
-					</div>
-					`
-
 			}
-			document.querySelector('#folio div.container').innerHTML = card;
-
-			}
-		)
+		).catch(err=>console.log(err));
 
 }
 
@@ -67,25 +68,28 @@ renderXpItems = async function () {
 		.then(items => {
 			console.log(items);
 			card = '';
-			for(const i in items) {
-				console.log(items[i])
+			if (items!=undefined) {
 
-				if (items[i].categories.length <= 1) {
-					card = `
-						<div class="${i} card-container">
-						<article class="card">
-						<div class="main">
-						<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
-						<div class="content">
-						<div class="align">
-						${items[i].content.rendered}
-						</article>
-						</div>
-						` + card;
+				for(const i in items) {
+					console.log(items[i])
+
+					if (items[i].categories.length <= 1) {
+						card = `
+							<div class="${i} card-container">
+							<article class="card">
+							<div class="main">
+							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
+							<div class="content">
+							<div class="align">
+							${items[i].content.rendered}
+							</article>
+							</div>
+							` + card;
+					}
+
 				}
-
+				document.querySelector('#xp div.xp-container').innerHTML = card;
 			}
-			document.querySelector('#xp div.xp-container').innerHTML = card;
 
 			}
 		)
@@ -96,7 +100,7 @@ renderStack = async function () {
 	await getStackOfChoice()
 		.then(stack => {
 			console.log(stack);
-
+			if (stack!=undefined) {
 				const card = `
 					<div class="card-container ">
 					<article class="card">
@@ -110,7 +114,8 @@ renderStack = async function () {
 					</div>
 					`
 
-			document.querySelector('#stack div.container').innerHTML = card;
+				document.querySelector('#stack div.container').innerHTML = card;
+			}
 
 			}
 		)
