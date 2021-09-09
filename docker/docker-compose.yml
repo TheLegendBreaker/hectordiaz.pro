@@ -12,11 +12,9 @@ services:
     command:
       --init-file /data/application/init.sql
     volumes:
-      #change to path to match what is on the installed machine
-      - /Users/hectordiaz/static/blog/docker/mysql/init.sql:/data/application/init.sql
+      - ./mysql/init.sql:/data/application/init.sql
       - type: bind
-        #change to path to match what is on the installed machine
-        source: /Users/hectordiaz/static/blog/docker/mysql/docker.cnf
+        source: ./mysql/docker.cnf
         target: /etc/mysql/conf.d/blog/docker.cnf
         consistency: cached
     environment:
@@ -66,10 +64,9 @@ services:
       - "80:80"
       - '443:443'
     volumes:
-      #change to path to match what is on the installed machine
-      - /Users/hectordiaz/static/blog/docker/nginx/snippets:/etc/nginx/snippets
-      - /Users/hectordiaz/static/blog/docker/nginx:/etc/nginx/conf.d
-      - /Users/hectordiaz/static/blog/portfolio/:/var/www/
+      - ./nginx/snippets:/etc/nginx/snippets
+      - ./nginx:/etc/nginx/conf.d
+      - ../portfolio/:/var/www/
       - wp_data:/var/www/html
 
 volumes:
