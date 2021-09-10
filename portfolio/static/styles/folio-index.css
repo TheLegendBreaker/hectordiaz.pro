@@ -331,6 +331,7 @@ ul {
 #footer {
   padding: 40px 0;
   position: relative;
+	margin: 0;
 }
 #footer:before {
   content: "";
@@ -446,7 +447,7 @@ div.loading {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
   }
   #hero .container > * {

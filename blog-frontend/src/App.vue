@@ -279,16 +279,20 @@ a {
 
 footer {
 	padding: 20px;
+	margin-top: 50px;
 	width: 100vw;
 	top: 100%;
 	left: 0;
 	border-top: solid 2px var.$accent_red;
 	.crop {
-		$d: 250px;
+		$d: 150px;
 		width: $d;
 		height: $d;
 		margin-right: 40px;
 		background-color: #fff;
+		@include mixins.laptop {
+			$d: 250px;
+		}
 	}
 	.thanks {
 		padding: 0 10px;

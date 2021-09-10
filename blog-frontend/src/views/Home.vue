@@ -193,6 +193,12 @@ export default class Home extends Vue {}
 			top:0;
 			left: 50%;
 			transform: translateX(-50%);
+
+			@include mixins.tablet {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
 		}
 		.msg {
 			top: 50%;
@@ -207,7 +213,8 @@ export default class Home extends Vue {}
 
 		.featured-card {
 			width: 75%;
-			min-height: 700px;
+			height: 100%;
+			max-height: 700px;
 			@include mixins.tablet {
 				height: 50%;
 				max-height: 500px;
@@ -264,9 +271,12 @@ export default class Home extends Vue {}
 		padding: 10px;
 	 }
 	 ul {
-		width: 200px;
 		text-align: left;
 		display: inline-block;
+
+		@include mixins.laptop {
+			width: 200px;
+		}
 	 }
 	 li {
 		padding: 5px;
