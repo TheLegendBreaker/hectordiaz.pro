@@ -48,7 +48,7 @@
 			<section class="side-bar">
 				<h3> Side bar </h3>
 				<ul class="menu accent-border">
-					<h4 class="accent-border"> Site Navigation </h4>
+					<h4 > Site Navigation </h4>
 					<li> <router-link to="/">Home</router-link> </li>
 					<li> <router-link to="/about">About</router-link> </li>
 					<li> <router-link to="/about">Contact</router-link> </li>
@@ -57,7 +57,7 @@
 					<li> <router-link to="/post/archive">Resume</router-link> </li>
 				</ul>
 				<ul class="menu accent-border">
-					<h4 class="accent-border"> Blog Categories </h4>
+					<h4 > Blog Categories </h4>
 					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
 					<li> <router-link to="/post/archive">Web Dev Portfolio</router-link> </li>
 					<li> <router-link to="/post/archive">Resume</router-link> </li>
@@ -282,7 +282,7 @@ export default class Home extends Vue {}
 		padding: 5px;
 	 }
 	 a {
-		width: calc(100% - 30px);
+		width: 100%;
 		 &:hover {
 			color: var.$bg_black;
 			background-color: var.$sec_blue;

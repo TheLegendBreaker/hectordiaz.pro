@@ -139,13 +139,13 @@ body {
 	background: #050a0b;
 	&:before {
 		content: '';
-		width: 75vw;
-		height: 75vh;
 		background: radial-gradient(#1f272d, transparent);
 		position: absolute;
 		z-index: -1;
-		top: 10px;
-		right: 10px;
+		top: 0px;
+		left: 0px;
+		bottom: -50px;
+		right: 0px;
 	}
 }
 
@@ -258,10 +258,6 @@ svg.effects {
 	max-width: 70px;
 	text-align: left;
 }
-
- h2 {
-	font-weight: 700;
- }
 
 a {
 	font-size: .75em;
