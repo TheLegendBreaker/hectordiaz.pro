@@ -1,4 +1,0 @@
--- CREATE DATABASE IF NOT EXISTS gsd;
--- CREATE USER IF NOT EXISTS 'gsd_php'@'%.db-teir' IDENTIFIED BY 'pUcn1,d6beezubxQx';
--- GRANT ALL PRIVILEGES ON gsd.* TO 'gsd_php'@'%.db-teir';
--- FLUSH PRIVILEGES;

@@ -7,12 +7,11 @@ services:
 
   dcap-db:
     image: mysql:latest
+    container_name: dcap-db
     platform: linux/amd64
     restart: always
-    command:
-      --init-file /data/application/init.sql
     volumes:
-      - ./mysql/init.sql:/data/application/init.sql
+      - db_data:/var/lib/mysql
       - type: bind
         source: ./mysql/docker.cnf
         target: /etc/mysql/conf.d/blog/docker.cnf
@@ -43,13 +42,13 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_CONFIG_EXTRA: |
         define('WP_ALLOW_MULTISITE', true);
-        #define( 'MULTISITE', true );
-        #define( 'SUBDOMAIN_INSTALL', true );
+        define( 'MULTISITE', true );
+        define( 'SUBDOMAIN_INSTALL', false );
         #in development, ensure host file is updated to match
-        #define( 'DOMAIN_CURRENT_SITE', 'localhost.sites' );
-        #define( 'PATH_CURRENT_SITE', '/' );
-        #define( 'SITE_ID_CURRENT_SITE', 1 );
-        #define( 'BLOG_ID_CURRENT_SITE', 1 );
+        define( 'DOMAIN_CURRENT_SITE', 'api.hectordiaz.pro' );
+        define( 'PATH_CURRENT_SITE', '/' );
+        define( 'SITE_ID_CURRENT_SITE', 1 );
+        define( 'BLOG_ID_CURRENT_SITE', 1 );
 
   dcap-server:
     depends_on:
@@ -70,6 +69,6 @@ services:
       - wp_data:/var/www/html
 
 volumes:
-  db_data: {}
-  wp_data: {}
+  db_data:
+  wp_data:
 
