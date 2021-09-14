@@ -4,9 +4,9 @@
 		<div  class="welcome">
 			<div class="msg">
 				<h1>
-					All hail Kanedias,
+					If you can imagine it,
 					<br>
-					The Master Maker
+					I can make it.
 				</h1>
 				<ul class="cat-menu">
 					<h2> Categories </h2>

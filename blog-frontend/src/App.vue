@@ -41,10 +41,10 @@
 			<nav id="nav">
 			<router-link to="/">Home</router-link>
 			<router-link to="/about">About</router-link>
-			<router-link to="/about">Contact</router-link>
+			<router-link to="/about#contact">Contact</router-link>
 			<router-link to="/post/archive">Post Archive</router-link>
-			<router-link to="/post/archive">Web Dev Portfolio</router-link>
-			<router-link to="/post/archive">Resume</router-link>
+			<a href="http://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
+			<a href="http://Resume.hectordiaz.pro">Resume</a>
 			</nav>
 		</section>
 	</div>
@@ -216,6 +216,7 @@ article[class*=card]:hover {
 .container {
 	margin: 0 auto;
 	max-width: 1200px;
+	width: 90vw;
 	@include mixins.tablet {
 		padding: 0 20px;
 	}

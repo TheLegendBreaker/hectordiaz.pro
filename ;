@@ -6,35 +6,20 @@
 		/>
 		<section id="about-author" class="pos-rel">
 		<div class="container">
-			<div class="center-x cyb-rez crop round">
+			<div class="center-x cyb-rez-sec crop round">
 				<img src="http://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="hectordiaz.pro logo, a set of curel parenthese surrounding a dash">
 			</div>
 			<div class="body">
-					<h2> About Hector</h2>
+					<h2> about hector</h2>
 					<p>
-						If you can imagine it, I can make it. 
+						my thanks for stopping by!
+						<br>
+						<br>
+						this is more than just a place to share my life. i hope what i share bulsteris my self-esteem. my internet presence is mainly bullying racists, qanon, maga-maggots, and the like. while it's great fun and they deserve everything coming to them, my self image has suffered. embarrassment washes over me when i think about how i must look. 
 						<br>
 						<br>
 						to prove to myslef i can do more than viciously ridicule dingleberries i made this blog. i hope you like. as much as sharing may help with how i think others think of me, i share for myself. while i am convinced i look like an asshole, no amount speculating about other peoples' ideas of	me will change that i made those thoughts.
 					</p>
-				</div>
-			</div>
-		</section>
-		<section id="contact">
-			<div class="container sec-border">
-				<h2> Contact </h2>
-				<div class="content">
-					<form class="in-blk send-email" id="email">
-					<!-- (method="POST" action="send" enctype="multipart/form-data")-->
-						<p>Send me your email and I will get in touch. </p>
-						<label><span class="sr-only">Send your email</span>
-						<input type="email" name="email">
-						</label>
-						<button>send</button>
-					</form>
-					<div class="in-blk send-an-email">
-					<p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
-					</div>
 				</div>
 			</div>
 		</section>
@@ -75,13 +60,11 @@ export default class About extends Vue {}
 <style lang="scss">
 	@use '../assets/variables.scss' as var;
 	@use '../assets/mixins.scss';
-	
 
 	#about-author {
 		$d:300px;
 		padding-top: $d;
 		.crop { 
-			top: 0;
 			height: $d;
 			width: $d;
 		}
@@ -90,33 +73,9 @@ export default class About extends Vue {}
 	img { 
 		width: 100%; 
 		height: auto;
-			&.cyb-rez {
+			.cyb-rez {
+				width: 100%;
 				max-width: 300px;
 		}
 	}
-
-#contact {
-	padding-top: 50px;
-	.container {
-		padding: 0 10px 30px 10px;
-	}
-	.content> * {
-		width: 50%;
-		padding: 0 10px;
-	}
-	form {
-		&>*{display: block;}
-		input { 
-			width: 100%;
-			max-width: 300px;
-		}
-		button {
-			margin-top: 15px;
-			padding: 15px 20px;
-			background: var.$sec_blue;
-			color: var.$bg_black;
-			border: none;
-		}
-	}
-}
 </style>
