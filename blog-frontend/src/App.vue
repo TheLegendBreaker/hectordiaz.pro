@@ -56,8 +56,7 @@
 		<section>
 			<div class="container">
 				<h2> Footer </h2>
-				<div class="crop round in-blk cyb-rez">
-				</div>
+				<div class="in-blk crop round cyb-rez-sec"><img src="http://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
 
 				<div class="thanks in-blk">
 					<p>
@@ -120,7 +119,7 @@
 *{
 	box-sizing: border-box;
 	scroll-behavior: smooth;
-	outline: dotted 1px aqua;
+	/*outline: dotted 1px aqua;*/
 }
 h1, h2 {
 	font-family: blackwood_castle, "San Serif";
@@ -161,26 +160,39 @@ svg.effects {
 	position: absolute;
 	z-index: -100;
 }
-.cyb-rez-sec {
-	-webkit-mask: url(./assets/drawing.svg);
-	filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-blue);
-	box-shadow: 10px 5px 5px black;
-	position: relative;
-	overflow: hidden;
-	img {
-		width: 100%;
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translateY(-50%);
+
+article[class*=card]:hover {
+	figure .fill-parent {
+		opacity: 1;
+		z-index: 10;
 	}
 }
-.cyb-rez {
+
+[class*=cyb-rez].trans {
+	& + .fill-parent {
+		opacity: 1;
+		z-index: 10;
+	}
+}
+
+.cyb-rez-sec { filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-blue); }
+.cyb-rez { filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-red); }
+[class*=cyb-rez] {
 	-webkit-mask: url(./assets/drawing.svg);
-	filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-red);
 	box-shadow: 10px 5px 5px black;
 	position: relative;
 	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	& + .fill-parent {
+		transition: opacity .3s linear;
+		opacity: 0;
+		background-size: cover;
+		background-position: center;
+		top: 0;
+		left: 0;
+		z-index: 0
+	}
 	img {
 		width: 100%;
 		position: absolute;

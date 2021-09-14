@@ -28,3 +28,7 @@ import Post from "@/components/post.vue"; // @ is an alias to /src
 })
 export default class Single extends Vue {}
 </script>
+
+<style lang="SCSS">
+
+</style>

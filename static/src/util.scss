@@ -1,0 +1,124 @@
+@use 'mixins';
+
+.sr-only {
+	opacity: 0;
+	position: absolute;
+	top: auto;
+	bottom: auto;
+}
+
+.pad6p{
+	padding: 6%;
+}
+.pad5p{
+	padding: 5%;
+}
+.borderr{
+	border-radius: 25px;
+}
+
+.hide {
+	// requires .pos-abso or another position absolute class.
+	// also needs a tranistion class for appropraite animation.
+	opacity: 0;
+	height: 0;
+}
+
+.show {
+	// requires .pos-abso or another position absolute class.
+	// also needs a tranistion class for appropraite animation.
+	opacity: 1;
+	height: auto;
+}
+
+// Text formatting 
+
+.headline {
+    text-align: center;
+    font-size: 2.5em;
+    line-height: 1.3;
+    letter-spacing: 1px;
+}
+
+// end Text formatting
+// position
+
+.pos-rel {
+	@include mixins.pos-rel;
+}
+
+.pos-abso {
+	@include mixins.pos-abso;
+}
+
+.fill-parent {
+@include mixins.fill-parent-abso;
+}
+
+.after-fill {
+	@include mixins.pos-rel;
+	@include mixins.after {
+		@include mixins.fill-parent-abso;
+	}
+}
+
+.before-fill {
+	@include mixins.pos-rel;
+	@include mixins.before {
+		@include mixins.fill-parent-abso;
+	}
+}
+
+.center-x {
+	@include mixins.center-x($abso:false);
+}
+
+.center-y, .container-center-y>.container {
+	@include mixins.center-y($abso:false);
+}
+
+.center-xy, .container-center-xy>.container {
+	@include mixins.center-xy($abso:false);
+}
+
+ .container-center-xy>.container {
+	padding: 30px;
+}
+
+// end position
+// before after
+
+.after-pos-abso {
+	@include mixins.pos-rel;
+	@include mixins.after {
+		@include mixins.pos-abso;
+	}
+}
+
+.after-center-x {
+	@include mixins.pos-rel;
+	@include mixins.after {
+		@include mixins.center-x;
+	}
+}
+
+// end before after
+// assests/img styles
+
+.crop {
+	// the bluck of these styles are in base styles and therefore inlined on the page.
+	overflow: hidden;
+	&.round {
+		border-radius: 50%;
+	}
+}
+
+// end assests/img styles
+
+.full-width {
+	width: 100vw;
+}
+
+figure {
+	margin: 0;
+}

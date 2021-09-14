@@ -1,5 +1,5 @@
 <template>
-  <div id="home" class="home container">
+  <div id="split-hero" class="split-hero container">
 	<section id="welcome" class="welcome-wrapper">
 		<div  class="welcome">
 			<div class="msg">
@@ -41,77 +41,6 @@
 		</div>
 	</section>
 
-	<section id="recent-post-archive">
-		<div class="container">
-			<h2> Recent Post Archive </h2>
-
-			<section class="side-bar">
-				<h3> Side bar <span class="sr-only">Menu</span></h3>
-				<ul class="menu accent-border">
-					<h4 > Site Navigation </h4>
-					<li> <router-link to="/">Home</router-link> </li>
-					<li> <router-link to="/about">About</router-link> </li>
-					<li> <router-link to="/about">Contact</router-link> </li>
-					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
-					<li> <router-link to="/post/archive">Web Dev Portfolio</router-link> </li>
-					<li> <router-link to="/post/archive">Resume</router-link> </li>
-				</ul>
-				<ul class="menu accent-border">
-					<h4 > Blog Categories </h4>
-					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
-					<li> <router-link to="/post/archive">Web Dev Portfolio</router-link> </li>
-					<li> <router-link to="/post/archive">Resume</router-link> </li>
-				</ul>
-			</section>
-
-			<section class="archive in-blk" v-if="posts.length">
-				<h3> Recent Post Archive </h3>
-				<div class="post"  v-for="post in posts" :key="post.id">
-					<article class="excerpt-card sec-border">
-					<div class="copy in-blk">
-						<div class="header">
-							<h4> {{ post.title.rendered }} </h4>
-						</div>
-						<div v-html="post.excerpt.rendered" class="body">
-						</div>
-						<div class="ctas">
-							<router-link :to="{ name: 'Post', params: { id: post.id, title: post.slug } }">Read More</router-link>
-						</div>
-					</div>
-					<figure v-if="post.featImg" >
-						<div class="cyb-rez-sec in-blk .crop">
-							<img v-bind:src="post.featImg">
-						</div>
-						<div v-bind:style="{ 'background-image': 'url('+ post.featImg +')' }" class="fill-parent"></div>
-					</figure>
-					</article>
-				</div>
-			</section>
-
-			<div v-else class="archive in-blk">
-				<h3> Recent Post Archive </h3>
-					<article class="loading-container excerpt-card sec-border">
-						<h2>Loading</h2>
-						<div class="loading">
-						</div>
-					</article>
-
-					<article class="loading-container excerpt-card sec-border">
-						<h2>Loading</h2>
-						<div class="loading">
-						</div>
-					</article>
-
-					<article class="loading-container excerpt-card sec-border">
-						<h2>Loading</h2>
-						<div class="loading">
-						</div>
-					</article>
-			</div>
-
-		</div>
-	</section>
-  </div>
 </template>
 
 <script lang="ts">

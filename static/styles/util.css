@@ -1,0 +1,130 @@
+.sr-only {
+  opacity: 0;
+  position: absolute;
+  top: auto;
+  bottom: auto;
+}
+
+.pad6p {
+  padding: 6%;
+}
+
+.pad5p {
+  padding: 5%;
+}
+
+.borderr {
+  border-radius: 25px;
+}
+
+.hide {
+  opacity: 0;
+  height: 0;
+}
+
+.show {
+  opacity: 1;
+  height: auto;
+}
+
+.headline {
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abso {
+  position: absolute;
+}
+
+.fill-parent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.after-fill {
+  position: relative;
+}
+.after-fill:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.before-fill {
+  position: relative;
+}
+.before-fill:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.center-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-y, .container-center-y > .container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center-xy, .container-center-xy > .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-center-xy > .container {
+  padding: 30px;
+}
+
+.after-pos-abso {
+  position: relative;
+}
+.after-pos-abso:after {
+  content: "";
+  position: absolute;
+}
+
+.after-center-x {
+  position: relative;
+}
+.after-center-x:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.crop {
+  overflow: hidden;
+}
+.crop.round {
+  border-radius: 50%;
+}
+
+.full-width {
+  width: 100vw;
+}
+
+figure {
+  margin: 0;
+}
+
+/*# sourceMappingURL=util.css.map */

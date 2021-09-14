@@ -1,35 +1,69 @@
-// get posts by categroy id
+// url funcs
 
-var baseUrl = 'http://portfolio.localhost/wp-json/wp/v2/posts';
+var baseUrl = 'http://api.hectordiaz.pro/portfolio/wp-json/wp/v2/posts';
+var baseCatUrl = 'http://api.hectordiaz.pro/portfolio/wp-json/wp/v2/categories';
+
+buildUrl = function(route="") {
+	const qUrl = baseUrl + route;
+	return qUrl;
+}
+
+buildFilterUrl = function(filter="") {
+	const qUrl =  buildUrl( '?filter['+filter+']=MyCategorey' );
+	return qUrl;
+
+}
+
+// end url funcs
+// request funcs
+// filter request funcs
+
+getCategoryId = async function(catSlug="") {
+	const qUrl = baseCatUrl +"?slug="+ catSlug,
+	catId = await getRequest(qUrl)
+	.then( cat => { return cat[0].id } );
+	return catId;
+}
+
+getPostByCategory = async function(catSlug=""){
+	const posts = await getCategoryId(catSlug)
+		.then( catId => { 
+			const qUrl = buildUrl('?categories='+catId);
+			return getRequest(qUrl);
+		} )
+	return posts;
+}
+
+// end filter request funcs
 
 getWebsiteBuilds = async function() {
-	const url = baseUrl + '?categories=8&_embed';
-	const builds = getRequest(url);
+	const builds = getPostByCategory('folio-item');
 	return builds;
 }
 
 getExperienceItems = async function() {
-	const url = baseUrl + '?categories=9&_embed';
-	const xp = getRequest(url);
+	const xp = getPostByCategory('experience');
 	return xp;
 }
 
 getStackOfChoice = async function() {
-	const url = baseUrl + '?slug=stack-of-choice&_embed';
-	const stack = getRequest(url);
+	const url = baseUrl + '?slug=stack-of-choice&_embed',
+	stack = getRequest(url);
 	return stack;
 }
+
+// end request funcs
+// render funcs
 
 renderFolioItems = async function () {
 	await getWebsiteBuilds()
 		.then(items => {
-			console.log(items);
 			let imgSrc = ''
 			card = '';
-			if (items!=undefined) { for(const i in items) {
-					console.log(items[i])
+			//if (items!=undefined) { 
+				for(const i in items) {
 
-						if (items[i]._embedded['wp:featuredmedia']) {
+						if (items[i]._embedded) {
 							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
 						}
 
@@ -37,7 +71,8 @@ renderFolioItems = async function () {
 							<div class="card-container ">
 							<article class="card border">
 							<figure>
-							<div class="crop"><img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
+							<div class="crop">
+							<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
 							</div>
 							</figure>
 							<div class="main">
@@ -57,7 +92,8 @@ renderFolioItems = async function () {
 					}
 					document.querySelector('#folio div.container').innerHTML = card;
 
-				}
+				return card;
+				//}
 			}
 		).catch(err=>console.log(err));
 
@@ -66,12 +102,10 @@ renderFolioItems = async function () {
 renderXpItems = async function () {
 	await getExperienceItems()
 		.then(items => {
-			console.log(items);
 			card = '';
 			if (items!=undefined) {
 
 				for(const i in items) {
-					console.log(items[i])
 
 					if (items[i].categories.length <= 1) {
 						card = `
@@ -99,15 +133,12 @@ renderXpItems = async function () {
 renderStack = async function () {
 	await getStackOfChoice()
 		.then(stack => {
-			console.log(stack);
+
 			if (stack!=undefined) {
 				const card = `
 					<div class="card-container ">
 					<article class="card">
 					<div class="main">
-					<h3 class="title sr-only"><span class="align">${stack[0].title.rendered}</span></h3>
-					<div class="content align">
-					<div class="align">
 					${stack[0].content.rendered}
 					</div>
 					</article>
@@ -122,6 +153,8 @@ renderStack = async function () {
 
 }
 
-renderFolioItems();
+// end render funcs
+
+renderFolioItems().then(items=>console.log(items))
 renderXpItems();
 renderStack();
