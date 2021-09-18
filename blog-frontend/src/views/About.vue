@@ -75,7 +75,23 @@ export default class About extends Vue {}
 <style lang="scss">
 	@use '../assets/variables.scss' as var;
 	@use '../assets/mixins.scss';
-	
+
+	#split-hero .first-half {
+		height: 160vh;
+		max-width: 85%;
+		max-height: unset;
+		@include mixins.smart-phone {
+			height: calc(100vh - 70px);
+			max-width: unset;
+			max-height: 1200px;;
+		}
+	}
+	.second-half{ 
+		display: none;
+	 @include mixins.tablet {
+			display: inline-block;
+	 }
+	}
 
 	#about-author {
 		$d:300px;
@@ -101,8 +117,8 @@ export default class About extends Vue {}
 		padding: 0 10px 30px 10px;
 	}
 	.content> * {
-		width: 50%;
 		padding: 0 10px;
+		@include mixins.tablet{ width: 50%; }
 	}
 	form {
 		&>*{display: block;}
@@ -116,6 +132,11 @@ export default class About extends Vue {}
 			background: var.$sec_blue;
 			color: var.$bg_black;
 			border: none;
+		}
+	}
+	.send-an-email {
+		a {
+			padding-left: 0;
 		}
 	}
 }
