@@ -27,6 +27,8 @@
 				<figure class="cyb-rez">
 					<img v-bind:src="featured.featImg">
 				</figure>
+				<div class="truncate">
+				</div>
 				<div class="main" v-html="featured.excerpt.rendered">
 				</div>
 				<div class="ctas">
@@ -218,12 +220,30 @@ export default class Home extends Vue {}
 			width: 75%;
 			height: 100%;
 			max-height: 700px;
+			background: var.$bg_black;
 			@include mixins.tablet {
 				height: 50%;
 				max-height: 500px;
 			}
 			p a {
 				display: none;
+			}
+			.main{
+				max-height: 40%;
+				overflow: hidden;
+				@include mixins.tablet {
+					max-height: 20%;
+				}
+				&:before {
+					content: '';
+					background: linear-gradient(180deg, transparent, var.$bg_black);
+					position: absolute;
+					width: 100%;
+					top: 50%;
+					bottom: 19%;
+					left: 0;
+					z-index: 10;
+				}
 			}
 			.main,
 			.ctas,
@@ -304,6 +324,7 @@ export default class Home extends Vue {}
 		width: 100%;
 		padding: 10px;
 		position: relative;
+		background: var.$bg_black;
 		@include mixins.tablet {
 			height: 350px;
 		}
@@ -322,9 +343,24 @@ export default class Home extends Vue {}
 				padding-bottom: 10px;
 			 }
 			 .body {
-				padding: 30px 0;
+				margin: 30px 0 45px;
+				max-height: 200px;
+				overflow: hidden;
 				p { margin:0; }
 				a { display: none; }
+				&:before {
+					content: '';
+					background: linear-gradient(180deg, transparent, var.$bg_black);
+					position: absolute;
+					top: 50%;
+					bottom: 45px;
+					left: 0;
+					z-index: 10;
+					width: 100%;
+					@include mixins.tablet {
+						width: 60%;
+					}
+				}
 			 }
 			 .ctas {
 				position: absolute;
@@ -352,8 +388,12 @@ export default class Home extends Vue {}
 			width: 100%;
 			margin: 0;
 			img {
-				height: 100%;
-				width: auto;
+				width: 100%;
+				height: auto;
+				@include mixins.tablet {
+					height: 100%;
+					width: auto;
+				}
 			}
 		}
 	}
