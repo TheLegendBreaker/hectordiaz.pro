@@ -3,3 +3,4 @@ blog-frontend/node_modules/
 /public
 
 npm-debug.log*
+.env*
