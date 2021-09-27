@@ -42,13 +42,6 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_CONFIG_EXTRA: |
         define('WP_ALLOW_MULTISITE', true);
-        #define( 'MULTISITE', true );
-        #define( 'SUBDOMAIN_INSTALL', false );
-        #in development, ensure host file is updated to match
-        #define( 'DOMAIN_CURRENT_SITE', 'api.hectordiaz.pro' );
-        #define( 'PATH_CURRENT_SITE', '/' );
-        #define( 'SITE_ID_CURRENT_SITE', 1 );
-        #define( 'BLOG_ID_CURRENT_SITE', 1 );
 
   dcap-server:
     depends_on:
@@ -66,7 +59,8 @@ services:
       - ../static:/var/www/static
       - ../portfolio/:/var/www/portfolio
       - ./nginx/snippets:/etc/nginx/snippets
-      - ./nginx:/etc/nginx/conf.d
+      - ./nginx/sites:/etc/nginx/conf.d
+      - ./nginx/templates:/etc/nginx/conf.d/templates
       - wp_data:/var/www/html
 
 volumes:

@@ -1,7 +1,7 @@
 server {
 	listen 80;
 
-	server_name static.hectordiaz.pro;
+	server_name ${DCAP_STATIC};
 
 	include mime.types;
 
@@ -13,7 +13,6 @@ server {
 	}
 	location ~ \.(svg) {
 		add_header "Access-Control-Allow-Origin" "http://portfolio.hectordiaz.pro";
-		add_header "Access-Control-Allow-Origin" "http://blog.hectordiaz.pro";
 		add_header Content-Type image/svg+xml;
 		add_header Vary Accept-Encoding;
 		root /var/www/static/assets;

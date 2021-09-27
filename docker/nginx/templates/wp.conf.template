@@ -1,0 +1,171 @@
+##################################
+# WORDPRESS NGINX CONFIGURATIONS
+##################################
+
+# server {
+#         listen 80;
+#         root /var/www/mywebsite;
+#         server_name mywebsite.com;
+#         return 301 https://$server_name$request_uri;
+# }
+
+server {
+	# listen 443 ssl http2;
+	listen 80;
+	root /var/www/html;
+	access_log /var/log/nginx/wp_client_access.log;
+	error_log /var/log/nginx/wp_client_error.log;
+	server_name ${DCAP_API};
+	#	ssl_certificate /etc/letsencrypt/live/mywebsite.com/fullchain.pem;
+	# ssl_certificate_key /etc/letsencrypt/live/mywebsite.com/privkey.pem;
+
+	# Attempt to rewrite wordpress in sub directory 
+	rewrite ^/wp/([_0-9a-zA-Z-]+)/(xmlrpc\.php|wp-[0-9a-z-]+\.php) /wp/${DOLLAR}2;
+	rewrite ^/wp/([_0-9a-zA-Z-]+)/(wp-(admin|content|includes).*) /wp/${DOLLAR}2;
+
+
+	location / {
+		index index.php index.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ /index.php?${DOLLAR}args;
+	}
+
+
+#############
+# Specify a charset
+############
+	charset utf-8;
+
+############
+# GZIP
+###########
+
+	gzip off;
+
+#############
+# Add trailing slash to */wp-admin requests.
+############
+
+	rewrite /wp-admin${DOLLAR} ${DOLLAR}scheme://${DOLLAR}host${DOLLAR}uri/ permanent;
+
+
+############
+# this prevents hidden files (beginning with a period) from being served
+############
+
+	location ~ /\. {
+		access_log off;
+		log_not_found off;
+		deny all;
+	}
+
+###########
+# SEND EXPIRES HEADERS AND TURN OFF 404 LOGGING
+###########
+
+	location ~* ^.+.(xml|ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|css|rss|atom|js|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)${DOLLAR} {
+		access_log off;
+		log_not_found off;
+		expires max;
+	}
+
+############
+# Pass uploaded files to wp-includes/ms-files.php.
+############
+
+#       rewrite                         /files/$ /index.php last;
+
+	if (${DOLLAR}uri !~ wp-content/plugins) {
+		rewrite /files/(.+)${DOLLAR} /wp-includes/ms-files.php?file=${DOLLAR}1 last;
+	}
+
+# Rewrite multisite in a subdirectory '.../wp-.*' and '.../*.php'.
+ if (!-e ${DOLLAR}request_filename) {
+		rewrite ^/[_0-9a-zA-Z-]+(/wp-.*) ${DOLLAR}1 last;
+		rewrite ^/[_0-9a-zA-Z-]+.*(/wp-admin/.*\.php)${DOLLAR} ${DOLLAR}1 last;
+		rewrite ^/[_0-9a-zA-Z-]+(/.*\.php)${DOLLAR} ${DOLLAR}1 last;
+	}
+
+# Rewrite multisite '.../wp-.*' and '.../*.php'.
+# if (!-e $request_filename) {
+#    rewrite /wp-admin$ $scheme://$host$uri/ permanent;
+#    rewrite ^/[_0-9a-zA-Z-]+(/wp-.*) /wp$1 last;
+#    rewrite ^/[_0-9a-zA-Z-]+(/.*\.php)$ /wp$1 last;
+#}
+
+
+############
+# Pass all .php files onto a php-fpm or php-cgi server
+############
+
+location ~ \.php${DOLLAR} {
+
+        # Try the files specified in order. In our case, try the requested URI and if
+        # that fails, try (successfully) to pass a 404 error.
+        # zero day exploit defense
+
+        try_files                       ${DOLLAR}uri =404;
+
+        # Include the fastcgi_params defaults provided by nginx
+
+        include                         fastcgi_params;
+
+        # The amount of time for upstream to wait for a fastcgi process to send data.
+        # We keep this *extremely* high so that one can be lazy when remote debugging.
+
+        fastcgi_read_timeout            3600s;
+        
+         # Buffer size for reading the header of the backend FastCGI process.
+        # This defaults to the value of a single fastcgi_buffers, so does not
+        # need to be specified in our case, but it's good to be explicit.
+
+        fastcgi_buffer_size             128k;
+
+        # The number and size of the buffers into which the reply from the FastCGI
+        # process in the backend is read.
+        #
+        # 4 buffers at 128k means that any reply by FastCGI greater than 512k goes
+        # to disk and replies under 512k are handled directly in memory.
+
+        fastcgi_buffers                 4 128k;
+
+        # SCRIPT_FILENAME is a required parameter for things to work properly,
+        # but was missing in the default fastcgi_params on upgrade to nginx 1.4.
+        # We define it here to be sure that it exists.
+
+        fastcgi_param                   SCRIPT_FILENAME ${DOLLAR}document_root${DOLLAR}fastcgi_script_name;
+
+
+ # Use the upstream for php7.0-fpm that we defined in nginx.conf
+
+        fastcgi_pass                    dcap-wordpress:9000;
+        #fastcgi_pass                    docker-container:9000;
+
+        # And get to serving the file!
+
+        fastcgi_index                   index.php;
+}
+
+
+############
+# ROBOTS
+###########
+
+         location = /robots.txt {
+               allow all;
+               log_not_found off;
+               access_log off;
+        }
+
+
+############
+# RESTRICTIONS
+############
+
+# Deny access to any files with a .php extension in the uploads directory
+# Works in sub-directory installs and also in multisite network
+# Keep logging the requests to parse later (or to pass to firewall utilities such as fail2ban)
+location ~* /(?:uploads|files)/.*\.php${DOLLAR} {
+ deny all;
+}
+
+}

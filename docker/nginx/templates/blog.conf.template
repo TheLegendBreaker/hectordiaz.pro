@@ -1,0 +1,11 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name ${DCAP_BLOG};
+
+	location / {
+		proxy_pass http://159.89.128.250:8080;
+	}
+
+}

@@ -3,7 +3,7 @@ version: "3.9"
 services:
 
   dcap-db:
-    restart: always
+    restart: unless-stopped
     #environment:
       #MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       #MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -11,33 +11,25 @@ services:
       #MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
   dcap-wordpress:
-    restart: always
+    restart: unless-stopped
     environment:
       WORDPRESS_DB_NAME: ${DCAP_WP_DB_NAME}
       WORDPRESS_DB_USER: ${DCAP_WP_DB_USER}
       WORDPRESS_DB_PASSWORD: ${DCAP_WP_DB_PASSWORD}
       WORDPRESS_CONFIG_EXTRA: ${DCAP_WP_CONFIG_EXTRA}
 
-  #dcap-server:
-    #depends_on:
-      #- dcap-wordpress
-    #image: 'nginx:1.15.12-alpine'
-    #container_name: dcap-server
-    #platform: linux/amd64
-    #restart: unless-stopped
-    #networks:
-      #- dcap-tier
-    #ports:
-      #- "80:80"
-      #- '443:443'
-    #volumes:
-      #- ../static:/var/www/static
-      #- ../portfolio/:/var/www/portfolio
-      #- ./nginx/snippets:/etc/nginx/snippets
-      #- ./nginx:/etc/nginx/conf.d
-      #- wp_data:/var/www/html
+  dcap-server:
+    restart: unless-stopped
+    environment:
+      DCAP_API: ${DCAP_API_DOMAIN}
+      DCAP_FOLIO: ${DCAP_FOLIO_DOMAIN}
+      DCAP_BLOG: ${DCAP_BLOG_DOMAIN}
+      DCAP_STATIC: ${DCAP_STATIC_DOMAIN}
+    volumes:
+      - type: bind
+        source: ./nginx/nginx_env.sh
+        target: /etc/nginx/nginx_env.sh
+        consistency: cached
+    command: sh -c "/etc/nginx/nginx_env.sh"
 
-#volumes:
-  #db_data:
-  #wp_data:
 

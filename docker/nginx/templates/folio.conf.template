@@ -1,0 +1,11 @@
+server {
+	listen 80;
+	server_name ${DCAP_FOLIO};
+	# root is a volume that links to ./portfolio
+	root /var/www/portfolio;
+	index index.html;
+	location / {
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+	include snippets/static.conf;
+}
