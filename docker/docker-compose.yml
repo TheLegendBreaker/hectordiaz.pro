@@ -58,6 +58,7 @@ services:
     volumes:
       - ../static:/var/www/static
       - ../portfolio/:/var/www/portfolio
+      - ../saint_vid/:/var/www/saint_vid
       - ./nginx/snippets:/etc/nginx/snippets
       - ./nginx/sites:/etc/nginx/conf.d
       - ./nginx/templates:/etc/nginx/conf.d/templates

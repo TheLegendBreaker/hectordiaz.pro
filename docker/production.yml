@@ -25,6 +25,7 @@ services:
       DCAP_FOLIO: ${DCAP_FOLIO_DOMAIN}
       DCAP_BLOG: ${DCAP_BLOG_DOMAIN}
       DCAP_STATIC: ${DCAP_STATIC_DOMAIN}
+      ST_VID: ${SAINT_VID_DOMAIN}
     volumes:
       - type: bind
         source: ./nginx/nginx_env.sh

@@ -1,0 +1,10 @@
+server {
+	listen 80;
+	server_name ${ST_VID};
+	# root is a volume that links to ./saint-covid
+	root /var/www/saint_vid;
+	index index.html;
+	location / {
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+}
