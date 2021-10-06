@@ -28,8 +28,9 @@ getCategoryId = async function(catSlug="") {
 getPostByCategory = async function(catSlug=""){
 	const posts = await getCategoryId(catSlug)
 		.then( catId => { 
-			const qUrl = buildUrl('?categories='+catId);
-			return getRequest(qUrl);
+			const qUrl = buildUrl('?_embed&categories[]='+catId);
+			const response =  getRequest(qUrl);
+			return response;
 		} )
 	return posts;
 }
@@ -64,6 +65,7 @@ renderFolioItems = async function () {
 				for(const i in items) {
 
 						if (items[i]._embedded) {
+							console.log(items[i].title.rendered);
 							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
 						}
 
