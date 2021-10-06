@@ -5,13 +5,9 @@ server {
 
 	include mime.types;
 
-	location /fonts {
-		root /var/www/static/fonts;
-		try_files $uri $uri/ $uri.css =404;
-	}
-	location /styles {
+	location ~ \.(css) {
 		root /var/www/static/styles;
-		try_files $uri $uri/ $uri.css =404;
+		try_files ${DOLLAR}uri =404;
 	}
 	location ~ \.(jpg|png) {
 		root /var/www/static/assets;
