@@ -64,9 +64,14 @@ getStackOfChoice = async function() {
 getMediaSrcBySlug = async function(qSlug=""){
 	const src = await getMediaBySlug(qSlug)
 		.then( media => {
+			console.log(media);
 			return media.source_url;
 		})
 	return src;
 }
 
 // end request funcs
+
+render = async function(callBck = ()=>{}) {
+	// do something
+}
