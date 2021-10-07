@@ -1,8 +1,8 @@
 renderResume = async function(){
-	let img = document.getElementById('render');
+	let iframe = document.getElementById('render');
 	await getMediaSrcBySlug('hector_diaz_developer_resume')
 		.then(src => {
-			img.src = src;
+			iframe.src = src+"#view=fitH";
 		})
 }
 
