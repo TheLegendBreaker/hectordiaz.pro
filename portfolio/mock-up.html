@@ -169,6 +169,13 @@
   position: absolute;
   right: 30px;
   top: 100%;
+	padding: 10px 0;
+	width: 100px;
+}
+#top-bar .half #main-nav ul li,
+#top-bar .half #main-nav ul li a {
+	display: inline-block;
+	width:  100%;
 }
 
 .container {
@@ -217,14 +224,14 @@
 
 			<header id="top-bar">
 				<div class="container">
-					<div class="half">
+					<div class="half pos-rel">
 						<div id="flag-post">Hector's Web Portfolio</div>
 					</div>
-					<div class="half">
+					<div class="half pos-rel">
 						<nav id="main-nav">
 							<h2>Navigation Menu</h2>
 							<ul style="list-style:none;margin:0;">
-								<li><a href="http://resume.hectordiaz.pro">Resume</a>
+								<li><a href="/resume">Resume</a>
 								</li>
 								<li><a href="#contact">Contact</a>
 								</li>
@@ -273,19 +280,15 @@
 									 Thanks for taking a look. Check back in as I am always making or doing something new.<br><br><br>Hopefully chat soon,<br><br><strong>Hector Diaz <br/> Web Developer 1.</strong></p>
 							</div>
 						</div>
-						<div class="ctas-container"><a href="https://linkedin.com/in/hector-g-diaz">View Hector's Linkedin profile</a><a href="https://make.hectordiaz.pro">View Hector's make blog</a></div>
+						<div class="ctas-container"><a href="https://linkedin.com/in/hector-g-diaz">View Hector's Linkedin profile</a><a href="http://blog.hectordiaz.pro">View Hector's make blog</a></div>
 						<div class="nav-container">
 							<nav>
 								<h2>Navigation Menu</h2>
 								<ul style="list-style:none;margin:0;">
-									<li><a href="#">Resume</a>
-									</li>
-									<li><a href="#">Contact</a>
-									</li>
-									<li><a href="#">Portfolio</a>
-									</li>
-									<li><a href="#">Blog</a>
-									</li>
+									<li><a class="current-pg" href="/resume">Resume</a> </li>
+									<li><a href="#contact">Contact</a> </li>
+									<li><a href="/#folio">Portfolio</a> </li>
+									<li><a href="http://blog.hectordiaz.pro">Blog</a> </li>
 								</ul>
 							</nav>
 						</div>

@@ -224,6 +224,11 @@
 	z-index: -1;
 }
 
+.card .btn.cta {
+	margin-top: 15px;
+	padding: 15px 0;
+}
+
 @media (max-width: 760px) {
   .card.tablet {
     position: relative;

@@ -47,6 +47,9 @@
       	font-weight: normal;
       	margin: 0;
       }
+			#folio li {
+				padding: 5px 0;
+			}
       .card {
       width: 100%;
       }
@@ -168,6 +171,13 @@
   position: absolute;
   right: 30px;
   top: 100%;
+	padding: 10px 0;
+	width: 100px;
+}
+#top-bar .half #main-nav ul li,
+#top-bar .half #main-nav ul li a {
+	display: inline-block;
+	width:  100%;
 }
 
 .container {
@@ -195,6 +205,9 @@
   width: 100%;
   height: auto;
 }
+li {
+				padding: 10px 0;
+			}
 
     </style>
     <title>Hector Diaz, Web Developer</title>
@@ -205,10 +218,10 @@
 
 			<header id="top-bar">
 				<div class="container">
-					<div class="half">
+					<div class="half pos-rel">
 						<div id="flag-post">Hector's Web Portfolio</div>
 					</div>
-					<div class="half">
+					<div class="half pos-rel">
 						<nav id="main-nav">
 							<h2>Navigation Menu</h2>
 							<ul style="list-style:none;margin:0;">
@@ -302,11 +315,8 @@
 							</article>
 						</div>
 					</div>
-					<div class="cta container"><a class="btn cta" href="#">
-							<p>View Resume</p></a>
-					</div>
-					<div class="cta container"><a class="btn cta" href="#">
-							<p><strong>Download Resume</strong></p></a>
+					<div class="cta container"><a class="btn cta" href="/resume">
+							<p><strong>View Resume</strong></p></a>
 					</div>
 				</div>
 			</section>
@@ -366,13 +376,13 @@
 							<nav>
 								<h2>Navigation Menu</h2>
 								<ul style="list-style:none;margin:0;">
-									<li><a href="#">Resume</a>
+									<li><a href="/resume">Resume</a>
 									</li>
-									<li><a href="#">Contact</a>
+									<li><a href="#contact">Contact</a>
 									</li>
-									<li><a href="#">Portfolio</a>
+									<li><a href="#folio">Portfolio</a>
 									</li>
-									<li><a href="#">Blog</a>
+									<li><a href="http://blog.hectordiaz.pro">Blog</a>
 									</li>
 								</ul>
 							</nav>

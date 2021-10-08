@@ -34,6 +34,10 @@
   letter-spacing: 1px;
 }
 
+.in-blc {
+	display: inline-block;
+}
+
 .pos-rel {
   position: relative;
 }

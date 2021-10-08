@@ -94,3 +94,8 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 })
 export default class Single extends Vue {}
 </script>
+<style lang="scss">
+.archive {
+	margin-top: 150px;
+}
+</style>

@@ -29,7 +29,7 @@ renderFolioItems = async function () {
 							<div class="align">
 							${items[i].content.rendered}
 							</div>
-							</div><a class="btn cta" href="/mockup?${param}">
+							</div><a class="in-blc btn cta" href="/mockup?${param}">
 								View mockup
 							</a>
 							</div>
