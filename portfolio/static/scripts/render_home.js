@@ -1,7 +1,8 @@
 // render funcs
 
-renderFolioItems = async function () {
-	await getWebsiteBuilds()
+
+renderFolioClients = async function () {
+	await getClients()
 		.then(items => {
 			//console.log('here are the items from wp', items);
 			let imgSrc = ''
@@ -12,7 +13,6 @@ renderFolioItems = async function () {
 
 						if (items[i]._embedded) {
 							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
-							param = items[i]._embedded['wp:featuredmedia'][0].slug;
 						}
 
 						card += `
@@ -29,16 +29,12 @@ renderFolioItems = async function () {
 							<div class="align">
 							${items[i].content.rendered}
 							</div>
-							</div><a class="in-blc btn cta" href="/mockup?${param}">
-								View mockup
-							</a>
-							</div>
 							</article>
 							</div>
 							`
 
 					}
-					document.querySelector('#folio div.container').innerHTML = card;
+					document.querySelector('#folio .cl-container ').innerHTML = card;
 
 				return card;
 				//}
@@ -46,7 +42,48 @@ renderFolioItems = async function () {
 		).catch(err=>console.log(err));
 
 }
+renderFolioProjects = async function () {
+	await getProjects()
+		.then(items => {
+			//console.log('here are the items from wp', items);
+			let imgSrc = ''
+			param = ''
+			card = '';
+			//if (items!=undefined) { 
+				for(const i in items) {
 
+						if (items[i]._embedded) {
+							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
+							// need to add an alt veriable
+						}
+
+						card += `
+							<div class="card-container ">
+							<article class="card border">
+							<figure>
+							<div class="crop">
+							<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
+							</div>
+							</figure>
+							<div class="main">
+							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
+							<div class="content align">
+							<div class="align">
+							${items[i].content.rendered}
+							</div>
+							</article>
+							</div>
+							`
+
+					}
+					document.querySelector('#folio .pj-container ').innerHTML = card;
+
+				return card;
+				//}
+			}
+		).catch(err=>console.log(err));
+
+}
 renderXpItems = async function () {
 	await getExperienceItems()
 		.then(items => {
@@ -102,7 +139,7 @@ renderStack = async function () {
 }
 
 // end render funcs
-
-renderFolioItems().then(items=>console.log(items))
+renderFolioClients();
+renderFolioProjects();
 renderXpItems();
 renderStack();

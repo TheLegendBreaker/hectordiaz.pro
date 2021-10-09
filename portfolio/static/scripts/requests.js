@@ -45,9 +45,14 @@ getMediaBySlug = async function(qSlug=""){
 }
 // end filter request funcs
 
-getWebsiteBuilds = async function() {
-	const builds = getPostByCategory('folio-item');
-	return builds;
+getClients = async function() {
+	const clients = getPostByCategory('clients');
+	return clients;
+}
+
+getProjects = async function() {
+	const projects = getPostByCategory('project');
+	return projects;
 }
 
 getExperienceItems = async function() {
