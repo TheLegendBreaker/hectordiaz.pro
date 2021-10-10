@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://static.hectordiaz.pro/fonts/mont/stylesheet.css">
 		<link rel="stylesheet" href="folio-index.css">
-		<link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="http://static.hectordiaz.pro/util.css">
 		<script src="https://smtpjs.com/v3/smtp.js"> </script>
     <!-- atomize style rules for page base styles-->
@@ -168,6 +167,7 @@
   top: 100%;
 	padding: 10px 0;
 	width: 100px;
+	z-index: 10;
 }
 #top-bar .half #main-nav ul li,
 #top-bar .half #main-nav ul li a {
@@ -224,7 +224,7 @@
   <body>
 		<main>
 
-			<header id="top-bar pos-rel">
+			<header id="top-bar" class="pos-rel">
 				<div class="container">
 					<div class="half">
 						<div id="flag-post">Hector's Web Portfolio</div>

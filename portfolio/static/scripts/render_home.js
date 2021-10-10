@@ -13,6 +13,7 @@ renderFolioClients = async function () {
 
 						if (items[i]._embedded) {
 							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
+							param = items[i]._embedded['wp:featuredmedia'][0].slug;
 						}
 
 						card += `
@@ -28,6 +29,11 @@ renderFolioClients = async function () {
 							<div class="content align">
 							<div class="align">
 							${items[i].content.rendered}
+							</div>
+							<div class="cta-container align">
+								<a href="/mockup?${param}" class="in-blc btn cta">
+									View mock up.
+								</a>
 							</div>
 							</article>
 							</div>

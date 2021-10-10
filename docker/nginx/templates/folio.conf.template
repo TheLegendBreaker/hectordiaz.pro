@@ -8,7 +8,8 @@ server {
 		try_files ${DOLLAR}uri /index.html =404;
 	}
 	location = /resume {
-		try_files /resume.html =404;
+		# try_files /resume.html =404;
+		proxy_pass http://api.hectordiaz.pro/portfolio/wp-content/uploads/sites/2/2021/10/hector_diaz_developer_resume.pdf;
 	}
 	location /mockup {
 		try_files /mock-up.html =404;

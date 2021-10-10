@@ -5,6 +5,11 @@
   bottom: auto;
 }
 
+.in-blc {
+  vertical-align: top;
+  display: inline-block;
+}
+
 .pad6p {
   padding: 6%;
 }

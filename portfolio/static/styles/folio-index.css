@@ -100,14 +100,6 @@
   letter-spacing: 1px;
 }
 
-.pos-rel {
-  position: relative;
-}
-
-.pos-abso {
-  position: absolute;
-}
-
 .fill-parent {
   position: absolute;
   width: 100%;
@@ -277,6 +269,12 @@ ul {
 #folio small {
   font-weight: 500;
   display: block;
+}
+#folio section {
+	padding: 30px 0 30px 30px;
+}
+#folio .main {
+	padding: 15px 5px;
 }
 #folio .title .split {
   padding: 0 30px;
