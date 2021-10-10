@@ -83,6 +83,13 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 		}
 	},
 
+	methods: {
+		filter: function(crit:string){
+			// sort through the post and add the class .filter to each that match the crit value
+		}
+
+	},
+
 	created() {
 		this.$store.dispatch("reqPosts");
 	},
@@ -97,5 +104,8 @@ export default class Single extends Vue {}
 <style lang="scss">
 .archive {
 	margin-top: 150px;
+}
+.acitve-filter .excerpt-card:not(.filter){
+	display: none;
 }
 </style>
