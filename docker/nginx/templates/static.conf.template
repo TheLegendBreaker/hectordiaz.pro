@@ -3,6 +3,8 @@ server {
 
 	server_name ${DCAP_STATIC};
 
+	include snippets/acme.conf;
+
 	include mime.types;
 
 	location ~ \.(css) {

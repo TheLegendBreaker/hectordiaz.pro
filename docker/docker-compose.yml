@@ -59,7 +59,9 @@ services:
       - ../static:/var/www/static
       - ../portfolio/:/var/www/portfolio
       - ../saint_vid/:/var/www/saint_vid
+      - ../blog-frontend/public/:/var/www/blog
       - ./nginx/sites:/etc/nginx/conf.d
+      - ./nginx/snippets:/etc/nginx/snippets
       - ./nginx/templates:/etc/nginx/conf.d/templates
       - wp_data:/var/www/html
 

@@ -4,6 +4,8 @@ server {
 
 	server_name ${DCAP_BLOG};
 
+	include snippets/acme.conf;
+
 	location / {
 		proxy_pass http://159.89.128.250:8080;
 	}

@@ -4,6 +4,9 @@ server {
 	# root is a volume that links to ./saint-covid
 	root /var/www/saint_vid;
 	index index.html;
+
+	include snippets/acme.conf;
+
 	location / {
 		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
 	}

@@ -3,10 +3,15 @@
 ##################################
 
  server {
-				listen 80;
-				root /var/www/html;
-				server_name ${DCAP_API};
-				return 301 https://$server_name$request_uri;
+	listen 80;
+	listen [::]:80;
+	server_name ${DCAP_API};
+
+	include snippets/acme.conf;
+
+	location / {
+		rewrite ^ https://${DOLLAR}host${DOLLAR}request_uri? permanent;
+	}
  }
 
 server {
@@ -15,8 +20,8 @@ server {
 	access_log /var/log/nginx/wp_client_access.log;
 	error_log /var/log/nginx/wp_client_error.log;
 	server_name ${DCAP_API};
-	ssl_certificate /etc/letsencrypt/live/${DCAP_BASE}/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/${DCAP_BASE}/privkey.pem;
+	ssl_certificate /etc/letsencrypt/live/${CERT_DIR}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/${CERT_DIR}/privkey.pem;
 
 	# Attempt to rewrite wordpress in sub directory 
 	rewrite ^/wp/([_0-9a-zA-Z-]+)/(xmlrpc\.php|wp-[0-9a-z-]+\.php) /wp/${DOLLAR}2;

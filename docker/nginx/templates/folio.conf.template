@@ -4,6 +4,9 @@ server {
 	# root is a volume that links to ./portfolio
 	root /var/www/portfolio;
 	index index.html;
+
+	include snippets/acme.conf;
+
 	location / {
 		try_files ${DOLLAR}uri /index.html =404;
 	}
