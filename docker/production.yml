@@ -21,16 +21,31 @@ services:
   dcap-server:
     restart: unless-stopped
     environment:
+      DCAP_BASE: ${DCAP_BASE_DOMAIN}
       DCAP_API: ${DCAP_API_DOMAIN}
       DCAP_FOLIO: ${DCAP_FOLIO_DOMAIN}
       DCAP_BLOG: ${DCAP_BLOG_DOMAIN}
       DCAP_STATIC: ${DCAP_STATIC_DOMAIN}
       ST_VID: ${SAINT_VID_DOMAIN}
     volumes:
+      - cert_data:/etc/letsencrypt
       - type: bind
         source: ./nginx/nginx_env.sh
         target: /etc/nginx/nginx_env.sh
         consistency: cached
     command: sh -c "/etc/nginx/nginx_env.sh"
+
+  dcap-certbot:
+    depends_on:
+      - dcap-wordpress
+    image: certbot/certbot
+    container_name: dcap-certbot
+    platform: linux/amd64
+    volumes:
+      - cert_data:/etc/letsencrypt
+      - wp_data:/var/www/html
+    command: certonly --webroot -webroot-path=/var/www/html --email ${DCAP_MAIN_EMAIL} --agrees-tos --no-eff-email --staging -d *.hectordiaz.pro -d saint-vid.org -d *.hectordiaz.work
+volumes:
+  cert_data:
 
 
