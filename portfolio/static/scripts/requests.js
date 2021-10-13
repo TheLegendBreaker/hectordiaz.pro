@@ -1,6 +1,6 @@
 // url funcs
 
-var baseUrl = 'http://api.hectordiaz.pro/portfolio/wp-json/wp/v2';
+var baseUrl = 'https://api.hectordiaz.pro/portfolio/wp-json/wp/v2';
 var basePostUrl = baseUrl+'/posts';
 var baseCatUrl = baseUrl+'/categories';
 var baseMediaUrl = baseUrl+'/media';

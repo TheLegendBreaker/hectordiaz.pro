@@ -1,18 +1,31 @@
-server {
+ server {
 	listen 80;
+	listen [::]:80;
+	server_name ${DCAP_API};
+
+	include snippets/acme.conf;
+
+	location / {
+		rewrite ^ https://${DOLLAR}host${DOLLAR}request_uri? permanent;
+	}
+ }
+
+server {
+	listen 443 ssl http2;
 	server_name ${DCAP_FOLIO};
 	# root is a volume that links to ./portfolio
 	root /var/www/portfolio;
 	index index.html;
+	ssl_certificate /etc/letsencrypt/live/${CERT_DIR}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/${CERT_DIR}/privkey.pem;
 
-	include snippets/acme.conf;
 
 	location / {
 		try_files ${DOLLAR}uri /index.html =404;
 	}
 	location = /resume {
 		# try_files /resume.html =404;
-		proxy_pass http://api.hectordiaz.pro/portfolio/wp-content/uploads/sites/2/2021/10/hector_diaz_developer_resume.pdf;
+		proxy_pass https://api.hectordiaz.pro/portfolio/wp-content/uploads/sites/2/2021/10/hector_diaz_developer_resume.pdf;
 	}
 	location /mockup {
 		try_files /mock-up.html =404;

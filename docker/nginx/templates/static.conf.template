@@ -1,7 +1,20 @@
-server {
+ server {
 	listen 80;
+	listen [::]:80;
+	server_name ${DCAP_API};
 
+	include snippets/acme.conf;
+
+	location / {
+		rewrite ^ https://${DOLLAR}host${DOLLAR}request_uri? permanent;
+	}
+ }
+
+server {
+	listen 443 ssl http2;
 	server_name ${DCAP_STATIC};
+	ssl_certificate /etc/letsencrypt/live/${CERT_DIR}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/${CERT_DIR}/privkey.pem;
 
 	include snippets/acme.conf;
 
@@ -15,7 +28,7 @@ server {
 		root /var/www/static/assets;
 	}
 	location ~ \.(svg) {
-		add_header "Access-Control-Allow-Origin" "http://portfolio.hectordiaz.pro";
+		add_header "Access-Control-Allow-Origin" "https://portfolio.hectordiaz.pro";
 		add_header Content-Type image/svg+xml;
 		add_header Vary Accept-Encoding;
 		root /var/www/static/assets;
