@@ -8,6 +8,7 @@
 					<div class="header">
 						<h4> {{ post.title.rendered }} </h4>
 					</div>
+					<small> categorey: {{post.categories[0]}} </small>
 					<div v-html="post.excerpt.rendered" class="body">
 					</div>
 					<div class="ctas">
@@ -52,8 +53,8 @@
 					<li> <router-link to="/about">About</router-link> </li>
 					<li> <router-link to="/about">Contact</router-link> </li>
 					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
-					<li> <a href="http://portfolio.hectordiaz.pro">Web Dev Portfolio</a> </li>
-					<li> <a href="http://resume.hectordiaz.pro">Resume</a> </li>
+					<li> <a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a> </li>
+					<li> <a href="https://resume.hectordiaz.pro">Resume</a> </li>
 				</ul>
 				<ul class="menu accent-border">
 					<h4 > Blog Categories </h4>
@@ -85,6 +86,14 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	methods: {
 		filter: function(crit:string){
+			const archive = document.querySelector('.archive');
+			if( archive != null ){
+				if ( archive.classList.contains('archive-filter') ){
+					archive.classList.add('archive-filter');
+					} else {
+					archive.classList.remove('archive-filter');
+					}
+			}
 			// sort through the post and add the class .filter to each that match the crit value
 		}
 

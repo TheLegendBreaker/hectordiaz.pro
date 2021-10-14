@@ -50,6 +50,7 @@ export class JSONPost {
 	excerpt: Rendered;
 	tags: string[];
 	content: Rendered;
+	categories: string[];
 	_embedded: Embedded;
 
 	constructor() {
@@ -61,13 +62,14 @@ export class JSONPost {
 		this.excerpt = new Rendered();
 		this.tags = [''];
 		this.content = new Rendered();
+		this.categories = [''];
 		this._embedded = new Embedded();
 	}
 
 }
 
 export class PostType {
-	private __name__ = "Post";
+	private __name__ = "PostType";
 
 	status: string;
 	id: number;
@@ -77,6 +79,7 @@ export class PostType {
 	excerpt: Rendered;
 	tags: string[];
 	content: Rendered;
+	categories: string[];
 	featImg: string;
 
 	// need to add an argument json:RawPost to give the constructor the ability to make the types match up.
@@ -90,6 +93,7 @@ export class PostType {
 		this.excerpt = new Rendered();
 		this.tags = [''];
 		this.content = new Rendered();
+		this.categories = [''];
 		this.featImg = '';
 	}
 
@@ -126,6 +130,10 @@ export class PostType {
 	setContent(rendered:string,status=false):void {
 		this.content.setRendered(rendered);
 		this.content.setProtected(status);
+	}
+
+	setCategories(cats:string[]):void {
+		this.categories = cats;
 	}
 
 	setFeatImg(imgUrl:string):void {
