@@ -213,6 +213,17 @@ li {
 				padding: 10px 0;
 			}
 
+#hero li:nth-child(1) {
+	padding-left: 0;
+}
+#hero ul {
+
+}
+#hero li {
+	display: inline-block;
+	max-width: 25%;
+	padding: 0 15px;
+}
     </style>
     <title>Hector Diaz, Web Developer</title>
   </head>
@@ -223,10 +234,10 @@ li {
 			<header id="top-bar">
 				<div class="container">
 					<div class="half pos-rel">
-						<div id="flag-post">Hector's Web Portfolio</div>
+						<!--<div id="flag-post">Hector's Web Portfolio</div>-->
 					</div>
 					<div class="half pos-rel">
-						<nav id="main-nav">
+						<nav id="main-nav" style="display:none;">
 							<h2>Navigation Menu</h2>
 							<ul style="list-style:none;margin:0;">
 								<li><a href="/resume" target="_blank">Resume</a>
@@ -256,15 +267,26 @@ li {
 					<div class="split-60">
 						<div class="card-container">
 							<article class="card">
-								<p class="tagline"><strong><span>Hector Diaz : Web Developer,</span><br/>
-										Beautiful Websites,
+								<p class="tagline"><strong><span>Hector Diaz - Web Developer</span><br/>
+										Beautiful Websites
 										<br/>
-										Happy Clients.</strong></p>
+										Happy Clients</strong></p>
 								<h3 class="title"><span class="align">Example</span></h3>
 								<div class="content">
 									<div class="align">
 										<p>The teams I join soon find project timelines becoming shorter, and client satisfaction growing.<br><br>Let's meet to see if we would be a good fit.</p>
-										<div class="cta-container stack"><a class="btn cta" href="#folio"><span>View Portfolio</span></a><a class="btn cta" href="#contact"><span>Contact Hector</span></a>
+										<div class="cta-container stack">
+											<ul style="padding:0;list-style:none;margin:0;margin-top:2em;">
+												<li><a href="#folio">Portfolio</a>
+												</li>
+												<li><a href="/resume" target="_blank">Resume</a>
+												</li>
+												<li><a href="#contact">Contact</a>
+												</li>
+												<li><a href="https://blog.hectordiaz.pro">Blog</a>
+												</li>
+											</ul>
+											<!--<a class="btn cta" href="#folio"><span>View Portfolio</span></a><a class="btn cta" href="#contact"><span>Contact Hector</span></a>-->
 										</div>
 									</div>
 								</div>
