@@ -12,6 +12,6 @@ export {
 	Mutations,
 	Actions,
 	State,
-	Store,
 	store,
+	Store,
 }

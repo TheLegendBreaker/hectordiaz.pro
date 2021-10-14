@@ -3,7 +3,7 @@ import { Mutations, mutations } from './mutations'
 import { Actions, actions } from './actions'
 import { State, state } from './state'
 
-export const store = createStore({
+export const store = createStore<State>({
   state,
   mutations,
   actions,
@@ -21,7 +21,7 @@ export type Store = Omit<
 } & {
   dispatch<K extends keyof Actions>(
     key: K,
-    payload: Parameters<Actions[K]>[1],
+    payload: Parameters<Actions[K]>[2],
     options?: DispatchOptions
   ): ReturnType<Actions[K]>
 }

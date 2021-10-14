@@ -14,11 +14,11 @@ export type Mutations<S = State> = {
 export const mutations: MutationTree<State> & Mutations = {
 	[MutationTypes.setPost](state: State, payload: PostType[]) {
 		state.post = payload
-	}
+	},
 	[MutationTypes.setPosts](state: State, payload: PostType[]) {
 		state.posts = payload
-	}
+	},
 	[MutationTypes.setPostCategories](state: State, payload: Qcat) {
 		state.posts.filter(( post:PostType ) => post.id === payload.id)[0].categories = [...payload.cats];
-	}
+	},
 }

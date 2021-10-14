@@ -118,6 +118,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { ActionTypes } from "@/store";
 import Excerpt from "@/components/Excerpt.vue";
 
 @Options({
@@ -138,7 +139,7 @@ import Excerpt from "@/components/Excerpt.vue";
 	},
 
 	created() {
-		this.$store.dispatch("reqPosts");
+		this.$store.dispatch(ActionTypes.getPosts);
 	},
 
   components: {
