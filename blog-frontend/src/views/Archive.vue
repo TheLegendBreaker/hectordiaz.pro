@@ -3,7 +3,7 @@
 		<section class="archive in-blk" v-if="posts.length">
 			<h3> Recent Post Archive </h3>
 			<div class="post"  v-for="post in posts" :key="post.id">
-				<article class="excerpt-card sec-border">
+				<article class="excerpt-card sec-border" v-bind:class="post.categories[0]">
 				<div class="copy in-blk">
 					<div class="header">
 						<h4> {{ post.title.rendered }} </h4>
@@ -58,9 +58,9 @@
 				</ul>
 				<ul class="menu accent-border">
 					<h4 > Blog Categories </h4>
-					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
-					<li> <router-link to="/post/archive">Web Dev Portfolio</router-link> </li>
-					<li> <router-link to="/post/archive">Resume</router-link> </li>
+					<div v-for="post in posts" :key="post.id">
+						<li> <button v-on:click="filter(post.categories[0])">{{ post.categories[0] }}</button> </li>
+					</div>
 				</ul>
 			</section>
 
@@ -69,6 +69,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { ActionTypes  } from "@/store";
 import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 @Options({
@@ -86,21 +87,26 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	methods: {
 		filter: function(crit:string){
+			console.log('cat clicked');
 			const archive = document.querySelector('.archive');
-			if( archive != null ){
-				if ( archive.classList.contains('archive-filter') ){
-					archive.classList.add('archive-filter');
+			if( archive !== null ){
+				if ( archive.classList.contains('active-filter') ){
+					archive.classList.remove('active-filter');
 					} else {
-					archive.classList.remove('archive-filter');
+					archive.classList.add('active-filter');
 					}
 			}
+			const selectedPosts = document.querySelectorAll(".archive .excerpt-card."+crit ),
+			posts = document.querySelectorAll(".archive .excerpt-card");
+			posts.forEach( (post) => { post.classList.remove('filter'); })
+			selectedPosts.forEach( (post) => { post.classList.add('filter'); })
 			// sort through the post and add the class .filter to each that match the crit value
 		}
 
 	},
 
 	created() {
-		this.$store.dispatch("reqPosts");
+		this.$store.dispatch(ActionTypes.getPosts);
 	},
 
 
@@ -114,7 +120,7 @@ export default class Single extends Vue {}
 .archive {
 	margin-top: 150px;
 }
-.acitve-filter .excerpt-card:not(.filter){
+.active-filter .excerpt-card:not(.filter) {
 	display: none;
 }
 </style>

@@ -21,11 +21,13 @@ export class FeatMedia {
 
 	id: number;
 	date: string;
+	name: string;
 	source_url: string;
 
 	constructor() {
 		this.id = 0;
 		this.date = '';
+		this.name = '';
 		this.source_url = '';
 	}
 }
@@ -34,8 +36,10 @@ export class Embedded {
 	private __name__ = "Embedded";
 
 	"wp:featuredmedia": FeatMedia[];
+	"wp:term": [ FeatMedia[] ];
 	constructor() {
 		this["wp:featuredmedia"]= [new FeatMedia];
+		this["wp:term"]= [ [new FeatMedia] ];
 	}
 }
 

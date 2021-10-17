@@ -32,6 +32,7 @@ services:
     platform: linux/amd64
     volumes:
       - wp_data:/var/www/html
+      - ./wordpress/d_cap:/var/www/html/wp-content/themes/d_cap
     networks:
       - dcap-tier
     restart: always

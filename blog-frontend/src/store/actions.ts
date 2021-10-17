@@ -31,6 +31,7 @@ export const actions: ActionTree<State, State> & Actions  = {
 					fetch(`https://api.hectordiaz.pro/share/wp-json/wp/v2/posts?page=1&per_page=20&_embed`)
 						.then(( res ) => res.json())
 						.then((res ) => {
+								console.log(res);
 								const posts = res
 								.filter(( el:JSONPost ) => el.status === "publish" )
 								.map(function({id, slug,title,excerpt,date,tags,content,categories,_embedded}:JSONPost) {
@@ -47,11 +48,15 @@ export const actions: ActionTree<State, State> & Actions  = {
 									if (_embedded['wp:featuredmedia'] !== undefined) {
 										post.setFeatImg(_embedded['wp:featuredmedia'][0].source_url);
 									}
+									if (_embedded['wp:term'] !== undefined) {
+										post.setCategories([_embedded['wp:term'][0][0].name]);
+									}
 
 									return post;
 								})
 							commit(MutationTypes.setPosts, posts);
 
+							console.log(posts);
 							resolve(posts);
 							}
 						)

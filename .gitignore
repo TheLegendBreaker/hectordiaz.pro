@@ -4,6 +4,6 @@ blog-frontend/node_modules/
 
 npm-debug.log*
 .env*
-.jpg*
+**.jpg
 
 /docker/nginx/sites/**
