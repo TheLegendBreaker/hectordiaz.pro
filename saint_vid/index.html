@@ -197,7 +197,7 @@
 }
 
     </style>
-    <title>Hector Diaz, Web Developer</title>
+    <title>Saint CoVid</title>
   </head>
 
   <body>
@@ -206,19 +206,13 @@
 			<header id="top-bar">
 				<div class="container">
 					<div class="half">
-						<div id="flag-post">Hector's Web Portfolio</div>
+						<div id="flag-post">Saint Covid</div>
 					</div>
 					<div class="half">
 						<nav id="main-nav">
 							<h2>Navigation Menu</h2>
 							<ul style="list-style:none;margin:0;">
-								<li><a href="http://resume.hectordiaz.pro">Resume</a>
-								</li>
-								<li><a href="#contact">Contact</a>
-								</li>
-								<li><a href="#folio">Portfolio</a>
-								</li>
-								<li><a href="http://blog.hectordiaz.pro">Blog</a>
+								<li><a href="#shop">Support</a>
 								</li>
 							</ul>
 						</nav>
@@ -256,98 +250,7 @@
 					</div>
 				</div>
 			</section>
-			<section id="folio">
-				<h2 class="title container"><span>Portfolio</span></h2>
-				<div class="container">
-					<div class="card-container">
-						<article class="card loading-container border ">
-							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-							<div class="loading fill-parent"> </div>
-						</article>
-					</div>
-					<div class="card-container">
-						<article class="card loading-container border ">
-							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-							<div class="loading fill-parent"> </div>
-						</article>
-					</div>
-					<div class="card-container">
-						<article class="card loading-container border ">
-							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-							<div class="loading fill-parent"> </div>
-						</article>
-					</div>
-				</div>
-			</section>
-			<section id="xp">
-				<h2 class="title container"><span>Experience</span></h2>
-				<div class="container">
-					<div class="xp-container">
-						<div class="card-container">
-							<article class="card loading-container border ">
-								<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-								<div class="loading fill-parent"> </div>
-							</article>
-						</div>
-						<div class="card-container">
-							<article class="card loading-container border ">
-								<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-								<div class="loading fill-parent"> </div>
-							</article>
-						</div>
-						<div class="card-container">
-							<article class="card loading-container border ">
-								<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-								<div class="loading fill-parent"> </div>
-							</article>
-						</div>
-					</div>
-					<div class="cta container"><a class="btn cta" href="#">
-							<p>View Resume</p></a>
-					</div>
-					<div class="cta container"><a class="btn cta" href="#">
-							<p><strong>Download Resume</strong></p></a>
-					</div>
-				</div>
-			</section>
-			<section id="stack">
-				<h2 class="title container"><span>Stack of Choice</span></h2>
-				<div class="container">
-					<div class="card-container">
-						<article class="card loading-container border ">
-							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-							<div class="loading fill-parent"> </div>
-						</article>
-					</div>
-					<div class="card-container">
-						<article class="card loading-container border ">
-							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-							<div class="loading fill-parent"> </div>
-						</article>
-					</div>
-					<div class="card-container">
-						<article class="card loading-container border ">
-							<h3 style="width:100%;text-align:center;" class=" center-y title"><span class="align">Loading</span></h3>
-							<div class="loading fill-parent"> </div>
-						</article>
-					</div>
-				</div>
-			</section>
-			<section id="contact">
-				<h2 class="title container"><span>Contact</span></h2>
-				<div class="container">
-					<form class="send-email" id="email">
-						<!-- (method="POST" action="send" enctype="multipart/form-data")-->
-						<p>Send me your email and I will get in touch. </p>
-						<label><span class="sr-only">Send your email</span>
-							<input type="email" name="email">
-						</label>
-						<button>send</button>
-					</form>
-					<div class="send-an-email">
-						<p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
-					</div>
-				</div>
+			<section id="support" class="shop-container">
 			</section>
 
 			<footer>
@@ -381,106 +284,7 @@
 				</section>
 			</footer>
 		</main>
-    <script>
-      getEmailFormData = function() {
-      	// abstract this function further
-      	const form = document.getElementById('email'),
-      	data = new FormData(form);
-      	return (data.get('email') ? data : false);
-      }
-      
-      formatNotification = function(data) {
-      	// format the form data.
-      	let email = {};
-      	email['sender'] = data.get('email');
-      	email['subject'] = email['sender']+" wants to talk about hiring you.";
-      	email['body'] = email['sender']+"  has sent you their email address on <current date and time> and would like to set up a time to chat with you.";
-      
-      	return email;
-      	}
-      
-      getAndFormatEmail = function() {
-      	const data = getEmailFormData();
-      	let email;
-      
-      	if (data) {
-      		return email = formatNotification(data);
-      		}
-      }
-      
-      addWaitingAnimation = function(input) {
-      	input.classList.add('pulse','waiting');
-      }
-      
-      removeWaitingAnimation = function(input) {
-      	input.classList.remove('pulse','waiting');
-      }
-      
-      addSuccessBreadcrumb = function(input) {
-      	input.classList.add('success');
-      }
-      
-      removeSuccessBreadcrumb = function(input) {
-      	input.classList.remove('success');
-      }
-      
-      addErrorBreadcrumb = function(input) {
-      	input.classList.add('error');
-      }
-      
-      removeErrorBreadcrumb = function(input) {
-      	input.classList.remove('error');
-      }
-      
-      getEmailInput = function() {
-      	return document.querySelector('#email input');
-      }
-      
-      msgHandler = function(message, input) {
-      	removeWaitingAnimation(input);
-      	if(  message != "OK" ) {
-      			addErrorBreadcrumb(input);
-      			alert(message);
-      			return;
-      		}
-      	if(input.classList.contains('error')) {
-      			removeErrorBreadcrumb(input);
-      		}
-      	addSuccessBreadcrumb(input);
-      }
-      
-      sendEmail = function(email={},btn) {
-      	addWaitingAnimation(btn);
-      	Email.send({
-      		SecureToken: "907d29e9-397e-4268-b58b-5956fa02e6b0",
-      		To: "diazghector87203@gmail.com",
-      		From: email.sender,
-      		Subject: email.subject,
-      		Body: email.body
-      	}).then (
-      		message => {
-      			msgHandler(message, btn)
-      		}
-      	);
-      }
-      
-      emailFormActions = function(email={}) {
-      	const submitBtn = document.querySelector('#email button');
-      
-      	submitBtn.addEventListener('click', (event)=>{
-      		event.stopImmediatePropagation();
-      		event.preventDefault();
-      		email = getAndFormatEmail();
-      		sendEmail(email, submitBtn) });
-      }
-      
-      emailFormActions();
-      //-const input = getEmailInput();
-      //-addWaitingAnimation(input);
-      
-      
-    </script>
-		<script src="request_lib.js"> </script>
-		<script src="requests.js"> </script>
+		<script src="https://static.hectordiaz.pro/request_lib.js"> </script>
+		<script src="/static/scripts/requests.js"> </script>
   </body>
 </html>
