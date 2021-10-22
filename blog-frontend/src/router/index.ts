@@ -33,6 +33,17 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+	scrollBehavior (to, from, savedPosition) {
+		if (savedPosition) {
+			return savedPosition;
+		} else if (to.hash) {
+			console.log(to.hash);
+			return {
+				selector: to.hash,
+				behavior: 'smooth',
+			}
+		}
+	}
 });
 
 export default router;

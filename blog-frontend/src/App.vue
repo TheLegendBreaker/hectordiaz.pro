@@ -43,8 +43,7 @@
 			<router-link to="/about">About</router-link>
 			<router-link to="/about#contact">Contact</router-link>
 			<router-link to="/post/archive">Post Archive</router-link>
-			<a href="http://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
-			<a href="http://Resume.hectordiaz.pro">Resume</a>
+			<a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
 			</nav>
 		</section>
 	</div>
@@ -56,7 +55,7 @@
 		<section>
 			<div class="container">
 				<h2> Footer </h2>
-				<div class="in-blk crop round cyb-rez-sec"><img src="http://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
+				<div class="in-blk crop round cyb-rez-sec"><img src="https://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
 
 				<div class="thanks in-blk">
 					<p>
@@ -76,8 +75,8 @@
 				</div>
 
 				<div class="ctas in-blk">
-					<router-link to="/post/archive">View Hector's Linkedin profile</router-link>
-					<router-link to="/post/archive">View Hector's make blog</router-link>
+					<a href="/post/archive">View Hector's Linkedin profile</a>
+					<a href="https://portfolio.hectordiaz.pro/resume">View Hector's Resume</a>
 				</div>
 
 				<div class="nav-container in-blk">
@@ -87,8 +86,7 @@
 						<router-link to="/about">About</router-link>
 						<router-link to="/about">Contact</router-link>
 						<router-link to="/post/archive">Post Archive</router-link>
-						<router-link to="/post/archive">Web Dev Portfolio</router-link>
-						<router-link to="/post/archive">Resume</router-link>
+						<a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
 					</nav>
 				</div>
 			</div>
@@ -268,7 +266,7 @@ article[class*=card]:hover {
 }
 
 #nav {
-	max-width: 70px;
+	max-width: 100px;
 	text-align: left;
 }
 

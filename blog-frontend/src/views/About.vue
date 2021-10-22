@@ -7,7 +7,7 @@
 		<section id="about-author" class="pos-rel">
 		<div class="container">
 			<div class="center-x cyb-rez crop round">
-				<img src="http://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="hectordiaz.pro logo, a set of curel parenthese surrounding a dash">
+				<img src="https://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="hectordiaz.pro logo, a set of curel parenthese surrounding a dash">
 			</div>
 			<div class="body">
 					<h2> About Hector</h2>
@@ -48,7 +48,7 @@
 		methods: {
 			secondHalf():string { 
 				return  `
-					<img class="cyb-rez" src="http://static.hectordiaz.pro/logo.png" alt="Hectordiaz.pro logo, a set of curel parenthese surrounding a dash">
+					<img class="cyb-rez" src="https://static.hectordiaz.pro/logo.png" alt="Hectordiaz.pro logo, a set of curel parenthese surrounding a dash">
 					` ; 
 			},
 			firstHalf():string { 

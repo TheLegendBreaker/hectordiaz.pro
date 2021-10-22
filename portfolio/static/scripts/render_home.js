@@ -28,7 +28,7 @@ renderFolioClients = async function () {
 							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
 							<div class="content align">
 							<div class="align">
-							${items[i].content.rendered}
+							${items[i].excerpt.rendered}
 							</div>
 							<div class="cta-container align">
 								<a href="/mockup?${param}" class="in-blc btn cta">
@@ -57,6 +57,7 @@ renderFolioProjects = async function () {
 			card = '';
 			//if (items!=undefined) { 
 				for(const i in items) {
+					console.log(items[i]);
 
 						if (items[i]._embedded) {
 							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
@@ -75,7 +76,7 @@ renderFolioProjects = async function () {
 							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
 							<div class="content align">
 							<div class="align">
-							${items[i].content.rendered}
+							${items[i].excerpt.rendered}
 							</div>
 							</article>
 							</div>

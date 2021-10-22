@@ -9,6 +9,7 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Post from "@/components/post.vue"; // @ is an alias to /src
+import { ActionTypes  } from "@/store";
 
 @Options({
 	computed: {
@@ -18,7 +19,7 @@ import Post from "@/components/post.vue"; // @ is an alias to /src
 	},
 
 	created() {
-		this.$store.dispatch("reqPost", this.$route.params.id);
+		this.$store.dispatch(ActionTypes.getPost, this.$route.params.id);
 	},
 
 

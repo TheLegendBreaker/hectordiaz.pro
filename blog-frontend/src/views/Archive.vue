@@ -3,7 +3,7 @@
 		<section class="archive in-blk" v-if="posts.length">
 			<h3> Recent Post Archive </h3>
 			<div class="post"  v-for="post in posts" :key="post.id">
-				<article class="excerpt-card sec-border" v-bind:class="post.categories[0]">
+				<article class="excerpt-card sec-border" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
 				<div class="copy in-blk">
 					<div class="header">
 						<h4> {{ post.title.rendered }} </h4>
@@ -45,21 +45,13 @@
 					</div>
 				</article>
 		</div>
-			<section class=" center-y side-bar">
-				<h3> Side bar <span class="sr-only">Menu</span></h3>
-				<ul class="menu accent-border">
-					<h4 > Site Navigation </h4>
-					<li> <router-link to="/">Home</router-link> </li>
-					<li> <router-link to="/about">About</router-link> </li>
-					<li> <router-link to="/about">Contact</router-link> </li>
-					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
-					<li> <a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a> </li>
-					<li> <a href="https://resume.hectordiaz.pro">Resume</a> </li>
-				</ul>
+			<section class=" center-y side-bar cat-filter">
+				<h3> Filter Posts </h3>
 				<ul class="menu accent-border">
 					<h4 > Blog Categories </h4>
 					<div v-for="post in posts" :key="post.id">
-						<li> <button v-on:click="filter(post.categories[0])">{{ post.categories[0] }}</button> </li>
+						<li> <button v-on:click="filter(post.categories[0].replace(/\s+/g, '-'))" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
+							{{ post.categories[0] }}</button> </li>
 					</div>
 				</ul>
 			</section>
@@ -87,19 +79,23 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	methods: {
 		filter: function(crit:string){
-			console.log('cat clicked');
+			
 			const archive = document.querySelector('.archive');
 			if( archive !== null ){
-				if ( archive.classList.contains('active-filter') ){
-					archive.classList.remove('active-filter');
-					} else {
+				if ( !archive.classList.contains('active-filter') ){
 					archive.classList.add('active-filter');
-					}
+				}
 			}
-			const selectedPosts = document.querySelectorAll(".archive .excerpt-card."+crit ),
-			posts = document.querySelectorAll(".archive .excerpt-card");
-			posts.forEach( (post) => { post.classList.remove('filter'); })
-			selectedPosts.forEach( (post) => { post.classList.add('filter'); })
+			const selectedPosts = document.querySelectorAll( '.' + crit );
+			/*posts = document.querySelectorAll(".archive .excerpt-card");*/
+			/*posts.forEach( (post) => { post.classList.remove('filter'); })*/
+			selectedPosts.forEach( (post) => { 
+					if( post.classList.contains('filter') ){
+							post.classList.remove('filter'); 
+						} else {
+							post.classList.add('filter'); 
+						}
+			})
 			// sort through the post and add the class .filter to each that match the crit value
 		}
 
@@ -117,10 +113,31 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 export default class Single extends Vue {}
 </script>
 <style lang="scss">
-.archive {
-	margin-top: 150px;
-}
-.active-filter .excerpt-card:not(.filter) {
-	display: none;
-}
+	@use '../assets/variables.scss' as var;
+	@use '../assets/util.scss';
+	@use '../assets/mixins.scss';
+	.single .archive {
+		margin-top: 200px;
+		min-height: 450px;
+	}
+	.active-filter .excerpt-card:not(.filter) {
+		display: none;
+	}
+	.side-bar.cat-filter {
+		position: fixed;
+		z-index: 20;
+	}
+	.menu {
+		button {
+			border: 0;
+			background: transparent;
+			width: 100%;
+			color: var.$sec_blue;
+			text-align: left;
+			&.filter {
+				background: var.$sec_blue;
+				color: var.$bg_black;
+			}
+		}
+	}
 </style>

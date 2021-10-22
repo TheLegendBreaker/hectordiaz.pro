@@ -10,9 +10,10 @@
 				</h1>
 				<ul class="cat-menu">
 					<h2> Categories </h2>
-					<li> A bug I found </li>
-					<li> A thing I made </li>
-					<li> Some thoughts I had </li>
+					<div v-for="post in posts" :key="post.id">
+						<li> <a v-bind:class="post.categories[0].replace(/\s+/g, '-')">
+							{{ post.categories[0] }}</a> </li>
+					</div>
 				</ul>
 			</div>
 		</div>
@@ -54,12 +55,6 @@
 					<li> <router-link to="/">Home</router-link> </li>
 					<li> <router-link to="/about">About</router-link> </li>
 					<li> <router-link to="/about">Contact</router-link> </li>
-					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
-					<li> <router-link to="/post/archive">Web Dev Portfolio</router-link> </li>
-					<li> <router-link to="/post/archive">Resume</router-link> </li>
-				</ul>
-				<ul class="menu accent-border">
-					<h4 > Blog Categories </h4>
 					<li> <router-link to="/post/archive">Post Archive</router-link> </li>
 					<li> <router-link to="/post/archive">Web Dev Portfolio</router-link> </li>
 					<li> <router-link to="/post/archive">Resume</router-link> </li>
@@ -190,7 +185,6 @@ export default class Home extends Vue {}
 					margin: 10px 0;
 				}
 				li {
-					font-size: .75em;
 					padding: 5px 10px;
 				}
 			}
