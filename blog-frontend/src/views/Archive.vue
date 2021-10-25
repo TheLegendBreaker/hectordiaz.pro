@@ -48,7 +48,7 @@
 			<section class=" center-y side-bar cat-filter">
 				<h3> Filter Posts </h3>
 				<ul class="menu accent-border">
-					<h4 > Blog Categories </h4>
+					<h4 > Categories </h4>
 					<div v-for="post in posts" :key="post.id">
 						<li> <button v-on:click="filter(post.categories[0].replace(/\s+/g, '-'))" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
 							{{ post.categories[0] }}</button> </li>
@@ -87,16 +87,19 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 				}
 			}
 			const selectedPosts = document.querySelectorAll( '.' + crit );
-			/*posts = document.querySelectorAll(".archive .excerpt-card");*/
-			/*posts.forEach( (post) => { post.classList.remove('filter'); })*/
 			selectedPosts.forEach( (post) => { 
 					if( post.classList.contains('filter') ){
 							post.classList.remove('filter'); 
-						} else {
+						} 
+						else {
 							post.classList.add('filter'); 
 						}
 			})
-			// sort through the post and add the class .filter to each that match the crit value
+			if (document.querySelectorAll('.archive .filter').length === 0){
+				if( archive !== null ){
+						archive.classList.remove('active-filter');
+					}
+				}
 		}
 
 	},

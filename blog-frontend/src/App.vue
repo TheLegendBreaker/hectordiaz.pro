@@ -75,7 +75,7 @@
 				</div>
 
 				<div class="ctas in-blk">
-					<a href="/post/archive">View Hector's Linkedin profile</a>
+					<a href="https://www.linkedin.com/in/hector-g-diaz" target="_blank">View Hector's Linkedin profile</a>
 					<a href="https://portfolio.hectordiaz.pro/resume">View Hector's Resume</a>
 				</div>
 
@@ -291,6 +291,8 @@ footer {
 	top: 100%;
 	left: 0;
 	border-top: solid 2px var.$accent_red;
+	background: var.$bg_black;
+	z-index: 50;
 	.crop {
 		$d: 150px;
 		width: $d;
