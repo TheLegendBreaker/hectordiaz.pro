@@ -105,8 +105,8 @@
       }
       .crop {
       	overflow: hidden;
-      	height: 100%;
-      	max-height: 300px;
+      	height: calc( 100% - 2px );
+      	max-height: 400px;
       }
       .crop img {
       	height: auto;
@@ -528,5 +528,6 @@ li {
 		<script src="https://static.hectordiaz.pro/request_lib.js"> </script>
 		<script src="requests.js"> </script>
 		<script src="render_home.js"> </script>
+		<script src="homeActions.js"> </script>
   </body>
 </html>

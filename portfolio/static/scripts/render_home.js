@@ -1,7 +1,7 @@
 // render funcs
 
 
-renderFolioClients = async function () {
+renderFolioClientsExcerpt = async function () {
 	await getClients()
 		.then(items => {
 			//console.log('here are the items from wp', items);
@@ -17,11 +17,11 @@ renderFolioClients = async function () {
 						}
 
 						card += `
-							<div class="card-container ">
+							<div class="card-container rendered">
 							<article class="card border">
 							<figure>
-							<div class="crop">
-							<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
+							<div class="crop after-fill" style="background-image:url( ${imgSrc} );">
+							<img src="${imgSrc}" class="pos-rel" alt="/clients/UnionBaptist_About.png"/>
 							</div>
 							</figure>
 							<div class="main">
@@ -48,7 +48,7 @@ renderFolioClients = async function () {
 		).catch(err=>console.log(err));
 
 }
-renderFolioProjects = async function () {
+renderFolioProjectsExcerpt = async function () {
 	await getProjects()
 		.then(items => {
 			//console.log('here are the items from wp', items);
@@ -65,10 +65,10 @@ renderFolioProjects = async function () {
 						}
 
 						card += `
-							<div class="card-container ">
+							<div class="card-container rendered">
 							<article class="card border">
 							<figure>
-							<div class="crop">
+							<div class="crop after-fill">
 							<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
 							</div>
 							</figure>
@@ -146,7 +146,38 @@ renderStack = async function () {
 }
 
 // end render funcs
-renderFolioClients();
-renderFolioProjects();
+// page actions
+
+if (window.innerWidth <= 500){
+
+	scrollActions = function() {
+
+		const folioItems = document.querySelectorAll('#folio .card-container.rendered');
+		const scrollPosition = window.scrollY - 100;
+
+		folioItems.forEach(function(item){
+			const itemRect = item.getBoundingClientRect(),
+				elementTop = itemRect.top,
+				elementBottom = itemRect.bottom;
+
+			if ( (scrollPosition >= elementTop) && (scrollPosition <= elementBottom) ) {
+				item.classList.add('observed');
+			} else {
+				item.classList.remove('observed');
+			}
+		}
+		)
+
+	};
+
+	window.addEventListener('scroll', scrollActions);
+}
+// end page actions
+// invoke
+
+renderFolioClientsExcerpt();
+renderFolioProjectsExcerpt();
 renderXpItems();
 renderStack();
+
+// end invoke

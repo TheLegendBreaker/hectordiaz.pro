@@ -283,22 +283,38 @@ ul {
   display: block;
   padding-bottom: 20px;
 }
-
-#folio figure {
+/*card image ui animation*/
+#folio figure .crop {
+	background-size: 100%;
+	background-position: top;
+	transition: opacity 300ms ease;
+}
+#folio figure .crop:after {
 	background: #a1b3ce;
 	height: 100%;
+	top: 0;
+	bottom: 0;
+	transition: opacity 300ms ease;
 }
 
 #folio figure img {
 	filter: grayscale(1) contrast(2);
 	opacity: .5;
-	transition: filter 3ms ease;
+	z-index: 10;
+	transition: opacity 300ms ease;
 }
 
+#folio .card-container.observed figure img,
 #folio .card-container:hover figure img {
 	filter: unset;
-	opacity: 1;
+	opacity: 0;
 }
+
+#folio .card-container.observed figure .crop:after,
+#folio .card-container:hover figure .crop:after {
+	opacity: 0;
+}
+/* end card image ui animation*/
 
 #contact > div.container > * {
   margin: 0 0 40px;
@@ -459,7 +475,7 @@ div.loading {
 
   #folio .card {
     position: relative;
-		height: 300px;
+		height: 400px;
 		max-width: calc(1200px * .75 - 30px);
 		width: 100%;
 		margin: 0 auto;
