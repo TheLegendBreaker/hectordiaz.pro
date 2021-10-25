@@ -76,7 +76,7 @@
 
 				<div class="ctas in-blk">
 					<a href="https://www.linkedin.com/in/hector-g-diaz" target="_blank">View Hector's Linkedin profile</a>
-					<a href="https://portfolio.hectordiaz.pro/resume">View Hector's Resume</a>
+					<a href="https://portfolio.hectordiaz.pro/resume" target="_blank">View Hector's Resume</a>
 				</div>
 
 				<div class="nav-container in-blk">
@@ -84,7 +84,7 @@
 					<nav id="nav">
 						<router-link to="/">Home</router-link>
 						<router-link to="/about">About</router-link>
-						<router-link to="/about">Contact</router-link>
+						<router-link to="/about#contact">Contact</router-link>
 						<router-link to="/post/archive">Post Archive</router-link>
 						<a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
 					</nav>

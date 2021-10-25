@@ -24,14 +24,6 @@
 			<div class="container sec-border">
 				<h2> Contact </h2>
 				<div class="content">
-					<form class="in-blk send-email" id="email">
-					<!-- (method="POST" action="send" enctype="multipart/form-data")-->
-						<p>Send me your email and I will get in touch. </p>
-						<label><span class="sr-only">Send your email</span>
-						<input type="email" name="email">
-						</label>
-						<button>send</button>
-					</form>
 					<div class="in-blk send-an-email">
 					<p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
 					</div>
