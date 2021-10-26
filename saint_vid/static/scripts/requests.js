@@ -12,10 +12,23 @@ buildPostUrl = function(route="") {
 
 
 getShop = async function() {
-	const qUrl = buildPostUrl('?search=Etsy Shop'),
+	const qUrl = buildPostUrl('?_embed&search=Etsy Shop'),
 	shopPage = await getRequest(qUrl)
 	.then( res => { return res; } );
 	return shopPage;
+}
+
+getTipJar= async function() {
+	const qUrl = buildPostUrl('?_embed&search=Tip Jar'),
+	tipPage = await getRequest(qUrl)
+	.then( res => { return res; } );
+	return tipPage;
+}
+getTipJarSrc = async function() {
+	const qUrl = baseUrl + "/plugins/Tip Jar WP"
+	tipSrc = await getRequest(qUrl)
+	.then( res => { console.log(res); return res; } );
+	return tipSrc;
 }
 
 renderShop = async function () {
@@ -26,6 +39,7 @@ renderShop = async function () {
 			card = '';
 			//if (items!=undefined) { 
 				for(const i in shop) {
+					console.log(shop[i]);
 
 						card += `
 							<div id="shop" class="align">
@@ -43,5 +57,32 @@ renderShop = async function () {
 
 }
 
+renderTipJar = async function () {
+	await getTipJar()
+		.then(tipJar  => {
+			//console.log('here are the items from wp', items);
+			let param = '',
+			card = '';
+			//if (items!=undefined) { 
+				for(const i in tipJar) {
+					console.log(tipJar[i]);
+
+						card += `
+							<div id="tips" class="align">
+							${tipJar[i].content.rendered}
+							</div>
+							`
+
+					}
+					document.querySelector('.tipjar-container ').innerHTML = card;
+
+				return card;
+				//}
+			}
+		).catch(err=>console.log(err));
+
+}
 renderShop();
+renderTipJar();
+getTipJarSrc();
 

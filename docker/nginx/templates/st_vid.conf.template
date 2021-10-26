@@ -1,9 +1,23 @@
-server {
+ server {
 	listen 80;
+	listen [::]:80;
+	server_name ${DCAP_FOLIO};
+
+	include snippets/acme.conf;
+
+	location / {
+		rewrite ^ https://${DOLLAR}host${DOLLAR}request_uri? permanent;
+	}
+ }
+
+server {
+	listen 443 ssl http2;
 	server_name ${ST_VID};
 	# root is a volume that links to ./saint-covid
 	root /var/www/saint_vid;
 	index index.html;
+	ssl_certificate /etc/letsencrypt/live/${CERT_DIR}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/${CERT_DIR}/privkey.pem;
 
 	include snippets/acme.conf;
 
