@@ -382,13 +382,13 @@ li {
 			<section id="contact">
 				<h2 class="title container"><span>Contact</span></h2>
 				<div class="container">
-					<!--<form class="send-email" id="email">-->
-						<!--<p>Send me your email and I will get in touch. </p>-->
-						<!--<label><span class="sr-only">Send your email</span>-->
-							<!--<input type="email" name="email">-->
-						<!--</label>-->
-						<!--<button>send</button>-->
-					<!--</form>-->
+					<form class="send-email" id="email">
+						<p>Send me your email and I will get in touch. </p>
+						<label><span class="sr-only">Send your email</span>
+							<input type="email" name="email">
+						</label>
+						<button>send</button>
+					</form>
 					<div class="send-an-email">
 						<p>Or Send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
 					</div>
@@ -497,9 +497,9 @@ li {
       sendEmail = function(email={},btn) {
       	addWaitingAnimation(btn);
       	Email.send({
-      		SecureToken: "ce72b23c-882d-4f0a-ab18-fc265dd5e85b",
-      		To: "diazghector87203@gmail.com",
-      		From: email.sender,
+      		SecureToken: "9bc48b97-64de-45cf-a431-8fc54086798b",
+      		To: "hector@hectordiaz.pro",
+      		From: "hector@hectordiaz.pro",
       		Subject: email.subject,
       		Body: email.body
       	}).then (
