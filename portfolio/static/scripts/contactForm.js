@@ -1,28 +1,19 @@
-getEmailFormData = function() {
-	// abstract this function further
-	const form = document.getElementById('email'),
-	data = new FormData(form);
-	return (data.get('email') ? data : false);
-}
 
-formatNotification = function(data) {
-	// format the form data.
-	let email = {};
-	email['sender'] = data.get('email');
-	email['subject'] = email['sender']+" wants to talk about hiring you.";
-	email['body'] = email['sender']+"  has sent you their email address on <current date and time> and would like to set up a time to chat with you.";
-
-	return email;
+renderContactForm = function() {
+	const container = document.querySelector('.contact-form'),
+		form = ` <form class="send-email" id="email">
+			<p>Send me your email and I will get in touch. </p>
+			<label><span class="sr-only">Send your email</span>
+			<input type="email" name="email">
+			</label>
+			<button>send</button>
+			</form> `;
+	if (container !== undefined) {
+		container.innerHTML = form;
 	}
-
-getAndFormatEmail = function() {
-	const data = getEmailFormData();
-	let email;
-
-	if (data) {
-		return email = formatNotification(data);
-		}
 }
+
+// input bread crumb animations
 
 addWaitingAnimation = function(input) {
 	input.classList.add('pulse','waiting');
@@ -50,6 +41,34 @@ removeErrorBreadcrumb = function(input) {
 
 getEmailInput = function() {
 	return document.querySelector('#email input');
+}
+
+// input bread crumb animations
+
+getEmailFormData = function() {
+	// abstract this function further
+	const form = document.getElementById('email'),
+	data = new FormData(form);
+	return (data.get('email') ? data : false);
+}
+
+formatNotification = function(data) {
+	// format the form data.
+	let email = {};
+	email['sender'] = data.get('email');
+	email['subject'] = email['sender']+" wants to talk about hiring you.";
+	email['body'] = email['sender']+"  has sent you their email address on <current date and time> and would like to set up a time to chat with you.";
+
+	return email;
+	}
+
+getAndFormatEmail = function() {
+	const data = getEmailFormData();
+	let email;
+
+	if (data) {
+		return email = formatNotification(data);
+		}
 }
 
 msgHandler = function(message, input) {
@@ -90,6 +109,9 @@ emailFormActions = function(email={}) {
 		sendEmail(email, submitBtn) });
 }
 
+// invocations
+
+renderContactForm();
 emailFormActions();
-//-const input = getEmailInput();
-//-addWaitingAnimation(input);
+
+// end invocations
