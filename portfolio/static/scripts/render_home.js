@@ -153,7 +153,7 @@ if (window.innerWidth <= 500){
 	scrollActions = function() {
 
 		const folioItems = document.querySelectorAll('#folio .card-container.rendered');
-		const scrollPosition = window.scrollY - 100;
+		const scrollPosition = window.scrollY;
 
 		folioItems.forEach(function(item){
 			const itemRect = item.getBoundingClientRect(),
