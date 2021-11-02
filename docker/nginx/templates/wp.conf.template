@@ -33,6 +33,11 @@ server {
 		try_files ${DOLLAR}uri ${DOLLAR}uri/ /index.php?${DOLLAR}args;
 	}
 
+	# discourage indexing
+	location ~ .*/(?:archive|filter|topic)/.* {
+			add_header X-Robots-Tag "noindex, follow" always;      
+	}
+
 #############
 # Specify a charset
 ############
