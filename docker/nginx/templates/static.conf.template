@@ -21,6 +21,7 @@ server {
 	include mime.types;
 
 	location ~ \.(css) {
+		add_header "Access-Control-Allow-Origin" "https://portfolio.hectordiaz.pro https://saint-vid.org https://blog.hectordiaz.pro";
 		root /var/www/static/styles;
 		try_files ${DOLLAR}uri =404;
 	}
@@ -28,7 +29,7 @@ server {
 		root /var/www/static/assets;
 	}
 	location ~ \.(svg) {
-		add_header "Access-Control-Allow-Origin" "https://portfolio.hectordiaz.pro";
+		add_header "Access-Control-Allow-Origin" "https://portfolio.hectordiaz.pro https://saint-vid.org https://blog.hectordiaz.pro";
 		add_header Content-Type image/svg+xml;
 		add_header Vary Accept-Encoding;
 		root /var/www/static/assets;

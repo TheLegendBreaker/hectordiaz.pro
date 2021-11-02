@@ -37,6 +37,13 @@ getPostByCategory = async function(catSlug=""){
 	return posts;
 }
 
+getPostById = async function(id=""){
+	const url = basePostUrl + '/' + id + '?_embed',
+	post = await getRequest(url)
+		.then(post=>{ return post; });
+	return post;
+}
+
 getMediaBySlug = async function(qSlug=""){
 	const qUrl = baseMediaUrl + "?slug=" + qSlug;
 	media = await getRequest(qUrl)

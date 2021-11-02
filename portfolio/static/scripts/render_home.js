@@ -31,6 +31,9 @@ renderFolioClientsExcerpt = async function () {
 							${items[i].excerpt.rendered}
 							</div>
 							<div class="cta-container align">
+								<a href="/clients/${items[i].id}" class="in-blc btn cta">
+									Read more.
+								</a>
 								<a href="/mockup?${param}" class="in-blc btn cta">
 									View mock up.
 								</a>

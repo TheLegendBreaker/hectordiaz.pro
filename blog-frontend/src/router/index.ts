@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Single from "../views/single.vue";
 import Archive from "../views/Archive.vue";
+import Gallery from "../views/Gallery.vue";
+import Single from "../views/single.vue";
 import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -27,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/post/archive",
     name: "archive",
     component: Archive,
+  },
+  {
+    path: "/gallery",
+    name: "gallery",
+    component: Gallery,
   },
 ];
 

@@ -7,3 +7,5 @@ npm-debug.log*
 **.jpg
 
 /docker/nginx/sites/**
+
+saint_vid*

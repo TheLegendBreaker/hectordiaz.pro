@@ -1,26 +1,25 @@
 <template>
   <div class="single container">
 		<section class="archive in-blk" v-if="posts.length">
-			<h3> Recent Post Archive </h3>
+			<h3> Art Gallery </h3>
 			<div class="post"  v-for="post in posts" :key="post.id">
 				<article class="excerpt-card sec-border" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
-				<div class="copy in-blk">
-					<div class="header">
-						<h4> {{ post.title.rendered }} </h4>
+
+					<figure v-if="post.featImg" >
+						<div class="cyb-rez-sec in-blk .crop">
+							<img v-bind:src="post.featImg">
+						</div>
+						<div v-bind:style="{ 'background-image': 'url('+ post.featImg +')' }" class="fill-parent"></div>
+					</figure>
+
+					<div class="copy in-blk">
+						<div class="header">
+							<h4> {{ post.title.rendered }} </h4>
+						</div>
+						<div class="ctas">
+							<router-link :to="{ name: 'Post', params: { id: post.id, title: post.slug } }">Read More</router-link>
+						</div>
 					</div>
-					<small> categorey: {{post.categories[0]}} </small>
-					<div v-html="post.excerpt.rendered" class="body">
-					</div>
-					<div class="ctas">
-						<router-link :to="{ name: 'Post', params: { id: post.id, title: post.slug } }">Read More</router-link>
-					</div>
-				</div>
-				<figure v-if="post.featImg" >
-					<div class="cyb-rez-sec in-blk .crop">
-						<img v-bind:src="post.featImg">
-					</div>
-					<div v-bind:style="{ 'background-image': 'url('+ post.featImg +')' }" class="fill-parent"></div>
-				</figure>
 				</article>
 			</div>
 		</section>
@@ -73,7 +72,9 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	computed: {
 		posts() {
-			return this.$store.state.posts;
+			const posts = this.$store.getters.getGalleryPosts;
+			console.log(posts, 'posts from gallery component');
+			return posts;
 		}
 	},
 

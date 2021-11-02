@@ -1,7 +1,7 @@
 <?php
 function initCors( $value ) {
   $origin = get_http_origin();
-  $allowed_origins = [ 'https://portfolio.hectordiaz.pro', 'https://blog.hectordiaz.pro', 'http://saint-vid.org' ];
+  $allowed_origins = [ 'https://portfolio.hectordiaz.pro', 'https://blog.hectordiaz.pro', 'https://saint-vid.org' ];
 
   if ( $origin && in_array( $origin, $allowed_origins ) ) {
     header( 'Access-Control-Allow-Origin: ' . esc_url_raw( $origin ) );
@@ -42,3 +42,22 @@ function dcap_get_rest_category_names($object, $field_name, $request) {
 }
 
 //add_action( 'rest_api_init', 'dcap_register_rest_category_names' );
+// registering custom post types
+
+function dcap_block_img_grid_enqueue() {
+	wp_enqueue_script(
+		'img_grid_script',
+		get_template_direcotry_uri() . 'scripts/blocks/imgGrid.js',
+		array( 'wp-blocks' )
+	);
+}
+
+function dcap_register_custom_blocks() {
+}
+
+// actions
+
+add_action( 'enpueue_block_editor_assets', 'decap_block_img_grid_enqureue' );
+
+// end actions
+// end registering custom post types
