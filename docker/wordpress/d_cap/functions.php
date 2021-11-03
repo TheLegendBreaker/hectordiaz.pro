@@ -57,7 +57,12 @@ function dcap_register_custom_blocks() {
 
 // actions
 
-add_action( 'enpueue_block_editor_assets', 'decap_block_img_grid_enqureue' );
+//add_action( 'enpueue_block_editor_assets', 'decap_block_img_grid_enqureue' );
 
 // end actions
 // end registering custom post types
+// add featured media feature in block editor
+
+add_theme_support( 'post-thumbnails' );
+
+// end add featured media feature in block editor
