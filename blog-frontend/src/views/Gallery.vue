@@ -1,12 +1,12 @@
 <template>
   <div class="single container">
-		<section class="archive in-blk" v-if="posts.length">
+		<section id="gallery" class="card-grid in-blk" v-if="posts.length">
 			<h3> Art Gallery </h3>
-			<div class="post"  v-for="post in posts" :key="post.id">
-				<article class="excerpt-card sec-border" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
+			<div class="item in-blk"  v-for="post in posts" :key="post.id">
+				<article class="card pos-rel sec-border" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
 
-					<figure v-if="post.featImg" >
-						<div class="cyb-rez-sec in-blk .crop">
+					<figure class="pos-rel" v-if="post.featImg" >
+						<div class="cyb-rez-sec in-blk crop">
 							<img v-bind:src="post.featImg">
 						</div>
 						<div v-bind:style="{ 'background-image': 'url('+ post.featImg +')' }" class="fill-parent"></div>
@@ -44,16 +44,6 @@
 					</div>
 				</article>
 		</div>
-			<section class=" center-y side-bar cat-filter">
-				<h3> Filter Posts </h3>
-				<ul class="menu accent-border">
-					<h4 > Categories </h4>
-					<div v-for="post in posts" :key="post.id">
-						<li> <button v-on:click="filter(post.categories[0].replace(/\s+/g, '-'))" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
-							{{ post.categories[0] }}</button> </li>
-					</div>
-				</ul>
-			</section>
 
   </div>
 </template>
@@ -120,28 +110,24 @@ export default class Single extends Vue {}
 	@use '../assets/variables.scss' as var;
 	@use '../assets/util.scss';
 	@use '../assets/mixins.scss';
-	.single .archive {
+	#gallery {
 		margin-top: 200px;
 		min-height: 450px;
 	}
-	.active-filter .excerpt-card:not(.filter) {
-		display: none;
-	}
-	.side-bar.cat-filter {
-		position: fixed;
-		z-index: 20;
-	}
-	.menu {
-		button {
-			border: 0;
-			background: transparent;
+	.card-grid {
+		.item {
 			width: 100%;
-			color: var.$sec_blue;
-			text-align: left;
-			&.filter {
-				background: var.$sec_blue;
-				color: var.$bg_black;
-			}
+			max-width: calc( 1200px * .33 );
+			padding: 30px;
+		 @include mixins.laptop{
+				width: 32%;
+			 }
+			 figure {
+				height: 300px;
+			 }
+			 .copy {
+				padding: 15px;
+			 }
 		}
-	}
+}
 </style>
