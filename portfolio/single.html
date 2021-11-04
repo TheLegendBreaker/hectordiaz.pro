@@ -161,7 +161,7 @@
 }
 #top-bar .half #main-nav ul {
   position: absolute;
-  right: 30px;
+  right: 0;
   top: 100%;
 	padding: 10px 0;
 	width: 100px;
@@ -216,9 +216,6 @@
 				filter: grayscale(1);
 			}
 
-			.main {
-				padding: 0 30px;
-			}
 
 			.current-pg {
 				background-color: #a1b3ce;
@@ -231,6 +228,9 @@
 				}
 			}
 			@media (min-width: 700px) {
+				.main {
+					padding: 0 30px;
+				}
 				#single figure .crop {
 					width: 100%;
 					height: auto;

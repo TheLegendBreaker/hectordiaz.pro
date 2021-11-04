@@ -26,12 +26,12 @@ renderSingle = async function () {
 					card += `
 						<div class="card-container ">
 						<article>
-						<h2 class="title"><span class="align">${item.title.rendered}</span></h2>
-						<div class="main split-3rd">
+						<div class="main split-2-3rds">
+							<h2 class="title"><span class="align">${item.title.rendered}</span></h2>
 							${item.content.rendered}
 						</div>
-						<figure class="split-2-3rds pos-rel">
-							<a target="_blank" href="/mockup?${param}" class="in-blc btn cta">
+						<figure class="split-3rd pos-rel">
+							<a href="/mockup?${param}" class="in-blc btn cta">
 								<div class="crop">
 								<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
 								</div>
