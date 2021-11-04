@@ -125,7 +125,8 @@ import Excerpt from "@/components/Excerpt.vue";
 
 	computed: {
 		posts() {
-			return this.$store.state.posts;
+			const posts = this.$store.getters.getChannelPosts;
+			return posts;
 		},
 
 		featured: function() {

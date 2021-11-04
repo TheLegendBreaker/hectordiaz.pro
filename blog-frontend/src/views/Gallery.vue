@@ -63,7 +63,6 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 	computed: {
 		posts() {
 			const posts = this.$store.getters.getGalleryPosts;
-			console.log(posts, 'posts from gallery component');
 			return posts;
 		}
 	},
