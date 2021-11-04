@@ -54,19 +54,18 @@
       }
       .split-60, .six-four-split .content {
       	min-width: 250px;
-      	width: 55%;
-      	max-width: calc(1200px * .55);
+      	width: 59%;
+      	max-width: calc(1200px * .59);
       }
       .split-60+.split-40 {
       	left: 0;
       }
       .split-40+.split-60 {
-      	left: calc(1200px * .35);
+      	left: calc(1200px * .39);
       }
       .split-40, .six-four-split figure {
-      	max-width: calc(1200px * .35);
+      	max-width: calc(1200px * .39);
       	width: 100%;
-      	margin: 04
       }
       .cta-container.stack .btn.cta {
       	display: block;
@@ -205,7 +204,16 @@
 			}
 
 			#single figure .crop {
-				width: 100%;
+				width: 75%;
+				height: 100px;
+				background:#fff;
+			}
+			#single figure a.btn {
+				color: #000;
+			}
+			#single figure .crop img {
+				opacity: .5;
+				filter: grayscale(1);
 			}
 
 			.main {
@@ -222,13 +230,50 @@
 					max-height: 1300px;
 				}
 			}
-			.split-30 {
-				width: 29%;
-				max-width: calc( 1200px * .29 );
-			}
-			.split-70 {
-				width: 69%;
-				max-width: calc( 1200px * .69 );
+			@media (min-width: 700px) {
+				#single figure .crop {
+					width: 100%;
+					height: auto;
+				}
+				#single figure a.btn,
+				#single figure .crop img {
+					transition: all .5s auto;
+				}
+				#single figure a.btn {
+					color: inherit;
+					z-index: 0;
+				}
+				#single figure .crop img {
+					opacity: 1;
+					filter: unset;
+				}
+
+				#single figure:hover a.btn {
+					color: #000;
+					z-index: 10;
+				}
+				#single figure:hover .crop img {
+					opacity: .5;
+					filter: grayscale(1);
+					z-index: 10;
+				}
+
+				.split-30 {
+					width: 29%;
+					max-width: calc( 1200px * .29 );
+				}
+				.split-70 {
+					width: 69%;
+					max-width: calc( 1200px * .69 );
+				}
+				.split-3rd {
+					width: 32%;
+					max-width: calc( 1200px * .32 );
+				}
+				.split-2-3rds {
+					width: 62%;
+					max-width: calc( 1200px * .62 );
+				}
 			}
     </style>
     <title>Hector Diaz, Web Developer</title>

@@ -27,7 +27,10 @@ renderSingle = async function () {
 						<div class="card-container ">
 						<article>
 						<h2 class="title"><span class="align">${item.title.rendered}</span></h2>
-						<figure class="split-30 pos-rel">
+						<div class="main split-3rd">
+							${item.content.rendered}
+						</div>
+						<figure class="split-2-3rds pos-rel">
 							<a target="_blank" href="/mockup?${param}" class="in-blc btn cta">
 								<div class="crop">
 								<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>
@@ -37,11 +40,6 @@ renderSingle = async function () {
 								</span>
 							</a>
 						</figure>
-						<div class="main split-70">
-						<div class="content align">
-						<div class="align">
-						${item.content.rendered}
-						</div>
 						</article>
 						</div>
 						`
