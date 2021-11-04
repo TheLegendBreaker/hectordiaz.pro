@@ -73,8 +73,9 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	computed: {
 		posts() {
-			return this.$store.state.posts;
-		}
+			const posts = this.$store.getters.getChannelPosts;
+			return posts;
+		},
 	},
 
 	methods: {
