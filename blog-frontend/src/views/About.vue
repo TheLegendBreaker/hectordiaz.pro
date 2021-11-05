@@ -24,6 +24,8 @@
 			<div class="container sec-border">
 				<h2> Contact </h2>
 				<div class="content">
+					<div class="contact-form in-blk">
+					</div>
 					<div class="in-blk send-an-email">
 					<p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
 					</div>
@@ -38,11 +40,24 @@
 
 	@Options ({
 		methods: {
+			contactScriptLoader():void {
+			const src = "https://static.hectordiaz.pro/contactForm.js";
+
+				if (document) {
+						const script = document.createElement('script')
+						script.setAttribute('src', src)
+						document.head.appendChild(script)
+						}else{
+						console.log('else triggered')
+						}
+			},
+
 			secondHalf():string { 
 				return  `
 					<img class="cyb-rez" src="https://static.hectordiaz.pro/logo.png" alt="Hectordiaz.pro logo, a set of curel parenthese surrounding a dash">
 					` ; 
 			},
+
 			firstHalf():string { 
 				return  `
 					<h1> About this blog </h1>
@@ -57,6 +72,10 @@
 				`; 
 			},
 		},
+
+		created: function(){
+				this.contactScriptLoader();
+			},
 
 		components: {
 			SplitHero,
@@ -121,9 +140,17 @@ export default class About extends Vue {}
 		button {
 			margin-top: 15px;
 			padding: 15px 20px;
+			width: 70px;
 			background: var.$sec_blue;
 			color: var.$bg_black;
 			border: none;
+			transition: all .3s ease;
+							&.error {
+				background: var.$error_red;
+							}
+							&.success {
+				background: var.$success_grn;
+							}
 		}
 	}
 	.send-an-email {
@@ -131,5 +158,30 @@ export default class About extends Vue {}
 			padding-left: 0;
 		}
 	}
+}
+html body .pulse {
+  box-shadow: 0 0 0 0 #3b55b3;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+html body .pulse.waiting {
+  background: #3b55b3;
+	filter: grayscale(1);
+  color: #fff;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 85, 179, 0.7);
+    transform: scale(0.95);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 85, 179, 0);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 85, 179, 0);
+    transform: scale(0.95);
+  }
 }
 </style>

@@ -1,3 +1,20 @@
+// load dependency libraries
+
+scriptLoader = function(src) {
+
+	if (document) {
+			const script = document.createElement('script')
+			script.setAttribute('src', src)
+			document.head.appendChild(script)
+			}
+
+}
+
+loadSMTPJS = function() {
+	const src = "https://smtpjs.com/v3/smtp.js";
+	scriptLoader(src);
+}
+// end load dependency libraries
 
 renderContactForm = function() {
 	const container = document.querySelector('.contact-form'),
@@ -25,6 +42,7 @@ removeWaitingAnimation = function(input) {
 
 addSuccessBreadcrumb = function(input) {
 	input.classList.add('success');
+	input.innerHTML = "sent";
 }
 
 removeSuccessBreadcrumb = function(input) {
@@ -111,6 +129,7 @@ emailFormActions = function(email={}) {
 
 // invocations
 
+loadSMTPJS();
 renderContactForm();
 emailFormActions();
 
