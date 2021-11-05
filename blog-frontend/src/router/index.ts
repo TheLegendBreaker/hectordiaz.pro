@@ -29,6 +29,11 @@ const routes: Array<RouteRecordRaw> = [
     component: Archive,
   },
   {
+    path: "/post/archive/:activeFilter",
+    name: "filteredArchive",
+    component: Archive,
+  },
+  {
     path: "/gallery",
     name: "gallery",
     component: Gallery,

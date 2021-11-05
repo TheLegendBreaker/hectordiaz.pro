@@ -10,9 +10,11 @@
 				</h1>
 				<ul class="cat-menu">
 					<h2> Categories </h2>
-					<div v-for="post in posts" :key="post.id">
-						<li> <a v-bind:class="post.categories[0].replace(/\s+/g, '-')">
-							{{ post.categories[0] }}</a> </li>
+					<div v-for="cat in categories" :key="cat.id">
+						<li>
+							<router-link :to="{ name: 'filteredArchive', params:{ activeFilter: cat.name.replace(/\s+/g, '-') } }">
+							{{ cat.name }}</router-link>
+						</li>
 					</div>
 				</ul>
 			</div>
@@ -124,18 +126,23 @@ import Excerpt from "@/components/Excerpt.vue";
 	},
 
 	computed: {
+		categories() {
+			const categories = this.$store.getters.getChannelCategories;
+			return categories;
+		},
 		posts() {
 			const posts = this.$store.getters.getChannelPosts;
 			return posts;
 		},
 
 		featured: function() {
-			return this.$store.state.posts[1];
+			return this.$store.getters.getRandomChannelPost;
 		}
 	},
 
 	created() {
 		this.$store.dispatch(ActionTypes.getPosts);
+		this.$store.dispatch(ActionTypes.getCategories);
 	},
 
   components: {

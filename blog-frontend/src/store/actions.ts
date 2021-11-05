@@ -1,5 +1,5 @@
 import { MutationTypes, ActionTypes, Mutations, State } from './'
-import { JSONPost, PostType, JSONCat } from "@/types"
+import { JSONPost, PostType, JSONCat, Category } from "@/types"
 import { ActionTree, ActionContext } from "vuex"
 
 type AugmentedActionContext = {
@@ -21,6 +21,9 @@ export interface Actions {
 		{ commit }: AugmentedActionContext,
 		payload: number,
 	): Promise<PostType[]>
+	[ActionTypes.getCategories](
+		{ commit }: AugmentedActionContext,
+	): Promise<Category[]>
 }
 
 export const actions: ActionTree<State, State> & Actions  = {
@@ -130,6 +133,28 @@ export const actions: ActionTree<State, State> & Actions  = {
 
 					commit(MutationTypes.setPost, post);
 					return post;
+				})
+				.catch(err=> reject(new Error(err)))
+				
+		})
+	},
+	[ActionTypes.getCategories]({ commit }) {
+		const qString = `https://api.hectordiaz.pro/share/wp-json/wp/v2/categories`;
+
+		return new Promise<Category[]>(
+			(resolve, reject)=>{
+				fetch(qString)
+				.then(res => res.json())
+				.then((res)=>{
+					const cat = res
+					.map(function({id, name}:JSONCat) {
+						const cat = new Category(id, name);
+
+						return cat;
+					})
+
+					commit(MutationTypes.setCategories, cat);
+					return cat;
 				})
 				.catch(err=> reject(new Error(err)))
 				

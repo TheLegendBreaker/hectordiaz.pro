@@ -49,9 +49,9 @@
 				<h3> Filter Posts </h3>
 				<ul class="menu accent-border">
 					<h4 > Categories </h4>
-					<div v-for="post in posts" :key="post.id">
-						<li> <button v-on:click="filter(post.categories[0].replace(/\s+/g, '-'))" v-bind:class="post.categories[0].replace(/\s+/g, '-')">
-							{{ post.categories[0] }}</button> </li>
+					<div v-for="cat in categories" :key="cat.id">
+						<li> <button v-on:click="filter(cat.name.replace(/\s+/g, '-'))" v-bind:class="cat.name.replace(/\s+/g, '-')">
+							{{ cat.name }}</button> </li>
 					</div>
 				</ul>
 			</section>
@@ -72,6 +72,9 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 	},
 
 	computed: {
+		categories() {
+			return this.$store.getters.getChannelCategories;
+		},
 		posts() {
 			const posts = this.$store.getters.getChannelPosts;
 			return posts;
@@ -80,7 +83,7 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	methods: {
 		filter: function(crit:string){
-			
+
 			const archive = document.querySelector('.archive');
 			if( archive !== null ){
 				if ( !archive.classList.contains('active-filter') ){
@@ -107,8 +110,15 @@ import Excerpt from "@/components/Excerpt.vue"; // @ is an alias to /src
 
 	created() {
 		this.$store.dispatch(ActionTypes.getPosts);
+		this.$store.dispatch(ActionTypes.getCategories);
 	},
 
+	mounted() {
+		const filter = this.$route.params.activeFilter;
+		if (filter) {
+			this.filter(filter);
+		}
+	},
 
   components: {
     Excerpt,
