@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Archive from "../views/Archive.vue";
 import Gallery from "../views/Gallery.vue";
 import Single from "../views/single.vue";
+import About from "../views/About.vue";
 import Home from "../views/Home.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -9,15 +10,13 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "Home",
     component: Home,
+		meta: { scrollToTop: true },
   },
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: About,
+		meta: { scrollToTop: true },
   },
   {
     path: "/post/:id/:title",
@@ -39,16 +38,15 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-	scrollBehavior (to, from, savedPosition) {
+	scrollBehavior(to, from, savedPosition) {
 		if (savedPosition) {
 			return savedPosition;
 		} else if (to.hash) {
 			console.log(to.hash);
-			return {
-				selector: to.hash,
-				behavior: 'smooth',
+			return { el: to.hash, behavior: 'smooth', }
+		} else {
+				return {top: 0}
 			}
-		}
 	}
 });
 

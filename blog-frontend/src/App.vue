@@ -49,7 +49,7 @@
 	</div>
 	</header>
 
-  <router-view />
+	<router-view />
 
 	<footer class="pos-abso">
 		<section>
