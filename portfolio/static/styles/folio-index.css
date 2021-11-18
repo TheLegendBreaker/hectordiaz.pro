@@ -217,7 +217,6 @@
 }
 
 .card .btn.cta {
-	margin-top: 15px;
 	padding: 15px 0;
 }
 
@@ -282,7 +281,6 @@ ul {
 }
 #folio .cta-container .cta {
   display: block;
-  padding-bottom: 20px;
 }
 /*card image ui animation*/
 #folio figure .crop {

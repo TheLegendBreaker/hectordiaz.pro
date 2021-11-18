@@ -27,10 +27,10 @@ renderSingle = async function () {
 						<div class="card-container ">
 						<article>
 						<div class="main split-2-3rds">
-							<h2 class="title"><span class="align">${item.title.rendered}</span></h2>
+							<h1 class="title"><span class="align">${item.title.rendered}</span></h1>
 							${item.content.rendered}
 						</div>
-						<figure class="split-3rd pos-rel">
+						<figure id="mockup-cta" class="split-3rd pos-rel">
 							<a href="/mockup?${param}" class="in-blc btn cta">
 								<div class="crop">
 								<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>

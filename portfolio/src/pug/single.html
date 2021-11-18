@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://static.hectordiaz.pro/fonts/mont/stylesheet.css">
-    <link rel="stylesheet" href="https://static.hectordiaz.pro/util.css"> <!-- atomized style rules for page base styles-->
 		<link rel="stylesheet" href="/folio-index.css">
-		<link rel="stylesheet" href="/single.css">
-
+    <link rel="stylesheet" href="https://static.hectordiaz.pro/util.css">
     <link rel="icon" type="image/ico" href="https://static.hectordiaz.pro/favicon.ico">
+    <!-- atomize style rules for page base styles-->
     <style>
 			.outline * {
 				outline: dotted 1px aqua;
@@ -21,7 +20,6 @@
       	font-family: mont, Helvetica, Arial, Sans, 'Open Sans';
       	}
 			h1,
-			h1>*,
 			h2,
 			h2>*,
 			h3,
@@ -201,9 +199,81 @@
   height: auto;
 }
 
+			#single {
+				margin-top: 150px;
+			}
+
+			#single figure .crop {
+				width: 75%;
+				height: 100px;
+				background:#fff;
+			}
+			#single figure a.btn {
+				color: #000;
+			}
+			#single figure .crop img {
+				opacity: .5;
+				filter: grayscale(1);
+			}
+
+
 			.current-pg {
 				background-color: #a1b3ce;
 				color: #14212b;
+			}
+			@media (min-width: 1000px) {
+				#resume #render {
+					height: 100vw;
+					max-height: 1300px;
+				}
+			}
+			@media (min-width: 700px) {
+				.main {
+					padding: 0 30px;
+				}
+				#single figure .crop {
+					width: 100%;
+					height: auto;
+				}
+				#single figure a.btn,
+				#single figure .crop img {
+					transition: all .5s auto;
+				}
+				#single figure a.btn {
+					color: inherit;
+					z-index: 0;
+				}
+				#single figure .crop img {
+					opacity: 1;
+					filter: unset;
+				}
+
+				#single figure:hover a.btn {
+					color: #000;
+					z-index: 10;
+				}
+				#single figure:hover .crop img {
+					opacity: .5;
+					filter: grayscale(1);
+					z-index: 10;
+				}
+
+				.split-30 {
+					width: 29%;
+					max-width: calc( 1200px * .29 );
+				}
+				.split-70 {
+					width: 69%;
+					max-width: calc( 1200px * .69 );
+				}
+				.split-3rd {
+					width: 32%;
+					max-width: calc( 1200px * .32 );
+				}
+				.split-2-3rds {
+					width: 62%;
+					max-width: calc( 1200px * .62 );
+				}
 			}
     </style>
     <title>Hector Diaz, Web Developer</title>
@@ -221,11 +291,11 @@
 						<nav id="main-nav">
 							<h2>Navigation Menu</h2>
 							<ul style="list-style:none;margin:0;">
-								<li><a  href="/resume">Resume</a>
+								<li><a class="current-pg" href="/resume">Resume</a>
 								</li>
 								<li><a href="#contact">Contact</a>
 								</li>
-								<li><a class="current-pg" href="/#folio">Portfolio</a>
+								<li><a href="/#folio">Portfolio</a>
 								</li>
 								<li><a href="https://blog.hectordiaz.pro">Blog</a>
 								</li>

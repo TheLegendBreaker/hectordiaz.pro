@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://static.hectordiaz.pro/fonts/mont/stylesheet.css">
-    <link rel="stylesheet" href="https://static.hectordiaz.pro/util.css"> <!-- atomized style rules for page base styles-->
-		<link rel="stylesheet" href="/folio-index.css">
-		<link rel="stylesheet" href="/single.css">
-
+		<link rel="stylesheet" href="folio-index.css">
+    <link rel="stylesheet" href="https://static.hectordiaz.pro/util.css">
     <link rel="icon" type="image/ico" href="https://static.hectordiaz.pro/favicon.ico">
+		<script src="https://smtpjs.com/v3/smtp.js"> </script>
+    <!-- atomize style rules for page base styles-->
     <style>
 			.outline * {
 				outline: dotted 1px aqua;
@@ -21,7 +21,6 @@
       	font-family: mont, Helvetica, Arial, Sans, 'Open Sans';
       	}
 			h1,
-			h1>*,
 			h2,
 			h2>*,
 			h3,
@@ -56,18 +55,19 @@
       }
       .split-60, .six-four-split .content {
       	min-width: 250px;
-      	width: 59%;
-      	max-width: calc(1200px * .59);
+      	width: 55%;
+      	max-width: calc(1200px * .55);
       }
       .split-60+.split-40 {
       	left: 0;
       }
       .split-40+.split-60 {
-      	left: calc(1200px * .39);
+      	left: calc(1200px * .35);
       }
       .split-40, .six-four-split figure {
-      	max-width: calc(1200px * .39);
+      	max-width: calc(1200px * .35);
       	width: 100%;
+      	margin: 04
       }
       .cta-container.stack .btn.cta {
       	display: block;
@@ -96,6 +96,7 @@
       .crop {
       	overflow: hidden;
       	height: 100%;
+      	max-height: 300px;
       }
       .crop img {
       	height: auto;
@@ -163,7 +164,7 @@
 }
 #top-bar .half #main-nav ul {
   position: absolute;
-  right: 0;
+  right: 30px;
   top: 100%;
 	padding: 10px 0;
 	width: 100px;
@@ -205,6 +206,18 @@
 				background-color: #a1b3ce;
 				color: #14212b;
 			}
+			#resume #render {
+				width: 1px;
+				min-width: 100%;
+				*width: 100%;
+				height: 500px;
+			}
+			@media (min-width: 1000px) {
+				#resume #render {
+					height: 100vw;
+					max-height: 1300px;
+				}
+			}
     </style>
     <title>Hector Diaz, Web Developer</title>
   </head>
@@ -221,11 +234,11 @@
 						<nav id="main-nav">
 							<h2>Navigation Menu</h2>
 							<ul style="list-style:none;margin:0;">
-								<li><a  href="/resume">Resume</a>
+								<li><a class="current-pg" href="/resume">Resume</a>
 								</li>
 								<li><a href="#contact">Contact</a>
 								</li>
-								<li><a class="current-pg" href="/#folio">Portfolio</a>
+								<li><a href="/#folio">Portfolio</a>
 								</li>
 								<li><a href="https://blog.hectordiaz.pro">Blog</a>
 								</li>
@@ -235,20 +248,28 @@
 				</div>
 			</header>
 
-			<section id="single">
+			<section id="resume">
 				<div class="container">
+					<h2> Hector Diaz's Web Developer Resume </h2>
+					<!--<iframe id="render" src="https://static.hectordiaz.pro/hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg" alt="a pdf of Hector's resume">-->
+					<!--</iframe>-->
+					<img id="render" src="https://static.hectordiaz.pro/hector-diaz-full-stack-web-developer-and-accessiblity-specialist--for-hire-logo.svg" alt="a pdf of Hector's resume">
 				</div>
 			</section>
 
 			<section id="contact">
 				<h2 class="title container"><span>Contact</span></h2>
 				<div class="container">
-
-					<div class="contact-form">
-					</div>
-
+					<form class="send-email" id="email">
+						<!-- (method="POST" action="send" enctype="multipart/form-data")-->
+						<p>Send me your email and I will get in touch. </p>
+						<label><span class="sr-only">Send your email</span>
+							<input type="email" name="email">
+						</label>
+						<button>send</button>
+					</form>
 					<div class="send-an-email">
-						<p>Send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
+						<p>Or send me an email and we'll set up a time to meet.</p><a href="mailto: diazghector87203@gmail.com" target="_blank">hector@hectordiaz.pro</a>
 					</div>
 				</div>
 			</section>
@@ -280,9 +301,108 @@
 				</section>
 			</footer>
 		</main>
+    <script>
+      getEmailFormData = function() {
+      	// abstract this function further
+      	const form = document.getElementById('email'),
+      	data = new FormData(form);
+      	return (data.get('email') ? data : false);
+      }
+      
+      formatNotification = function(data) {
+      	// format the form data.
+      	let email = {};
+      	email['sender'] = data.get('email');
+      	email['subject'] = email['sender']+" wants to talk about hiring you.";
+      	email['body'] = email['sender']+"  has sent you their email address on <current date and time> and would like to set up a time to chat with you.";
+      
+      	return email;
+      	}
+      
+      getAndFormatEmail = function() {
+      	const data = getEmailFormData();
+      	let email;
+      
+      	if (data) {
+      		return email = formatNotification(data);
+      		}
+      }
+      
+      addWaitingAnimation = function(input) {
+      	input.classList.add('pulse','waiting');
+      }
+      
+      removeWaitingAnimation = function(input) {
+      	input.classList.remove('pulse','waiting');
+      }
+      
+      addSuccessBreadcrumb = function(input) {
+      	input.classList.add('success');
+      }
+      
+      removeSuccessBreadcrumb = function(input) {
+      	input.classList.remove('success');
+      }
+      
+      addErrorBreadcrumb = function(input) {
+      	input.classList.add('error');
+      }
+      
+      removeErrorBreadcrumb = function(input) {
+      	input.classList.remove('error');
+      }
+      
+      getEmailInput = function() {
+      	return document.querySelector('#email input');
+      }
+      
+      msgHandler = function(message, input) {
+      	removeWaitingAnimation(input);
+      	if(  message != "OK" ) {
+      			addErrorBreadcrumb(input);
+      			alert(message);
+      			return;
+      		}
+      	if(input.classList.contains('error')) {
+      			removeErrorBreadcrumb(input);
+      		}
+      	addSuccessBreadcrumb(input);
+      }
+      
+      sendEmail = function(email={},btn) {
+      	addWaitingAnimation(btn);
+      	Email.send({
+      		SecureToken: "907d29e9-397e-4268-b58b-5956fa02e6b0",
+      		To: "diazghector87203@gmail.com",
+      		From: email.sender,
+      		Subject: email.subject,
+      		Body: email.body
+      	}).then (
+      		message => {
+      			msgHandler(message, btn)
+      		}
+      	);
+      }
+      
+      emailFormActions = function(email={}) {
+      	const submitBtn = document.querySelector('#email button');
+      
+      	submitBtn.addEventListener('click', (event)=>{
+      		event.stopImmediatePropagation();
+      		event.preventDefault();
+      		email = getAndFormatEmail();
+      		sendEmail(email, submitBtn) });
+      }
+      
+      emailFormActions();
+      //-const input = getEmailInput();
+      //-addWaitingAnimation(input);
+      
+      
+    </script>
 		<script src="https://static.hectordiaz.pro/request_lib.js"> </script>
 		<script src="https://static.hectordiaz.pro/contactForm.js"> </script>
-		<script src="/requests.js"> </script>
-		<script src="/render_single.js"> </script>
+		<script src="requests.js"> </script>
+		<script src="render_resume.js"> </script>
   </body>
 </html>
