@@ -36,6 +36,9 @@ server {
 	location ~^/(clients/[0-9]+|projects/[0-9]+) {
 		try_files /single.html =404;
 	}
+	location ~^/(clients/archive|projects/archive) {
+		try_files /archive.html =404;
+	}
 	location /mockup {
 		try_files /mock-up.html =404;
 	}
