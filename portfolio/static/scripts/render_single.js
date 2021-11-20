@@ -30,7 +30,7 @@ renderSingle = async function () {
 							<h1 class="title"><span class="align">${item.title.rendered}</span></h1>
 							${item.content.rendered}
 						</div>
-						<figure id="mockup-cta" class="split-3rd pos-rel">
+						<figure class="mockup-cta split-3rd pos-rel">
 							<a href="/mockup?${param}" class="in-blc btn cta">
 								<div class="crop">
 								<img src="${imgSrc}" alt="/clients/UnionBaptist_About.png"/>

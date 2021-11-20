@@ -23,23 +23,27 @@
 }
 
 
-#mockup-cta .crop {
+.mockup-cta .crop {
 	width: 75%;
 	height: 100px;
 	background:#fff;
 }
 
-#mockup-cta a.btn {
+.mockup-cta a.btn {
 	color: #000;
 }
 
-#mockup-cta .crop img {
+.mockup-cta a.btn span {
+	min-width: 75%;
+}
+
+.mockup-cta .crop img {
 	opacity: .5;
 	filter: grayscale(1);
 }
 
-#mockup-cta .crop img,
-#mockup-cta a.btn {
+.mockup-cta .crop img,
+.mockup-cta a.btn {
 	transition: all .3s linear;
 }
 /* end post body styles*/
@@ -49,28 +53,28 @@
 	.main {
 		padding-right: 30px;
 	}
-	#mockup-cta .crop {
+	.mockup-cta .crop {
 		width: 100%;
 		height: auto;
 	}
-	#mockup-cta a.btn,
-	#mockup-cta .crop img {
+	.mockup-cta a.btn,
+	.mockup-cta .crop img {
 		transition: all .5s auto;
 	}
-	#mockup-cta a.btn {
+	.mockup-cta a.btn {
 		color: inherit;
 		z-index: 0;
 	}
-	#mockup-cta .crop img {
+	.mockup-cta .crop img {
 		opacity: 1;
 		filter: unset;
 	}
 
-	#mockup-cta:hover a.btn {
+	.mockup-cta:hover a.btn {
 		color: #000;
 		z-index: 10;
 	}
-	#mockup-cta:hover .crop img {
+	.mockup-cta:hover .crop img {
 		opacity: .5;
 		filter: grayscale(1);
 		z-index: 10;
