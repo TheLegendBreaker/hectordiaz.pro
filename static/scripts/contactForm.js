@@ -105,7 +105,7 @@ msgHandler = function(message, input) {
 sendEmail = function(email={},btn) {
 	addWaitingAnimation(btn);
 	Email.send({
-		SecureToken: "9bc48b97-64de-45cf-a431-8fc54086798b",
+		SecureToken: token(),
 		To: "hector@hectordiaz.pro",
 		From: "hector@hectordiaz.pro",
 		Subject: email.subject,
