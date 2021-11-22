@@ -1,7 +1,4 @@
-/*post body styles*/
-
-#single {
-	margin-top: 150px;
+/*post body styles*/ #single { margin-top: 150px;
 }
 
 #single article .main h2 {
@@ -90,12 +87,13 @@
 	}
 
 	#single .split-3rd {
-		width: 32%;
-		max-width: calc( 1200px * .32 );
+		width: 33%;
+		max-width: calc( 1200px * .33 );
+		left: .5%;
 	}
 	#single .split-2-3rds {
-		width: 62%;
-		max-width: calc( 1200px * .62 );
+		width: 66%;
+		max-width: calc( 1200px * .66 );
 	}
 }
 

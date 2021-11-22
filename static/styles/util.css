@@ -26,6 +26,9 @@
 
 /* end padding rules*/
 /*margins rules*/
+.gin-b-50 {
+	margin-bottom: 50px;
+}
 
 .gin-x-30 {
 	margin: 0 30px;

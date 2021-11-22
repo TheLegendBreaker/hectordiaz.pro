@@ -1,3 +1,7 @@
 .card .cta-container {
 	margin-top: 15px;
 }
+#folio figure .crop {
+	height: calc(100% - 2px);
+	max-height: calc(400px - 2px);
+}
