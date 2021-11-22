@@ -2,6 +2,7 @@
 
 
 clientMarkup = function(item){
+	let markup = ``;
 	if (item._embedded) {
 		imgSrc = item._embedded['wp:featuredmedia'][0].source_url;
 		param = item._embedded['wp:featuredmedia'][0].slug;

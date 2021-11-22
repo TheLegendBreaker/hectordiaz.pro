@@ -85,15 +85,17 @@ getMediaSrcBySlug = async function(qSlug=""){
 // end request funcs
 
 render = async function(target="", request = ()=>{return new Promise; }, markup = ()=>{return '';}) {
-	// do something
-	// request () get the data from wp through wp json api
+
 	await request()
 		.then(items => {
 			let inject = ``;
+
 			for(let i in items) {
-				inject = markup(items[i]);
+				console.log (items, items.length);
+				inject += markup(items[i]);
 			};
+
 			document.querySelector(target).innerHTML = inject;
+
 		}).catch(err=>console.log(err));
-	// markup() takes a json item from the request promise and builds markup for that time and returns a string.
 }
