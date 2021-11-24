@@ -99,3 +99,10 @@ render = async function(target="", request = ()=>{return new Promise; }, markup 
 
 		}).catch(err=>console.log(err));
 }
+
+buildUrlArray = function(){
+	let url = window.location.href;
+	url = url.split("/")
+	return url;
+}
+

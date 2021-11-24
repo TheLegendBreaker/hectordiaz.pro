@@ -265,6 +265,8 @@ ul {
   margin: 0;
 }
 
+/*home page rules */
+
 #folio small {
   font-weight: 500;
   display: block;
@@ -273,22 +275,22 @@ ul {
 #folio section {
 	padding: 30px 0 30px 30px;
 }
-#folio .main {
+.archive .main {
 	padding: 15px 5px;
 }
-#folio .title .split {
+.archive .title .split {
   padding: 0 30px;
 }
-#folio .cta-container .cta {
+.archive .cta-container .cta {
   display: block;
 }
 /*card image ui animation*/
-#folio figure .crop {
+.archive figure .crop {
 	background-size: 100%;
 	background-position: top;
 	transition: opacity 300ms ease;
 }
-#folio figure .crop:after {
+.archive figure .crop:after {
 	background: #a1b3ce;
 	height: 100%;
 	top: 0;
@@ -296,23 +298,28 @@ ul {
 	transition: opacity 300ms ease;
 }
 
-#folio figure img {
+.archive figure img {
 	filter: grayscale(1) contrast(2);
 	opacity: .5;
 	z-index: 10;
 	transition: opacity 300ms ease;
 }
 
-#folio .card-container.observed figure img,
-#folio .card-container:hover figure img {
+.archive .card-container.observed figure img,
+.archive .card-container:hover figure img {
 	filter: unset;
 	opacity: 0;
 }
 
-#folio .card-container.observed figure .crop:after,
-#folio .card-container:hover figure .crop:after {
+.archive .card-container.observed figure .crop:after,
+.archive .card-container:hover figure .crop:after {
 	opacity: 0;
 }
+.archive figure .crop {
+	height: calc(100% - 2px);
+	max-height: calc(400px - 2px);
+}
+/* end home page rules */
 /* end card image ui animation*/
 
 #contact > div.container > * {
@@ -472,25 +479,25 @@ div.loading {
     text-align: left;
   }
 
-  #folio .card {
+  .archive .card {
     position: relative;
 		height: 400px;
 		max-width: calc(1200px * .75 - 30px);
 		width: 100%;
 		margin: 0 auto;
   }
-  #folio .card > * {
+  .archive .card > * {
     display: inline-block;
     vertical-align: top;
   }
-  #folio .card figure {
+  .archive .card figure {
     width: 60vw;
     max-width: calc(( 1200px * .75 - 30px ) * .6);
     position: relative;
     left: 100%;
     transform: translatex(-100%);
   }
-  #folio .card .main {
+  .archive .card .main {
     width: 40vw;
     max-width: calc(( 1200px * .75 - 30px ) * .4);
     padding: 0 15px;
@@ -499,7 +506,7 @@ div.loading {
     left: 0;
     transform: translatey(-50%);
   }
-  #folio .card .main .split.half {
+  .archive .card .main .split.half {
     width: 50%;
   }
 

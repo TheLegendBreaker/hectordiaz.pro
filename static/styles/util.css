@@ -24,6 +24,14 @@
 	padding: 0 15px;
 }
 
+.pad-y-15 {
+	padding: 15px 0;
+}
+
+.pad-y-30 {
+	padding: 30px 0;
+}
+
 /* end padding rules*/
 /*margins rules*/
 .gin-b-50 {
@@ -43,6 +51,13 @@
 }
 
 /*end margins rules*/
+/*text rules*/
+
+.center-txt {
+	text-align: center;
+}
+
+/*end text rules*/
 /*split*/
 
 .split-half {
