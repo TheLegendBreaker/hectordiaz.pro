@@ -10,3 +10,4 @@ env*
 /docker/nginx/sites/**
 
 saint_vid*
+gsd*
