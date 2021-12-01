@@ -34,6 +34,11 @@
 
 /* end padding rules*/
 /*margins rules*/
+
+.gin-b-30 {
+	margin-bottom: 30px;
+}
+
 .gin-b-50 {
 	margin-bottom: 50px;
 }

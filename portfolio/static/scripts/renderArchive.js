@@ -38,11 +38,11 @@ archiveItemMarkup = function(item){
 }
 
 renderArchiveClientsExcerpt = async function () {
-	render('#archive .container', getClients, archiveItemMarkup);
+	render('#archive div.container', getClients, archiveItemMarkup);
 }
 
 renderArchiveProjectsExcerpt = async function () {
-	render('#archive .container', getProjects, archiveItemMarkup);
+	render('#archive div.container', getProjects, archiveItemMarkup);
 }
 
 // invoke
