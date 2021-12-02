@@ -9,5 +9,6 @@ env*
 
 /docker/nginx/sites/**
 
+d_cap*
 saint_vid*
 gsd*
