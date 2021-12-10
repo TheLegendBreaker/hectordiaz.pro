@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+
+  dcap-certbot:
+    depends_on:
+      - dcap-server
+    image: certbot/certbot
+    container_name: dcap-certbot
+    platform: linux/amd64
+    volumes:
+      - cert_data:/etc/letsencrypt
+      - certs:/var/www/certs
+    command: certonly --webroot --webroot-path=/var/www/certs --email ${DCAP_MAIN_EMAIL} --agree-tos --no-eff-email -d ${DESIGN_DOMAIN}

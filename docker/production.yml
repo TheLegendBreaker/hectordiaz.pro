@@ -26,6 +26,7 @@ services:
       DCAP_FOLIO: ${DCAP_FOLIO_DOMAIN}
       DCAP_BLOG: ${DCAP_BLOG_DOMAIN}
       DCAP_STATIC: ${DCAP_STATIC_DOMAIN}
+      DESIGN: ${DESIGN_DOMAIN}
       CERT_DIR: ${DCAP_CERT_DIR}
     volumes:
       - cert_data:/etc/letsencrypt

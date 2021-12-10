@@ -1,7 +1,7 @@
- server {
+server {
 	listen 80;
 	listen [::]:80;
-	server_name ${DCAP_API};
+	server_name ${DCAP_STATIC};
 
 	include snippets/acme.conf;
 

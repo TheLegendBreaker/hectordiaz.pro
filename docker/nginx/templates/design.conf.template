@@ -1,0 +1,32 @@
+ server {
+	listen 80;
+	listen [::]:80;
+	server_name ${DESIGN};
+
+	include snippets/acme.conf;
+
+	location / {
+		rewrite ^ https://${DOLLAR}host${DOLLAR}request_uri? permanent;
+	}
+ }
+
+server {
+	listen 443 ssl http2;
+	server_name ${DESIGN};
+	ssl_certificate /etc/letsencrypt/live/${DESIGN}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/${DESIGN}/privkey.pem;
+
+	include snippets/acme.conf;
+
+	include mime.types;
+
+	location / {
+		root /var/www/design;
+	}
+
+	location /forms {
+		root /var/www/design/upwork;
+		index index_fluid-multi-div.html;
+	}
+
+}
