@@ -1,0 +1,18 @@
+{
+  "name": "portfolio.hectordiaz.pro",
+  "version": "1.2.0",
+  "description": "A simple portfolio website that uses a headless WordPress instance and JavaScript to manage content.",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "author": "Hector Diaz",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1"
+  }
+}

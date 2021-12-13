@@ -10,6 +10,7 @@ env*
 /docker/nginx/sites/**
 
 d_cap*
+node_modules*
 saint_vid*
 gsd*
 upwork*
