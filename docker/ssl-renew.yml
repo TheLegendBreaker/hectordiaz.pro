@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+
+  dcap-certbot:
+    depends_on:
+      - dcap-wordpress
+    image: certbot/certbot
+    container_name: dcap-certbot
+    platform: linux/amd64
+    volumes:
+      - cert_data:/etc/letsencrypt
+      - certs:/var/www/certs
+    command: certonly --webroot --webroot-path=/var/www/certs --email ${DCAP_MAIN_EMAIL} --agree-tos --no-eff-email -d ${DCAP_BASE_DOMAIN} -d ${SUPPORT_DOMAIN} -d ${DESIGN_DOMAIN} -d ${DCAP_API_DOMAIN} -d ${DCAP_FOLIO_DOMAIN} -d ${DCAP_BLOG_DOMAIN} -d ${SAINT_VID_DOMAIN} -d ${DCAP_STATIC_DOMAIN} --force-renewal

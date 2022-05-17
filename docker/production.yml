@@ -28,6 +28,7 @@ services:
       DCAP_STATIC: ${DCAP_STATIC_DOMAIN}
       DESIGN: ${DESIGN_DOMAIN}
       CERT_DIR: ${DCAP_CERT_DIR}
+      SUPPORT: ${SUPPORT_DOMAIN}
     volumes:
       - cert_data:/etc/letsencrypt
       - certs:/var/www/certs

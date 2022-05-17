@@ -30,8 +30,10 @@ server {
 		root /var/www/portfolio/static/styles;
 	}
 	location = /resume {
-		# try_files /resume.html =404;
 		proxy_pass https://api.hectordiaz.pro/portfolio/wp-content/uploads/sites/2/2021/10/hector_diaz_developer_resume.pdf;
+	}
+	location = /support {
+		proxy_pass https://newaccount1640792100329.freshdesk.com/support/home;
 	}
 	location ~^/(clients/[0-9]+|projects/[0-9]+) {
 		try_files /single.html =404;

@@ -11,4 +11,4 @@ services:
     volumes:
       - cert_data:/etc/letsencrypt
       - certs:/var/www/certs
-    command: certonly --webroot --webroot-path=/var/www/certs --email ${DCAP_MAIN_EMAIL} --agree-tos --no-eff-email -d ${DESIGN_DOMAIN} -d ${DCAP_API_DOMAIN} -d ${DCAP_FOLIO_DOMAIN} -d ${DCAP_BLOG_DOMAIN} -d ${SAINT_VID_DOMAIN} -d ${DCAP_STATIC_DOMAIN}
+    command: certonly --webroot --webroot-path=/var/www/certs --email ${DCAP_MAIN_EMAIL} --agree-tos --no-eff-email -d ${DCAP_BASE_DOMAIN} -d ${SUPPORT_DOMAIN} -d ${DESIGN_DOMAIN} -d ${DCAP_API_DOMAIN} -d ${DCAP_FOLIO_DOMAIN} -d ${DCAP_BLOG_DOMAIN} -d ${SAINT_VID_DOMAIN} -d ${DCAP_STATIC_DOMAIN}
