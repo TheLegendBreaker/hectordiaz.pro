@@ -10,11 +10,18 @@ buildPostUrl = function(route="") {
 	return qUrl;
 }
 
-buildFilterUrl = function(filter="") {
-	const qUrl =  buildPostUrl( '?filter['+filter+']=MyCategorey' );
+buildFilterUrl = function(filter="",value="") {
+	const qUrl =  buildPostUrl( '?filter['+filter+']='+value);
 	return qUrl;
 
 }
+
+//buildCatFilterUrl = function(filter="") {
+	//const value="MyCategorey"
+		//, qUrl =  buildPostUrl(filter, value);
+	//return qUrl;
+
+//}
 
 // end url funcs
 // request funcs
@@ -27,10 +34,10 @@ getCategoryId = async function(catSlug="") {
 	return catId;
 }
 
-getPostByCategory = async function(catSlug=""){
+getPostByCategory = async function(catSlug="",filter=""){
 	const posts = await getCategoryId(catSlug)
 		.then( catId => { 
-			const qUrl = buildPostUrl('?_embed&categories[]='+catId);
+			const qUrl = buildPostUrl('?_embed&categories[]='+catId+filter);
 			const response =  getRequest(qUrl);
 			return response;
 		} )
@@ -52,9 +59,19 @@ getMediaBySlug = async function(qSlug=""){
 }
 // end filter request funcs
 
+getThreeClients = async function() {
+	const clients = getPostByCategory('clients','&per_page=3');
+	return clients;
+}
+
 getClients = async function() {
 	const clients = getPostByCategory('clients');
 	return clients;
+}
+
+getThreeReviews = async function() {
+	const reviews = getPostByCategory('review','&per_page=3');
+	return reviews;
 }
 
 getProjects = async function() {
@@ -63,7 +80,7 @@ getProjects = async function() {
 }
 
 getExperienceItems = async function() {
-	const xp = getPostByCategory('experience');
+	const xp = getPostByCategory('experience','&per_page=3');
 	return xp;
 }
 

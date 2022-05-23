@@ -1,8 +1,7 @@
 // render funcs
 
-
 renderFolioClientsExcerpt = async function () {
-	await getClients()
+	await getThreeClients()
 		.then(items => {
 			//console.log('here are the items from wp', items);
 			let imgSrc = ''
@@ -51,6 +50,51 @@ renderFolioClientsExcerpt = async function () {
 		).catch(err=>console.log(err));
 
 }
+
+renderFolioReviewExcerpts = async function () {
+	await getThreeReviews()
+		.then(items => {
+			//console.log('here are the items from wp', items);
+			let imgSrc = ''
+			param = ''
+			card = '';
+			//if (items!=undefined) { 
+			console.log(items);
+				for(const i in items) {
+
+						if (items[i]._embedded['wp:featuredmedia']) {
+							imgSrc = items[i]._embedded['wp:featuredmedia'][0].source_url;
+							param = items[i]._embedded['wp:featuredmedia'][0].slug;
+						}
+
+						card += `
+							<div class="card-container rendered">
+							<article class="card border">
+							<figure>
+							<div class="crop after-fill" style="background-image:url( ${imgSrc} );">
+							<img src="${imgSrc}" class="pos-rel" alt="/clients/UnionBaptist_About.png"/>
+							</div>
+							</figure>
+							<div class="main">
+							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
+							<div class="content align">
+							<div class="align">
+							${items[i].excerpt.rendered}
+							</div>
+							</article>
+							</div>
+							`
+
+					}
+					document.querySelector('#folio .rvw-container ').innerHTML = card;
+
+				return card;
+				//}
+			}
+		).catch(err=>console.log(err));
+
+}
+
 renderFolioProjectsExcerpt = async function () {
 	await getProjects()
 		.then(items => {
@@ -94,6 +138,7 @@ renderFolioProjectsExcerpt = async function () {
 		).catch(err=>console.log(err));
 
 }
+
 renderXpItems = async function () {
 	await getExperienceItems()
 		.then(items => {
@@ -179,6 +224,7 @@ if (window.innerWidth <= 500){
 // invoke
 
 renderFolioClientsExcerpt();
+renderFolioReviewExcerpts();
 renderFolioProjectsExcerpt();
 renderXpItems();
 renderStack();
