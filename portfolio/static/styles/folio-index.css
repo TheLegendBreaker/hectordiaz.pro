@@ -319,6 +319,14 @@ ul {
 	height: calc(100% - 2px);
 	max-height: calc(400px - 2px);
 }
+
+.archive .rvw-container figure .crop {
+	height: calc(400px - 2px);
+}
+
+.archive .rvw-container figure {
+	background-color: #011800;
+}
 /* end home page rules */
 /* end card image ui animation*/
 

@@ -71,8 +71,8 @@ renderFolioReviewExcerpts = async function () {
 							<div class="card-container rendered">
 							<article class="card border">
 							<figure>
-							<div class="crop after-fill" style="background-image:url( ${imgSrc} );">
-							<img src="${imgSrc}" class="pos-rel" alt="/clients/UnionBaptist_About.png"/>
+							<div class="crop after-fill" style="background-image:url( ${imgSrc} );background-position: center; background-repeat:no-repeat;">
+							<img src="${imgSrc}" class="pos-rel center-y" alt="/clients/UnionBaptist_About.png"/>
 							</div>
 							</figure>
 							<div class="main">
