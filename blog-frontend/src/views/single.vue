@@ -30,6 +30,13 @@ import { ActionTypes  } from "@/store";
 export default class Single extends Vue {}
 </script>
 
-<style lang="SCSS">
+<style lang="scss">
+	@use '../assets/variables.scss' as var;
+	@use '../assets/util.scss';
+	@use '../assets/mixins.scss';
+
+	.single.container {
+		min-height: 60vh;
+	}
 
 </style>

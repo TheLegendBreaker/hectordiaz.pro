@@ -266,7 +266,9 @@ article[class*=card]:hover {
 }
 
 #nav {
-	max-width: 100px;
+	@include mixins.smart-phone($only:true){
+		max-width: 100px;
+	}
 	text-align: left;
 }
 

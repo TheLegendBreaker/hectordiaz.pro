@@ -61,7 +61,7 @@ services:
       - ../portfolio/:/var/www/portfolio
       - ../saint_vid/:/var/www/saint_vid
       - ../design/:/var/www/design
-      - ../blog-frontend/public/:/var/www/blog
+      - ../blog-frontend/dist/:/var/www/blog
       - ./nginx/sites:/etc/nginx/conf.d
       - ./nginx/snippets:/etc/nginx/snippets
       - ./nginx/templates:/etc/nginx/conf.d/templates
