@@ -16,14 +16,13 @@ renderFolioClientsExcerpt = async function () {
 						}
 
 						card += `
-							<div class="card-container rendered">
-							<article class="card border">
-							<figure>
+							<article class="client">
+							<figure class="client__figure">
 							<div class="crop after-fill" style="background-image:url( ${imgSrc} );">
 							<img src="${imgSrc}" class="pos-rel" alt="/clients/UnionBaptist_About.png"/>
 							</div>
 							</figure>
-							<div class="main">
+							<div class="client__summary">
 							<h3 class="title"><span class="align">${items[i].title.rendered}</span></h3>
 							<div class="content align">
 							<div class="align">
@@ -38,7 +37,6 @@ renderFolioClientsExcerpt = async function () {
 								</a>
 							</div>
 							</article>
-							</div>
 							`
 
 					}

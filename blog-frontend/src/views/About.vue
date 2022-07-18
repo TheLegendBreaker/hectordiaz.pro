@@ -15,7 +15,7 @@
 						If you can imagine it, I can make it. 
 						<br>
 						<br>
-						to prove to myslef i can do more than viciously ridicule dingleberries i made this blog. i hope you like. as much as sharing may help with how i think others think of me, i share for myself. while i am convinced i look like an asshole, no amount speculating about other peoples' ideas of	me will change that i made those thoughts.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
 				</div>
 			</div>
@@ -64,10 +64,10 @@
 					<p>My thanks for stopping by!
 						<br>
 						<br>
-						This is more than just a place to share my life. I hope what I share bulsteris my self-esteem. My internet presence is mainly bullying Racists, QAnon, Maga-maggots, and the like. While it's great fun and they deserve everything coming to them, my self image has suffered. Embarrassment washes over me when I think about how I must look. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						<br>
 						<br>
-						To prove to myslef I can do more than viciously ridicule dingleberries I made this blog. I hope you like. As much as sharing may help with how I think others think of me, I share for myself. While I am convinced I look like an asshole, no amount speculating about other peoples' ideas of  me will change that I made those thoughts.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					<p/>
 				`; 
 			},

@@ -1,0 +1,508 @@
+@use 'mixins';
+/*config*/
+.sr-only {
+	position: absolute;
+	opacity: 0;
+	z-index: -100;
+}
+* {
+	 font-family: sans, Helvetica, "Open Sans", Ariel;
+	 outline: dotted aqua 1px;
+	 box-sizing: border-box;
+	 transition: all .3s ease-in-out;
+ }
+
+body{
+	margin: 0;
+	width: 100vw;
+}
+h2 {
+	font-size: 2rem;
+}
+p {
+	@include mixins.tablet {
+		font-size: 1.5rem;
+	}
+}
+
+/* end config*/
+
+#topbar {
+	width: 100vw;
+	position: fixed;
+	background: #fff;
+	z-index: 100;
+}
+
+.demo-bar {
+	display: none;
+	background-color: #c0c0c0;
+	width: 100vw;
+	text-align: center;
+	@include mixins.desktop {
+		display: block;
+	}
+	&__title {
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+	&__options {
+		vertical-align: middle;
+		display: inline-block;
+		padding: 0;
+		list-style: none;
+		margin: 0;
+
+		&-label {
+			display: block;
+			font-size: .5rem;
+		}
+		&-li {
+			display: inline-block;
+			padding: 0 1rem;
+		}
+	}
+}
+
+.nav-bar {
+	position: relative;
+	max-width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1rem;
+	@include mixins.tablet {
+		text-align: left;
+	}
+	&__hamburger {
+		background: transparent;
+		outline: none;
+		border: none;
+		padding: 0;
+		border-top: 3px solid #000;
+		border-bottom: 3px solid #000;
+		position: relative;
+		width: 2rem;
+		height: 2rem;
+		@include mixins.tablet {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			z-index: 5;
+		}
+		@include mixins.laptop {
+			display: none;
+		}
+		&:before {
+			content: '';
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			border-top: 3px solid #000;
+		}
+	}
+	&__flag {
+		vertical-align: middle;
+		display: none;
+		@include mixins.tablet {
+			display: inline-block;
+		}
+	}
+	&__nav {
+		text-align: center;
+		vertical-align: middle;
+		display: inline-block;
+		padding: 0;
+		list-style: none;
+		position: absolute;
+		margin: 0;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+
+		background: #fff;
+		z-index: -500;
+		opacity: 0;
+		transition: opacity .3s linear;
+		max-width: 10rem;
+		@include mixins.laptop {
+			max-width: unset;
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			background: transparent;
+			width: 100%;
+			min-height: 100%;
+			z-index: -400;
+		}
+		&.open {
+			opacity: 1;
+			z-index: 50;
+		}
+		@include mixins.laptop {
+			opacity: 1;
+			max-height: unset;
+			z-index: 50;
+			background: transparent;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		&-li {
+			display: inline-block;
+			padding: 0 1rem;
+		}
+		&-link {
+			display: inline-block;
+			text-decoration: none;
+			padding: 1rem;
+			@include mixins.tablet {
+				padding: 0 1rem;
+			}
+		}
+	}
+}
+
+#hero {
+	height: 90vh;
+	position: relative;
+}
+.hero {
+	&__title {
+		text-align: center;
+		vertical-align: middle;
+		width: 100%;
+		@include mixins.tablet {
+			font-size: 5rem;
+		}
+		@include mixins.desktop {
+			font-size: 8rem;
+			max-width: calc(50% - 6px);
+			display: inline-block;
+		}
+	}
+	&__msg {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+	@include mixins.laptop	{
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80vw;
+		}
+		@include mixins.desktop {
+			width: unset;
+		}
+		&-body {
+			vertical-align: middle;
+			padding: 0 30px;
+			width: 100%;
+			@include mixins.laptop {
+				max-width: calc(50% - 6px);
+				display: inline-block;
+			}
+		}
+	}
+	&__cta-btn {
+		display: block;
+		text-align: center;
+		max-width: 80%;
+		margin: 0 auto;
+		text-decoration: none;
+		padding: 1rem 2rem;
+		background: none;
+		border: none;
+		@include mixins.laptop {
+			display: inline-block;
+		}
+	}
+}
+
+// base styles
+.block{
+	height: 50vh;
+	&__container {
+		padding-top: 4rem;
+		height: 100%;
+		top: 0;
+		left: 0;
+		margin: 0 auto;
+		max-width: 80%;
+		width: 100%;
+		position: relative;
+	}
+	&__title {
+		margin: 0 auto;
+		margin-bottom: 5rem;;
+	}
+	&__text {
+		@include mixins.tv {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	&__cta-btn {
+		text-decoration: none;
+		padding: 1rem 2rem;
+		background: none;
+		border: none;
+		display:inline-block;
+		margin: 0 auto;
+	}
+	&__details-btn {
+		text-decoration: none;
+		padding: 1rem 2rem;
+		background: none;
+		display:inline-block;
+		border: none;
+	}
+	&__row{
+		padding-bottom: 5rem;
+	}
+	&__column{
+		vertical-align: top;
+		padding: 0 2rem;
+		position: relative;
+		min-height: 350px;
+		width: 100%;
+		&--third{
+			display: inline;
+			width: 100%;
+			@include mixins.laptop {
+				min-height: 500px;
+				display: inline-block;
+				max-width: 33%;
+			}
+		}
+		&-body {
+			height: 100%;
+		}
+	}
+}
+// mod styles
+.block {
+	&--nav-bar {
+		height: unset;
+	}
+	&--featured {
+		height: unset;
+	}
+	&--about {
+		.block {
+			&__text {
+				margin-bottom: 5rem;;
+				max-width: 80%;
+				@include mixins.tablet {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}
+.featured {
+	padding-top: 4rem;
+	margin: 0 auto;
+	max-width: 80%;
+	&__title {
+		margin-bottom: 5rem;;
+	}
+	&__msg {
+		margin-bottom: 5rem;;
+	}
+	&__product {
+
+		&-btn {
+			display: inline-block;
+			text-decoration: none;
+			padding: 1rem 2rem;
+			background: none;
+			border: none;
+		}
+		&-details-btn {
+			text-decoration: none;
+			padding: 1rem 2rem;
+			background: none;
+			border: none;
+		}
+		&-label {
+			display: inline-block;
+			max-width: calc(50% - 6px);
+			width: 100%;
+		}
+		&-desc {
+			min-height: 5rem;
+		}
+		&-price {
+			display: inline-block;
+			width: 100%;
+			max-width: calc(50% - 6px);
+			text-align: right;
+		}
+		&-img {
+			margin: 0;
+			position: absolute;
+			width: calc( 100% - 2rem);
+			height: 100%;
+			top: 0;
+			left: 1rem;
+			z-index: -5;
+		}
+	}
+}
+
+#about{
+	position: relative;
+	height: 50vh;
+}
+.about {
+	margin: 0 auto;
+	max-width: 80%;
+	@include mixins.tablet {
+		padding-top: 4rem;
+	}
+	&__msg{
+	}
+	&__title {
+		max-width: 80%;
+		margin-bottom: 5rem;;
+	}
+}
+
+#contact{
+	min-height: 50vh;
+}
+.contact {
+	margin-bottom: 5rem;;
+	margin: 0 auto;
+	max-width: 80%;
+	@include mixins.tablet {
+		padding-top: 4rem;
+	}
+	&__title {
+		margin: 0 auto;
+		margin-bottom: 5rem;;
+	}
+	&__msg {
+		width: 100%;
+		margin-bottom: 4rem;
+		@include mixins.laptop {
+			margin-bottom: unset;
+			vertical-align: middle;
+			max-width: calc(50% - 6px);
+			display:inline-block;
+		}
+	}
+	&__form {
+		width: 100%;
+		@include mixins.laptop {
+			padding: 0 3rem;
+			vertical-align: middle;
+			display:inline-block;
+			max-width: calc(50% - 6px);
+		}
+		&-msg {
+			height: 8rem;
+			width: 100%;
+			display:inline-block;
+			font-size: 2rem;
+		}
+		&-name {
+			padding-bottom: 4rem;
+			width: 100%;
+			display:inline-block;
+			max-width: calc(50% - 6px);
+		}
+		&-input {
+			width: 100%;
+			font-size: 2rem;
+		}
+		&-email {
+			padding-bottom: 4rem;
+			width: 100%;
+			display:inline-block;
+			max-width: calc(50% - 6px);
+		}
+		&-submit {
+			text-decoration: none;
+			padding: 1rem 2rem;
+			background: none;
+			border: none;
+			display:inline-block;
+			margin: 2rem 0;
+		}
+	}
+	&__address {
+		font-size: 1.5rem;
+	}
+}
+
+.footer{
+	margin-bottom: 5rem;;
+	font-size: 1.5rem;
+	width: 100%;
+	max-width: 80%;
+	margin: 0 auto;
+	position: relative;
+	@include mixins.tablet {
+		padding-top: 4rem;
+	}
+	&__title {
+	margin-bottom: 5rem;;
+	}
+	&__flag {
+		display: none;
+		@include mixins.tablet {
+			display: inline-block;
+		}
+	}
+	&__nav {
+		text-align: center;
+		padding: 0;
+		list-style: none;
+		display: inline-block;
+		width: 100%;
+		@include mixins.laptop {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: unset;
+		}
+		&-li {
+			vertical-align: middle;
+			display: inline-block;
+			font-size: 1rem;
+			@include mixins.tablet {
+				font-size: 1.5rem;
+			}
+		}
+		&-link {
+			text-decoration: none;
+			padding: 0 1rem;
+		}
+	}
+	&__legal-nav {
+		list-style: none;
+		padding: 0;
+		text-align: center;
+		&-li {
+			display: inline-block;
+			font-size: .5rem;
+			@include mixins.tablet {
+				font-size: 1rem;
+			}
+		}
+		&-link {
+			display: inline-block;
+			padding: 0 1rem;
+			text-decoration: none;
+		}
+	}
+}

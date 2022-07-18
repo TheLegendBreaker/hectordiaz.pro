@@ -1,0 +1,15 @@
+@use "mixins";
+@use "themes/outReach/brand";
+#theme-outReach {
+	.block{
+		&--nav-bar{
+			.block {
+				&__nav {
+					left: auto;
+					right: 0;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,46 @@
+
+/* SCSS HEX */
+//xik etic
+$primary-dark: #14080eff;
+//viridian green
+$primary-lite: #119da4ff;
+//dark olive green
+$secondary: #47682cff;
+//yellow orange
+$accent: #ffa630ff;
+//tea green
+$background: #d7e8baff;
+
+
+/* SCSS RGB */
+$half-primary-dark: rgba(20, 8, 14, 0.5);
+$half-primary-lite: rgba(17, 157, 164, 0.5);
+$half-secondary: rgba(71, 104, 44, 0.5);
+$half-accent: rgba(255, 166, 48, 0.5);
+$half-background: rgba(215, 232, 186, 0.5);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-right: linear-gradient(90deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-bottom: linear-gradient(180deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-left: linear-gradient(270deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-top-right: linear-gradient(45deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-bottom-right: linear-gradient(135deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-top-left: linear-gradient(225deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-bottom-left: linear-gradient(315deg, #14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+$gradient-radial: radial-gradient(#14080eff, #119da4ff, #47682cff, #ffa630ff, #d7e8baff);
+
+$border-radius : 15px;
+
+$accent-font : Serif, Times;
+$body-font: "Sans Serif", Sans;
+
+@mixin primary-lite-glass-bg(){
+		background-color: $half-primary-lite;
+    backdrop-filter: blur(8px);
+		box-shadow: 5px 5px 15px 10px $primary-dark;
+}
+
+@mixin border-radius {
+	border-radius: $border-radius;
+}

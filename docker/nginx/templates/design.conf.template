@@ -24,9 +24,49 @@ server {
 		root /var/www/design;
 	}
 
+	location /nav {
+		root /var/www/design/upwork;
+		index index.html;
+	}
+
 	location /forms {
 		root /var/www/design/upwork;
-		index index_fluid-multi-div.html;
+		index index.html;
+	}
+
+	location /checkout {
+		root /var/www/design/upwork;
+		index index.html;
+	}
+
+	location /indra-ex {
+		root /var/www/design/upwork;
+		index home.html;
+	}
+
+	location /flip {
+		alias /var/www/design/upwork/flip/dist;
+		index index.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+
+	location /flipimgs {
+		alias /var/www/design/upwork/flip/src/imgs;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+
+	location /tarot {
+		root /var/www/design/upwork;
+		index home.html;
+	}
+
+	location /wireframe {
+		root /var/www/design/upwork;
+		index index.html;
+	}
+	location /biikee {
+		root /var/www/design/upwork;
+		index index.html;
 	}
 
 }

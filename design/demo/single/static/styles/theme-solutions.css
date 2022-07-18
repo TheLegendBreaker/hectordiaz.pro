@@ -1,0 +1,219 @@
+/* SCSS HEX */
+/* SCSS RGB */
+/* SCSS Gradient */
+#theme-solutions {
+  background-color: #d7e8baff;
+}
+#theme-solutions body {
+  color: #14080eff;
+}
+#theme-solutions a {
+  color: #14080eff;
+}
+#theme-solutions h1, #theme-solutions h2, #theme-solutions h3, #theme-solutions h4 {
+  font-size: 3rem;
+}
+#theme-solutions p {
+  font-size: 2rem;
+}
+#theme-solutions #topbar {
+  background-color: #14080eff;
+}
+#theme-solutions .nav-bar {
+  color: #fff;
+}
+#theme-solutions .nav-bar__flag {
+  color: #ffa630ff;
+  font-size: 1rem;
+}
+#theme-solutions .nav-bar__nav-link {
+  color: #fff;
+}
+#theme-solutions #hero {
+  background-image: url("../img/handyman/keith-misner-unsplash_hardwood_floor.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+}
+#theme-solutions .hero__title {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 0;
+  height: 60vh;
+  padding: 2rem;
+  background-image: url("../img/handyman/phil-unsplash_french_doors_in_new_home.jpg ");
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+}
+#theme-solutions .hero__tagline {
+  font-size: 4rem;
+  font-family: Serif, Times;
+  margin-top: 0;
+  width: 100%;
+  font-weight: bold;
+  color: #ffa630ff;
+}
+#theme-solutions .hero__cta-btn {
+  max-width: 100%;
+  background-color: #ffa630ff;
+  border-radius: 15px;
+}
+#theme-solutions .hero__msg {
+  overflow: hidden;
+  background-color: rgba(17, 157, 164, 0.5);
+  backdrop-filter: blur(8px);
+  box-shadow: 5px 5px 15px 10px #14080eff;
+}
+#theme-solutions #special {
+  position: relative;
+  background-color: #14080eff;
+  color: #47682cff;
+}
+#theme-solutions #special:before {
+  content: "Before";
+  padding-left: 25%;
+  font-size: 2rem;
+  padding-top: 2rem;
+  background-image: url("../img/handyman/nolan-issac-unsplash_before_interior.jpg");
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 33%;
+  bottom: 0;
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 0 100%);
+  z-index: 10;
+  filter: brightness(0.5);
+}
+#theme-solutions #special:after {
+  box-sizing: border-box;
+  content: "After";
+  padding-right: 25%;
+  font-size: 2rem;
+  padding-top: calc(50vh - 4rem);
+  text-align: right;
+  background-image: url("../img/handyman/kari-shea-unsplash_woman_sitting_in_new_house.jpg");
+  background-size: cover;
+  background-position: right;
+  background-attachment: fixed;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 33%;
+  bottom: 0;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 10;
+  filter: brightness(0.5);
+}
+#theme-solutions .special {
+  z-index: 20;
+}
+#theme-solutions .special__title {
+  color: #d7e8baff;
+  text-align: center;
+}
+#theme-solutions .special__desc > * {
+  position: relative;
+  z-index: 10;
+}
+#theme-solutions .special__desc:after {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: -1rem;
+  right: -1rem;
+  bottom: -1rem;
+  background-color: #ffa630ff;
+  z-index: 5;
+}
+#theme-solutions .block--featured {
+  position: relative;
+}
+#theme-solutions .block--featured:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url("../img/handyman/point3d-commercial-imaging-ltd-unsplash_blank_interior_backdoor.jpg");
+  background-size: cover;
+  background-position: right;
+  opacity: 0.5;
+  z-index: -5;
+}
+#theme-solutions .featured__product-title {
+  font-size: 1.5rem;
+}
+#theme-solutions .featured__product-img {
+  background-size: cover;
+  background-position: right;
+}
+#theme-solutions .featured__product:nth-of-type(1) .featured__product-img {
+  background-color: #ffa630ff;
+  background-image: url("../img/handyman/yoann-siloine-unsplash_rolller_isolated.jpg");
+}
+#theme-solutions .featured__product:nth-of-type(2) .featured__product-img {
+  background-color: #47682cff;
+  background-image: url("../img/handyman/pexels-ksenia-chernaya_drywall_repair.jpg ");
+}
+#theme-solutions .featured__product:nth-of-type(3) .featured__product-img {
+  background-color: #119da4ff;
+  background-image: url("../img/handyman/pexels-karolina-grabowska_handyman_tools.jpg");
+  filter: contrast(0.5) brightness(1.2);
+}
+#theme-solutions #about {
+  color: #d7e8baff;
+  background-color: #14080eff;
+}
+#theme-solutions .about {
+  height: 100%;
+}
+#theme-solutions #contact {
+  background-image: url("../img/handyman/hal-gatewood-unsplash_handymans_tools.png");
+  background-size: cover;
+  background-position: right;
+  background-attachment: fixed;
+  padding: 15rem 0;
+}
+#theme-solutions .contact {
+  background-color: #d7e8baff;
+  padding: 3rem;
+  position: relative;
+}
+#theme-solutions .contact:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url("../img/handyman/augustine-wong-unsplash_interior_wall_texture.jpg");
+  background-size: cover;
+  z-index: 5;
+}
+#theme-solutions .contact__msg {
+  z-index: 10;
+  position: relative;
+}
+#theme-solutions .contact__form {
+  z-index: 10;
+  position: relative;
+}
+#theme-solutions .contact__form-submit {
+  background-color: #119da4ff;
+}
+#theme-solutions .block--about .block__cta-btn {
+  background-color: #119da4ff;
+}
+#theme-solutions .block--featured .block__column-body {
+  padding: 1rem 2rem;
+  height: unset;
+  margin-top: 15rem;
+}
+
+/*# sourceMappingURL=theme-solutions.css.map */

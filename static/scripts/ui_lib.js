@@ -10,7 +10,6 @@ getParentByClass = function(el, className) {
 	let rent = el.parentElement,
 	stop = 0;
 	while(!rent.classList.contains(className)) {
-		console.log(rent);
 		rent = rent.parentElement;
 		if ( stop == 1000 ) {
 			return false;
@@ -29,12 +28,10 @@ toggleClass = function(el,trgtClss) {
 }
 
 toggleShow = function(trgt) {
-	console.log('toggle show');
 	toggleClass(trgt,'show');
 }
 
 toggleHide = function(trgt) {
-	console.log('toggle hide');
 	toggleClass(trgt,'hide');
 }
 
@@ -88,7 +85,6 @@ swap = function(swpd, ev, target) {
 	}
 }
 updatePriority = function(priorityId, itemId) {
-	console.log('priority.id = '+priorityId+'; item.id= '+itemId+';');
 }
 swapPriority = function(swpd,swp){
 	const form = swpd.firstChild,
@@ -102,7 +98,6 @@ swapPriority = function(swpd,swp){
 drop = function(ev) {
   ev.preventDefault();
 	let swpd = ev.target;
-	console.log(swpd.innerHTML);
 	if(swp !== swpd) {
 		swap(swpd, ev, 'priority');
 	}
@@ -114,16 +109,15 @@ docReady(function(){
 
 	action = function() {
 		const modal = getOne('.add-item.modal');
-		console.log(modal);
 		if (modal) {
 			toggleHide(modal);
 		}
 	}
 
-	addAction(addBtn, 'click', action);
+	//addAction(addBtn, 'click', action);
 
-	const mdlClsBtns = getAll('.add-item.modal button');
+	//const mdlClsBtns = getAll('.add-item.modal button');
 
-	addAction(mdlClsBtns[0], 'click', action);
+	//addAction(mdlClsBtns[0], 'click', action);
 
 });
