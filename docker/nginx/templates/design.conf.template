@@ -49,6 +49,17 @@ server {
 		index index.html;
 		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
 	}
+	location /console/og {
+		alias /var/www/design/upwork/prototype;
+		index index2.0.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+
+	location /brainwave {
+		alias /var/www/design/upwork/forms;
+		index index_fluid-multi-div.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
 
 	location /flipimgs {
 		alias /var/www/design/upwork/flip/src/imgs;

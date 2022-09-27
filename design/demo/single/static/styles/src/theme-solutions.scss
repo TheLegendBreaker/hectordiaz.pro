@@ -1,5 +1,8 @@
 @use "mixins";
 @use "themes/solutions/brand";
+* {
+	 outline: none;
+ }
 #theme-solutions {
 	background-color: brand.$background;
 	body {

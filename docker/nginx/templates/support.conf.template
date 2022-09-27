@@ -21,29 +21,3 @@ server {
 	}
 }
 
-server {
-	listen 80;
-	listen [::]:80;
-	server_name ${DCAP_BASE};
-
-	include snippets/acme.conf;
-
-	location / {
-		rewrite ^ https://${DOLLAR}host${DOLLAR}request_uri? permanent;
-	}
-}
-
-server {
-	listen 443 ssl http2;
-	server_name ${DCAP_BASE};
-	ssl_certificate /etc/letsencrypt/live/${CERT_DIR}/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/${CERT_DIR}/privkey.pem;
-	
-	location / {
-		rewrite ^/ http://${DCAP_BASE}/support redirect;
-	}
-
-	location = /support {
-		proxy_pass https://newaccount1640792100329.freshdesk.com/support/home;
-	}
-}

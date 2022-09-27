@@ -1,6 +1,10 @@
 /* SCSS HEX */
 /* SCSS RGB */
 /* SCSS Gradient */
+* {
+  outline: none;
+}
+
 #theme-solutions {
   background-color: #d7e8baff;
 }
