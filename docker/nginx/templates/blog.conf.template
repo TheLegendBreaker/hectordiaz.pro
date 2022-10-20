@@ -19,16 +19,14 @@ server {
 	include snippets/acme.conf;
 
 	location / {
+		auth_basic "dev";
+		auth_basic_user_file /var/www/security/.htpasswd;
 		root   /var/www/blog;
 		index  index.html;
 		try_files ${DOLLAR}uri ${DOLLAR}uri/ /index.html;
 	}
 	location /dev {
 		proxy_pass http://159.89.128.250:8080;
-	}
-	error_page   500 502 503 504  /50x.html;
-	location = /50x.html {
-		root   /usr/share/nginx/html;
 	}
 
 }

@@ -159,7 +159,7 @@ location ~ \.php${DOLLAR} {
 ###########
 
          location = /robots.txt {
-               allow all;
+               deny all;
                log_not_found off;
                access_log off;
         }
@@ -168,6 +168,14 @@ location ~ \.php${DOLLAR} {
 ############
 # RESTRICTIONS
 ############
+
+#location ~* /wp-json{
+	#allow 159.89.128.250;
+	#allow 127.0.0.1;
+	#allow 75.161.217.201;
+	#deny all;
+	#try_files ${DOLLAR}uri =404;
+#}
 
 # Deny access to any files with a .php extension in the uploads directory
 # Works in sub-directory installs and also in multisite network

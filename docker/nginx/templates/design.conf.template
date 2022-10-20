@@ -49,6 +49,19 @@ server {
 		index index.html;
 		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
 	}
+
+	location /foliov3 {
+		alias /var/www/design/folioV3/dist;
+		index index.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+
+	location /sms {
+		alias /var/www/design/demo/sms/dist;
+		index index.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+
 	location /console/og {
 		alias /var/www/design/upwork/prototype;
 		index index2.0.html;

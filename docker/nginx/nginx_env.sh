@@ -10,7 +10,7 @@ do
 	template=$src_dir"/"$i
 
 	envsubst < $template > /etc/nginx/conf.d/$name
-	
+
 done
 
 nginx -g "daemon off;"

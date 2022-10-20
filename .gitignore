@@ -1,6 +1,7 @@
 blog-frontend/node_modules/
 /dist
 /public
+pm/
 
 npm-debug.log*
 .env*
@@ -8,13 +9,15 @@ env*
 **.jpg
 
 /docker/nginx/sites/**
+/PLIABLE_THOUGHTS.md
 
-d_cap*
 node_modules*
 saint_vid*
-gsd*
-upwork*
+security*
 lobopod*
+folioV3*
 pliable*
-
-/PLIABLE_THOUGHTS.md
+upwork*
+d_cap*
+gsd*
+sms*

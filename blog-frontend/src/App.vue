@@ -1,52 +1,70 @@
 <template>
 	<svg class="effects">
-		<filter id="cyb-red" color-interpolation-filters="sRGB"
-						x="0" y="0" height="100%" width="100%">
-			<feColorMatrix type="matrix"
+		<filter
+			id="cyb-red"
+			color-interpolation-filters="sRGB"
+			x="0"
+			y="0"
+			height="100%"
+			width="100%"
+		>
+			<feColorMatrix
+				type="matrix"
 				values="0.87 0 0 0 0.00 
 								0 0.20 0 0 0.00  
 								0 0 0.20 0 0.00 
-								0    0 0 1 0" />
+								0    0 0 1 0"
+			/>
 		</filter>
 
-		<filter id="cyb-blue" color-interpolation-filters="sRGB"
-						x="0" y="0" height="100%" width="100%">
-			<feColorMatrix type="matrix"
+		<filter
+			id="cyb-blue"
+			color-interpolation-filters="sRGB"
+			x="0"
+			y="0"
+			height="100%"
+			width="100%"
+		>
+			<feColorMatrix
+				type="matrix"
 				values="0.63 0    0    0 0.00 
 								0    0.70 0    0 0.00  
 								0    0    0.81 0 0.00 
-								0    0    0    1 0" />
+								0    0    0    1 0"
+			/>
 		</filter>
 	</svg>
 
 	<header id="topbar">
-	<div class="container">
-		<section class="logo-card" >
-			<div class="logo-crop">
-			<img class="logo cyb-rez" alt="Hectordiaz.pro logo, a set of curel parentheses surrounding a dash" src="./assets/logo.png">
-			</div>
-			<div class="accent-border">
-			<h2>
-			Hector Diaz's
-			<br>
-			Make Blog
-			</h2>
-			</div>
-		</section>
+		<div class="container">
+			<section class="logo-card">
+				<div class="logo-crop">
+					<img
+						class="logo cyb-rez"
+						alt="Hectordiaz.pro logo, a set of curel parentheses surrounding a dash"
+						src="./assets/logo.png"
+					/>
+				</div>
+				<div class="accent-border">
+					<h2>
+						Hector Diaz's
+						<br />
+						Make Blog
+					</h2>
+				</div>
+			</section>
 
-		<section>
-			<h2>
-			Navigation menu
-			</h2>
-			<nav id="nav">
-			<router-link to="/">Home</router-link>
-			<router-link to="/about">About</router-link>
-			<router-link to="/about#contact">Contact</router-link>
-			<router-link to="/post/archive">Post Archive</router-link>
-			<a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
-			</nav>
-		</section>
-	</div>
+			<section>
+				<h2>Navigation menu</h2>
+				<nav id="nav">
+					<router-link to="/">Home</router-link>
+					<router-link to="/about">About</router-link>
+					<router-link to="/about#contact">Contact</router-link>
+					<router-link to="/post/archive">Post Archive</router-link>
+					<a href="https://portfolio.hectordiaz.pro">Web Dev Portfolio</a>
+				</nav>
+			</section>
+		</div>
 	</header>
 
 	<router-view />
@@ -54,33 +72,43 @@
 	<footer class="pos-abso">
 		<section>
 			<div class="container">
-				<h2> Footer </h2>
-				<div class="in-blk crop round cyb-rez-sec"><img src="https://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg" alt="a profile picture of Hector Diaz"></div>
+				<h2>Footer</h2>
+				<div class="in-blk crop round cyb-rez-sec">
+					<img
+						src="https://static.hectordiaz.pro/hector_diaz_web_developer_for_hire_in_boise.jpg"
+						alt="a profile picture of Hector Diaz"
+					/>
+				</div>
 
 				<div class="thanks in-blk">
 					<p>
-						Thanks for taking a look. Check back in as I am always making or doing something new.
-						<br>
-						<br>
-						<br>
+						Thanks for taking a look. Check back in as I am always making or
+						doing something new.
+						<br />
+						<br />
+						<br />
 						Hopefully chat soon,
-						<br>
-						<br>
+						<br />
+						<br />
 						<strong>
 							Hector Diaz
-							<br>
+							<br />
 							Web Developer 1.
 						</strong>
 					</p>
 				</div>
 
 				<div class="ctas in-blk">
-					<a href="https://www.linkedin.com/in/hector-g-diaz" target="_blank">View Hector's Linkedin profile</a>
-					<a href="https://portfolio.hectordiaz.pro/resume" target="_blank">View Hector's Resume</a>
+					<a href="https://www.linkedin.com/in/hector-g-diaz" target="_blank"
+						>View Hector's Linkedin profile</a
+					>
+					<a href="https://portfolio.hectordiaz.pro/resume" target="_blank"
+						>View Hector's Resume</a
+					>
 				</div>
 
 				<div class="nav-container in-blk">
-					<h3> Navigation menu </h3>
+					<h3>Navigation menu</h3>
 					<nav id="nav">
 						<router-link to="/">Home</router-link>
 						<router-link to="/about">About</router-link>
@@ -90,22 +118,21 @@
 					</nav>
 				</div>
 			</div>
-
 		</section>
 	</footer>
 </template>
 
 <script lang="typescript">
-	export default {
-		computed: {
-			posts() {
-				return this.$store.state.posts;
-			}
-		},
-		created() {
-			this.$store.dispatch("reqPosts");
+export default {
+	computed: {
+		posts() {
+			return this.$store.state.posts;
 		}
+	},
+	created() {
+		this.$store.dispatch("reqPosts");
 	}
+}
 </script>
 
 <style lang="scss">
@@ -114,12 +141,13 @@
 @use "./assets/variables.scss" as var;
 @use "./assets/mixins.scss";
 
-*{
+* {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	/*outline: dotted 1px aqua;*/
 }
-h1, h2 {
+h1,
+h2 {
 	font-family: blackwood_castle, "San Serif";
 	font-weight: 500;
 }
@@ -130,12 +158,12 @@ ul {
 	list-style: none;
 }
 
-body { 
+body {
 	position: relative;
 	margin: 0;
 	background: #050a0b;
 	&:before {
-		content: '';
+		content: "";
 		background: radial-gradient(#1f272d, transparent);
 		position: absolute;
 		z-index: -1;
@@ -147,10 +175,10 @@ body {
 }
 
 #app {
-  font-family: mont, courier, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var.$sec_blue;;
+	font-family: mont, courier, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var.$sec_blue;
 }
 
 // util
@@ -159,23 +187,27 @@ svg.effects {
 	z-index: -100;
 }
 
-article[class*=card]:hover {
+article[class*="card"]:hover {
 	figure .fill-parent {
 		opacity: 1;
 		z-index: 10;
 	}
 }
 
-[class*=cyb-rez].trans {
+[class*="cyb-rez"].trans {
 	& + .fill-parent {
 		opacity: 1;
 		z-index: 10;
 	}
 }
 
-.cyb-rez-sec { filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-blue); }
-.cyb-rez { filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-red); }
-[class*=cyb-rez] {
+.cyb-rez-sec {
+	filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-blue);
+}
+.cyb-rez {
+	filter: grayscale(1) contrast(1.8) brightness(1.5) blur(1px) url(#cyb-red);
+}
+[class*="cyb-rez"] {
 	-webkit-mask: url(./assets/drawing.svg);
 	box-shadow: 10px 5px 5px black;
 	position: relative;
@@ -183,13 +215,13 @@ article[class*=card]:hover {
 	width: 100%;
 	height: 100%;
 	& + .fill-parent {
-		transition: opacity .3s linear;
+		transition: opacity 0.3s linear;
 		opacity: 0;
 		background-size: cover;
 		background-position: center;
 		top: 0;
 		left: 0;
-		z-index: 0
+		z-index: 0;
 	}
 	img {
 		width: 100%;
@@ -235,7 +267,7 @@ article[class*=card]:hover {
 	.logo-crop + div {
 		display: inline-block;
 		vertical-align: top;
-		}
+	}
 	section {
 		width: 50%;
 		height: 70px;
@@ -266,14 +298,14 @@ article[class*=card]:hover {
 }
 
 #nav {
-	@include mixins.smart-phone($only:true){
+	@include mixins.smart-phone($only: true) {
 		max-width: 100px;
 	}
 	text-align: left;
 }
 
 a {
-	font-size: .75em;
+	font-size: 0.75em;
 	font-weight: bold;
 	color: var.$sec_blue;
 	padding: 10px 15px;
@@ -325,4 +357,3 @@ footer {
 	}
 }
 </style>
-

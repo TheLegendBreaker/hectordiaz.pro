@@ -32,6 +32,7 @@ services:
     volumes:
       - cert_data:/etc/letsencrypt
       - certs:/var/www/certs
+      - ./security:/var/www/security
       - type: bind
         source: ./nginx/nginx_env.sh
         target: /etc/nginx/nginx_env.sh
