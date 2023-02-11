@@ -62,6 +62,12 @@ server {
 		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
 	}
 
+	location /proposal {
+		alias /var/www/design/proposal/dist;
+		index index.html;
+		try_files ${DOLLAR}uri ${DOLLAR}uri/ =404;
+	}
+
 	location /console/og {
 		alias /var/www/design/upwork/prototype;
 		index index2.0.html;

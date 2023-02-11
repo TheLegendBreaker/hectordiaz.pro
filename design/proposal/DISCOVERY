@@ -1,0 +1,67 @@
+# TSK proposal
+## DESIGN
+The biggest goal is to give share holders an easy overview of what TSK does.
+
+We help our community grow by making economic opportunities out of locally grown food. 
+
+TSK is a cafe with two locations and community learning space in downtown Abq. We trun food into economic opportunities for our community.  
+
+- More specific link labels:  Home, Cafes, shop, Food business training, community classes, APS classes, Cooking for Generations, Values, Supporet.
+- Or:  Home, Cafes, shop, Our Courses, APS classes, Values, Supporet.
+- make mock ups look like the "Our Nutritional Values" campagion
+- Add a vendors button to footer nav for order bluk
+- Correct the featured card links on the home page
+- hide Upcoming events if nothing is there
+- hide cart until it has something in it
+- Add a events button to nav
+- Add a home button to nav
+
+Four quaderents:
+- Community education and outreach - Micheal
+	- Outreach
+		- food for generations
+		- nutritional values
+		- Events
+	- education
+		- Community class room
+			- Classes
+				- register
+				- teach
+			- rent
+		- APS classes
+- social entrerprise
+	- online vendor store || distrubtor portal?
+	- Expolra cafe
+	- online store
+	- catering
+- Food Buisness training - Amanda
+- Refresh - Lisa
+	- cooking 
+	- box
+
+The problem:
+
+It's difficult to efficently tell what TSK does becuse it does so many varied things. 
+
+The solution:
+
+Organize the website linding page into small easy to understand blocks that provide an over view of a specific TSK does and a link to more information about that thing. 
+
+## MOCK UP
+
+Like the same top down view as the our values, but of a farmer's market getting ready. 
+
+## OUTLINE TEMPLATE
+- Overview
+- Goals
+- Costs
+	- Onboarding
+		- step
+	- Aditional services
+		- service
+	- Retainer
+	- Billing
+
+## TODO
+ - [ ] Add info to first slide
+ - [ ] 

@@ -1,4 +1,4 @@
-getRequest = async function(url='',request={}) {
+getRequest = async function(url) {
 	const response = await fetch(url)
 		.then(req => req.json())
 		.catch(err => console.log(err));

@@ -5,6 +5,11 @@ const baseUrl = "https://api.hectordiaz.pro",
 
 let endpointCatUrl, endpointMediaUrl, endpointPostUrl, siteLabel;
 
+const setSiteLabel = (label) => {
+	siteLabel = label;
+	setEndpoints();
+};
+
 const buildUrl = (siteLabel) => {
 	return `${baseUrl}/${siteLabel}/${wpApiUrl}`;
 };
@@ -14,24 +19,20 @@ const setPostEndpoint = (endPoint)=>{
 	return baseUrl + endPoint+"/";
 }
 
-const setDefaultPostEnpoint = ()=>{
+const setDefaultPostEndpoint = ()=>{
 	endpointPostUrl = setPostEndpoint("posts");
 }
-const setCustomPostEnpoint = (endPoint)=>{
+const setCustomPostEndpoint = (endPoint)=>{
 	endpointPostUrl = setPostEndpoint(endPoint);
 }
 
 const setEndpoints = () => {
 	const baseUrl = buildUrl(siteLabel);
-	endpointPostUrl = setDefaultPostEnpoint();
 	endpointCatUrl = baseUrl + "categories/";
 	endpointMediaUrl = baseUrl + "media/";
+	setDefaultPostEndpoint();
 };
 
-const setSiteLabel = (label) => {
-	siteLabel = label;
-	setEndpoints();
-};
 
 buildPostUrl = function (query = "") {
 	const qUrl = endpointPostUrl + query;
@@ -87,7 +88,6 @@ getMediaBySlug = async function (qSlug = "") {
 
 getMediaSrcBySlug = async function (qSlug = "") {
 	const src = await getMediaBySlug(qSlug).then((media) => {
-		console.log(media);
 		return media.source_url;
 	});
 	return src;
@@ -109,7 +109,6 @@ render = async function (
 			let inject = ``;
 
 			for (let i in items) {
-				console.log(items, items.length);
 				inject += markup(items[i]);
 			}
 

@@ -1,0 +1,2 @@
+- [ ] Review the other proposal Amanda sent
+	- [ ] Use it to create an outline for my proposal first draft

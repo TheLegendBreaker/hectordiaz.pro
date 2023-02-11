@@ -1,0 +1,148 @@
+
+@use "animations.scss";
+@use "mixins.scss";
+
+.card {
+	background-color: #fff;
+	padding: 20px;
+	margin: 40px 0;
+	@include mixins.tablet {
+	}
+	@include mixins.desktop {
+		font-size: 1.5rem;
+	}
+	&__title {
+		font-family: mont_heavy;
+		margin: 0;
+		@include mixins.laptop {
+			margin-bottom: 15px;
+		}
+	}
+	&__figure {
+		position: relative;
+		text-align: center;
+		overflow: hidden;
+		margin: 0 auto;
+		height: 350px;
+		@include mixins.tablet {
+			vertical-align: middle;
+			display: inline-block;
+			max-width: 59%;
+			height: 550px;
+			width: 100%;
+		}
+		@include mixins.laptop {
+		}
+		@include mixins.desktop {
+		}
+		&-enlarge-flyer{
+			background-color: transparent;
+			@include mixins.square(25px);
+			position: absolute;
+			filter: invert(1);
+			z-index: 10;
+			border: 0;
+			&:before {
+				@include mixins.pseudo-absolute;
+				background-position: center;
+				@include mixins.icon-eye;
+				z-index: 10;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				top: 0;
+			}
+			&:after {
+				background-image: radial-gradient(circle at center, #cecece 25%, transparent 75%);
+				@include mixins.pseudo-absolute;
+				bottom: -5px;
+				right: -5px;
+				opacity: .5;
+				z-index: 5;
+				left: -5px;
+				top: -5px;
+			}
+			@include mixins.till-tablet{
+				bottom: 10px;
+				right: 15px;
+			}
+			@include mixins.tablet {
+				left: 15px;
+				top: auto;
+			}
+			&-label {
+				@include mixins.hidden;
+			}
+		}
+		&-img {
+			transform: translateX(-50%);
+			object-fit: cover;
+			margin-left: 50%;
+			height: 100%;
+		}
+	}
+	&__caption {
+		transition: 0.3s transform linear, 0.3s opacity ease-in-out;
+		background-color: #fff;
+		position: relative;
+		text-align: left;
+		z-index: 15;
+		@include mixins.till-tablet{
+			padding: 15px 10px;
+			margin: 0 auto;
+		}
+		@include mixins.tablet {
+			padding: 15px 0;
+			width: 100%;
+		}
+		@mixin caption {
+			padding: 5px 0;
+			margin: 0 auto;
+			@include mixins.tablet {
+				display: inline-block;
+				vertical-align: top;
+				padding: 0 7px;
+				max-width: 33%;
+				width: 100%;
+			}
+		}
+		&-address {
+			@include caption;
+		}
+		&-time {
+			@include caption;
+		}
+		&-day {
+			@include caption;
+		}
+		&-label {
+			font-size: .8rem;
+			@include mixins.tablet{
+				display: block;
+			}
+		}
+	}
+	&__summary {
+		@include mixins.tablet {
+			vertical-align: middle;
+			display: inline-block;
+			max-width: 40%;
+			padding: 0 28px;
+			&-list {
+				padding: 0;
+			}
+		}
+	}
+	&__cta-box {
+		&--hidden {
+			display: none;
+		}
+	}
+	@include mixins.tablet {
+		&:nth-of-type(odd) {
+			.card__summary {
+				//float: left;
+			}
+		}
+	}
+}

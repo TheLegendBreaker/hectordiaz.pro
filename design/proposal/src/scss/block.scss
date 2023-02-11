@@ -1,0 +1,62 @@
+@use "media-queries.scss";
+@use "mixins.scss";
+
+.block {
+	max-width: 1000px;
+	margin: 0 auto;
+	height: 100%;
+	width: 80%;
+	&__title {
+		position: absolute;
+		font-size: .5rem;
+		right: 20px;
+		top: 0;
+		@include mixins.laptop{
+			right: 60px;
+		}
+	}
+}
+
+.block__article {
+	&-title {
+		font-family: mont_heavy;
+		margin-bottom: 0;
+		@include media-queries.tablet{
+			font-size: 3.5rem;
+		};
+	}
+	&-headline {
+		font-size: 1.5rem;
+		@include media-queries.tablet {
+			font-size: 2.5rem;
+		};
+	}
+	&-body {
+		@include media-queries.tablet{
+			font-size: 1.5rem;
+		};
+		line-height: 2;
+	}
+	&-container {
+		margin: 100px 0 150px 0;;
+	}
+	&-msg {
+		margin: 100px 0 150px 0;;
+		&-bold {
+			font-family: mont_heavy;
+		}
+	}
+	&-list {
+		&--nostyle {
+			list-style: none;
+			padding: 0;
+		}
+		&-item {
+			padding: 10px 0;
+			&--top {
+				padding-bottom: 10px;
+				padding-top: 0;
+			}
+		}
+	}
+}

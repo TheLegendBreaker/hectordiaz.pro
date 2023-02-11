@@ -1,0 +1,15 @@
+@use "mixins.scss";
+
+.main--proposal {
+	height: calc( 90vh - 20px);
+	width: calc( 90vw - 20px);
+	border: 3px solid black;
+	border-radius: 3px;
+	position: relative;
+	padding: 10px 20px;
+	overflow: hidden;
+	margin: 5vh auto;
+	@include mixins.laptop {
+		padding: 40px 60px;
+	}
+}

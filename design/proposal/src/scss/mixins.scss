@@ -1,0 +1,120 @@
+
+$sm-smartphone: 200px;
+$smartphone: 375px;
+$desktop: 1200px;
+$laptop: 1024px;
+$tablet: 760px;
+$tv: 1900px;
+
+// end screen widths
+@mixin till-desktop() {
+	@media only screen and (min-width: $sm-smartphone) and (max-width: $desktop) {
+		@content;
+	}
+}
+@mixin till-tablet() {
+	@media only screen and (min-width: $sm-smartphone) and (max-width: $tablet) {
+		@content;
+	}
+}
+@mixin sm-smart-phone($only: false) {
+	@if $only {
+		@media only screen and (min-width: $sm-smartphone) and (max-width: $smartphone) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $sm-smartphone) {
+			@content;
+		}
+	}
+}
+
+@mixin smart-phone($only: false) {
+	@if $only {
+		@media only screen and (min-width: $smartphone) and (max-width: $tablet) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $smartphone) {
+			@content;
+		}
+	}
+}
+
+@mixin tablet($only: false) {
+	@if $only {
+		@media only screen and (min-width: $tablet) and (max-width: $laptop - 1) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $tablet) {
+			@content;
+		}
+	}
+}
+
+@mixin laptop($only: false) {
+	@if $only {
+		@media only screen and (min-width: $laptop) and (max-width: $desktop) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $laptop) {
+			@content;
+		}
+	}
+}
+
+@mixin desktop($only: false) {
+	@if $only {
+		@media only screen and (min-width: $desktop) and (max-width: $tv) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $desktop) {
+			@content;
+		}
+	}
+}
+
+@mixin tv {
+	@media (min-width: $tv) {
+		@content;
+	}
+}
+
+@mixin till-tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
+}
+
+// end media queries
+
+@mixin pseudo {
+	content: "";
+}
+
+@mixin pseudo-absolute {
+	position: absolute;
+	@include pseudo;
+}
+
+@mixin icon-eye {
+	background-image: url("https://static.hectordiaz.pro/icons/eye_icon_designed_by_hector_diaz_full_stack_web_developer.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+@mixin square($size){
+	height: $size;
+	width: $size;
+}
+
+@mixin hidden {
+	position: absolute;
+	z-index: -10;
+	opacity: 0;
+	left: 0;
+	top: 0;
+}

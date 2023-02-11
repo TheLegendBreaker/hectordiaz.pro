@@ -1,0 +1,15 @@
+{
+  "name": "proposal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "pug src/pug/index.pug -O src/pug/site.json -o dist && sass ./src/scss/index.scss ./dist/style.css && cp src/js/*.js ./dist"
+  },
+  "author": "Hector Diaz",
+  "license": "ISC",
+  "devDependencies": {
+    "pug": "^3.0.2",
+    "scss": "^0.2.4"
+  }
+}

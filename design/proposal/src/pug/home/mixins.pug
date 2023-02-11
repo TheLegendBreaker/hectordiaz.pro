@@ -1,0 +1,17 @@
+mixin navbar
+	section.section.section--navbar&attributes(attributes)
+		h4.section__title.section__title--sr Page navigation links
+		nav.section__nav
+			a.section__nav-link(href="#products") Syrups
+			a.section__nav-link(href="#events") Where to Buy
+			a.section__nav-link(href="#contact") Contact
+
+- var lastSlideNumber = 0;
+
+mixin setBlockSection(cssMod, slideTitle)
+	section(class="block block--#{cssMod}")&attributes(attributes)
+		//-h2.block__title Slide No<super>&#176;</super> 0
+		article.block__article
+			h3.block__article-title #{ slideTitle }
+			block
+
